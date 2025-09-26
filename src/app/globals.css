@@ -24,3 +24,25 @@ body {
   color: var(--foreground);
   font-family: "Fredoka", Arial, Helvetica, sans-serif;
 }
+
+/* Testimonials marquee animations and masks */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-33.333%); }
+  to { transform: translateX(0); }
+}
+.marquee-track { 
+  display: flex; 
+  align-items: stretch; 
+  width: max-content;
+  will-change: transform;
+}
+.animate-marquee-left { animation: marquee-left 60s linear infinite; }
+.animate-marquee-right { animation: marquee-right 60s linear infinite; }
+.mask-gradient {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
