@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-6 sm:py-8 lg:py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-start">
             {/* Left: brand + map image - takes 1 column */}
-            <div className="flex flex-col lg:col-span-1">
+            <div className="flex flex-col lg:col-span-1 items-center md:items-start">
               <div className="flex items-center gap-3 mb-4 sm:mb-6">
                 <Image 
                   src="/images/nav-logo.png" 
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
               </div>
               
               {/* Smaller world map image */}
-              <div className="relative w-full max-w-[160px] sm:max-w-[180px] md:max-w-[200px] mb-4 sm:mb-6">
+              <div className="relative w-full max-w-[160px] sm:max-w-[180px] md:max-w-[200px] mb-4 sm:mb-6 mx-auto md:mx-0">
                 <div className="relative aspect-[16/10] w-full">
                   <Image
                     src="/images/footer/677f51b86a775b868658e1f7_footer-img-map.png"
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
               </div>
               
               {/* Social icons with proper icons */}
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-2 sm:gap-3 justify-center md:justify-start">
                 <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all flex items-center justify-center text-white/70 hover:text-white" aria-label="Facebook">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
               <div className="mb-6 sm:mb-8 lg:mb-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-start">
                   {/* Left: Subscribe text */}
-                  <div>
+                  <div className="text-center md:text-left">
                     <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold font-space-grotesk mb-3 sm:mb-4">
                       Subscribe to<br />Our Newsletter
                     </h3>
@@ -133,16 +133,16 @@ const Footer: React.FC = () => {
                   {/* Right: Input form positioned higher and to the right */}
                   <div className="lg:mt-0">
                     <form className="w-full" onSubmit={(e) => e.preventDefault()}>
-                      <div className="flex flex-col sm:flex-row rounded-lg overflow-hidden shadow-lg">
+                      <div className="flex flex-col gap-2 sm:flex-row sm:gap-0 rounded-lg overflow-hidden shadow-lg">
                         <input
                           type="email"
                           placeholder="Enter Your Email Address"
-                          className="flex-1 h-12 sm:h-14 lg:h-16 px-4 sm:px-6 text-xs sm:text-sm text-gray-900 placeholder-gray-500 bg-white border-0 outline-none"
+                          className="flex-1 h-20 sm:h-14 lg:h-16 px-4 sm:px-6 text-xs sm:text-sm text-gray-900 placeholder-gray-500 bg-white border-0 outline-none rounded-lg sm:rounded-r-none"
                           required
                         />
                         <button
                           type="submit"
-                          className="px-4 sm:px-6 lg:px-8 h-12 sm:h-14 lg:h-16 bg-gradient-to-r from-[#2489be] via-[#89517f] to-[#cb4147] hover:from-[#1e7aa8] hover:via-[#7a4a72] hover:to-[#b8393f] text-white text-xs sm:text-sm lg:text-lg font-semibold transition-all duration-200 whitespace-nowrap"
+                          className="px-4 sm:px-6 lg:px-8 h-12 sm:h-14 lg:h-16 bg-gradient-to-r from-[#2489be] via-[#89517f] to-[#cb4147] hover:from-[#1e7aa8] hover:via-[#7a4a72] hover:to-[#b8393f] text-white text-xs sm:text-sm lg:text-lg font-semibold transition-all duration-200 whitespace-nowrap rounded-lg sm:rounded-l-none"
                         >
                           Subscribe Now
                         </button>
