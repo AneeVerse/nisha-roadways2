@@ -4,6 +4,9 @@ import Feature from "@/components/FeaturesSection";
 import Solutions from "@/components/OurSolution";
 import TrustedByBusiness from "@/components/TrustedByBusiness";
 import Testimonials from "@/components/Testimonials";
+import CtaBanner from "@/components/CtaBanner";
+import BlogSection from "@/components/BlogSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +17,9 @@ export default function Home() {
       <Solutions />
       <TrustedByBusiness />
       <Testimonials />
+      <BlogSection />
+      <CtaBanner />
+      <Footer />
     </main>
   );
 }
