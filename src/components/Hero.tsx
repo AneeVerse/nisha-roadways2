@@ -6,7 +6,7 @@ export default function Hero() {
     <section id="home" className="relative">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight tracking-tighter mb-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight tracking-tighter mb-6">
             One Platform to Manage All
             <br />
             Your Ship {" "}
