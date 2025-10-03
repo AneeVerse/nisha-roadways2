@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   title: "Nisha - Ship Inspections Platform",
   description:
     "Connect ship owners with qualified inspectors to simplify compliance and maintenance processes.",
+  icons: {
+    icon: "/images/FAVICON.png",
+    shortcut: "/images/FAVICON.png",
+    apple: "/images/FAVICON.png",
+  },
 };
 
 export default function RootLayout({

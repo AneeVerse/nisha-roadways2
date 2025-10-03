@@ -46,3 +46,9 @@ body {
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
+
+/* Company logos continuous scroll (right -> left) */
+@keyframes logos-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

@@ -14,34 +14,42 @@ const logos = [
 export default function CompanyLogos() {
   return (
     <section aria-label="Companies using our product" className="py-8 sm:py-10 md:py-12">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-16 mt-4 sm:mt-6 md:mt-8 lg:mt-0">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-16 mt-4 sm:mt-6 md:mt-8 lg:mt-0 mb-20">
         <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 mb-4 sm:mb-6 md:mb-8 px-2 sm:px-4 leading-relaxed">
           Over 32k+ software businesses growing with ShipMate
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-4 sm:gap-6">
-          <ul className="flex items-center justify-center sm:justify-between gap-3 sm:gap-4 md:gap-6 flex-wrap lg:flex-nowrap">
-            {logos.map((logo) => (
-              <li key={logo.src} className="flex items-center justify-center basis-1/3 sm:basis-auto">
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={160}
-                  height={48}
-                  className="h-8 sm:h-7 md:h-9 lg:h-10 w-auto object-contain select-none transition hover:opacity-80 filter grayscale hover:grayscale-0"
-                  sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 12vw"
-                />
-              </li>
-            ))}
-          </ul>
+        {/* Logos marquee with truck fixed on the right */}
+        <div className="relative">
+          {/* Scrolling logos */}
+          <div className="overflow-hidden mask-gradient">
+            <ul
+              className="marquee-track gap-6 sm:gap-8 md:gap-10 animate-[logos-marquee_30s_linear_infinite] hover:[animation-play-state:paused]"
+              aria-label="Scrolling company logos"
+            >
+              {[...logos, ...logos].map((logo, idx) => (
+                <li key={`${logo.src}-${idx}`} className="flex items-center justify-center px-2 sm:px-0">
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={160}
+                    height={48}
+                    className="h-8 sm:h-7 md:h-9 lg:h-10 w-auto object-contain select-none filter grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition"
+                    sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 12vw"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <div className="flex justify-center lg:justify-end -mt-10 lg:mt-0">
+          {/* Fixed truck overlayed on the right; logos pass beneath it */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center justify-end z-20 pr-0 -mt-16">
             <Image
               src="/images/company/company-right-logo.png"
               alt="Truck company graphic"
               width={280}
               height={96}
-              className="h-45 sm:h-14 md:h-16 lg:h-16 xl:h-20 w-auto object-contain select-none"
+              className="h-40 sm:h-14 md:h-16 lg:h-20 xl:h-60 w-auto object-contain select-none"
               sizes="(max-width: 640px) 60vw, (max-width: 1024px) 40vw, 280px"
               priority
             />
