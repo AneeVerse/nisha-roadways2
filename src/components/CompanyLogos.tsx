@@ -15,7 +15,7 @@ export default function CompanyLogos() {
   return (
     <section aria-label="Companies using our product" className="py-8 sm:py-10 md:py-12">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-16 mt-4 sm:mt-6 md:mt-8 lg:mt-0 mb-20">
-        <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 mb-4 sm:mb-6 md:mb-8 px-2 sm:px-4 leading-relaxed">
+        <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-gray-900 mb-14 sm:mb-6 md:mb-8 px-2 sm:px-4 leading-relaxed">
           Over 32k+ software businesses growing with ShipMate
         </p>
 
