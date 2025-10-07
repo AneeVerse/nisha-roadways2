@@ -129,9 +129,21 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-8 py-8">
           {/* Services - 3 Column Layout */}
           {section === "services" && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Column 1 */}
-              <div className="space-y-0 divide-y divide-gray-100">
+            <div>
+              {/* Our Services Main Link */}
+              <div className="mb-6">
+                <Link href="/services" className="group inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:text-gray-900 transition-all duration-200">
+                  Our services
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-200">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </Link>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Column 1 */}
+                <div className="space-y-0 divide-y divide-gray-100">
                 {services.slice(0, 3).map((item, index) => (
                   <Link key={item.title} href={item.href} className="group flex items-center justify-between py-4 px-2 hover:bg-gray-50 transition-colors duration-200 first:pt-0 last:pb-0">
                     <div className="flex-1">
@@ -222,6 +234,7 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
+            </div>
             </div>
           )}
 
