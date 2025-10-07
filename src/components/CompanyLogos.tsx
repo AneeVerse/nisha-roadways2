@@ -22,10 +22,11 @@ export default function CompanyLogos() {
         {/* Logos marquee with truck fixed on the right */}
         <div className="relative">
           {/* Scrolling logos */}
-          <div className="overflow-hidden mask-gradient">
+          <div className="overflow-hidden mask-gradient relative">
             <ul
               className="marquee-track gap-6 sm:gap-8 md:gap-10 animate-[logos-marquee_30s_linear_infinite] hover:[animation-play-state:paused]"
               aria-label="Scrolling company logos"
+              style={{ transform: 'translateX(50px)' }}
             >
               {[...logos, ...logos].map((logo, idx) => (
                 <li key={`${logo.src}-${idx}`} className="flex items-center justify-center px-2 sm:px-0">
