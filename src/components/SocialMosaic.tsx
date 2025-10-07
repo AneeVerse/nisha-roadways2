@@ -12,7 +12,7 @@ const images = [
 const SocialMosaic: React.FC = () => {
   return (
     <section id="social-mosaic" className="py-12 sm:py-14 md:py-15 lg:py-16 bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab] mobile-section">
-      <div className="px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8 max-w-[1380px] mx-auto">
+      <div className="px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8 max-w-7xl mx-auto">
         {/* Mobile Grid (Small screens) */}
         <div className="block sm:hidden">
           <div className="columns-2 gap-3 space-y-3">

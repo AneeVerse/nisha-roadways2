@@ -41,7 +41,7 @@ const FeaturesSection = () => {
     <>
     <section id="features-section" ref={sectionRef} className="relative mt-6 sm:mt-8 md:-mt-12 lg:-mt-16 xl:-mt-20 w-full px-0 mb-8 sm:mb-12 md:mb-16 lg:mb-20 mobile-features">
       <div className="relative px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        <div className="max-w-[1325px] mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-start lg:items-center py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20">
             
             {/* Left Column - Text Content */}

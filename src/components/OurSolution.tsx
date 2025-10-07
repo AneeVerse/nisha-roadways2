@@ -214,7 +214,7 @@ export default function OurSolution() {
   };
 
   return (
-    <section id="our-solution" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20 mt-20">
+    <section id="our-solution" className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20 mt-20">
       {/* Eyebrow */}
       <div className="flex items-center justify-center gap-2 sm:gap-3 font-medium">
         <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab]">OUR SERVICES</span>

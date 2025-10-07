@@ -112,7 +112,7 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
 export default function BlogSection() {
   return (
     <section className="bg-[#f6f3ff] py-12 sm:py-16">
-      <div className="mx-auto max-w-[1350px] px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Heading */}
         <div className="mb-8 sm:mb-10 text-center">
           <span className="text-xs sm:text-sm font-semibold uppercase mb-2 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab]">

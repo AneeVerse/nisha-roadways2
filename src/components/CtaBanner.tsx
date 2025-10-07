@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function CtaBanner() {
   return (
     <section aria-label="Call to action" className="py-8 sm:py-12 md:py-16 lg:py-20">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[20px] sm:rounded-[24px] md:rounded-[28px] bg-white shadow-[0_10px_25px_RGBA(0,0,0,0.08)] sm:shadow-[0_20px_40px_RGBA(0,0,0,0.08)] ring-1 ring-black/5">
 {/* Trucks */}
           <div className="pointer-events-none select-none absolute inset-y-0 left-0 w-[22%] sm:w-[26%] md:w-[24%] lg:w-[26%] opacity-80 sm:opacity-90 md:opacity-100">
