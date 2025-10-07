@@ -225,35 +225,23 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Why Us & Resources - Enhanced card format */}
+          {/* Why Us & Resources - Simple image and text format like Superside */}
           {(section === "whyus" || section === "resources") && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {items.map((item, index) => (
-                <Link key={item.title} href={item.href} className="group relative bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-slate-200/60 hover:border-blue-200 hover:-translate-y-2">
-                  <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-blue-50 relative overflow-hidden">
+                <Link key={item.title} href={item.href} className="group block">
+                  <div className="aspect-[5/2] bg-gray-100 rounded-lg overflow-hidden mb-4">
                     <Image 
                       src={item.image} 
                       alt={item.title}
                       width={400}
                       height={300}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">{index + 1}</span>
-                      </div>
-                      <div className="font-bold text-slate-800 group-hover:text-blue-700 transition-colors">{item.title}</div>
-                    </div>
-                    <div className="text-sm text-slate-600 leading-relaxed">{item.desc}</div>
-                    <div className="mt-4 flex items-center text-blue-600 text-sm font-medium">
-                      Learn more 
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 group-hover:translate-x-1 transition-transform">
-                        <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-                      </svg>
-                    </div>
+                  <div className="space-y-2">
+                    <div className="font-medium text-gray-900 group-hover:text-gray-700">{item.title}</div>
+                    <div className="text-sm text-gray-500">{item.desc}</div>
                   </div>
                 </Link>
               ))}
