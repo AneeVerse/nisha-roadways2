@@ -4,12 +4,18 @@ import { Play, Truck, MapPin, Shield } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative bg-gradient-to-br from-blue-50 via-white to-orange-50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-100/20 via-transparent to-blue-100/20"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(249,115,22,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
+    <section id="home" className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-2 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-12 right-1/4 w-80 h-80 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-22 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
       </div>
+      
+      {/* Grid Pattern Overlay */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+      }}></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
         <div className="text-center mb-12 lg:mb-16">
@@ -30,7 +36,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
             From containers to project cargo, we move what matters most to your business. 
             <span className="block mt-2 font-medium text-gray-800">
               Pan-India coverage • Zero damage guarantee • 24/7 tracking
@@ -39,28 +45,38 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              Get Instant Quote
+            <Button className="group relative px-8 py-4 bg-gradient-to-r from-orange-600 via-orange-700 to-red-700 hover:from-orange-700 hover:via-orange-800 hover:to-red-800 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 overflow-hidden">
+              {/* Animated background overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-400 to-red-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+              
+              {/* Content */}
+              <span className="relative flex items-center gap-2">
+                Get Instant Quote
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </span>
             </Button>
-            <Button variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300">
-              Track Your Shipment
+            <Button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 hover:from-blue-700 hover:via-blue-800 hover:to-purple-800 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 overflow-hidden">
+              {/* Animated background overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+              
+              {/* Content */}
+              <span className="relative flex items-center gap-2">
+                Track Your Shipment
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
+                  <path d="M5 12h14"/>
+                  <path d="m12 5 7 7-7 7"/>
+                </svg>
+              </span>
             </Button>
-          </div>
-
-          {/* Key Features */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-12">
-            <div className="flex items-center justify-center gap-3 bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-sm">
-              <Truck className="w-6 h-6 text-orange-600" />
-              <span className="font-semibold text-gray-800">500+ Companies</span>
-            </div>
-            <div className="flex items-center justify-center gap-3 bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-sm">
-              <MapPin className="w-6 h-6 text-blue-600" />
-              <span className="font-semibold text-gray-800">Pan-India Network</span>
-            </div>
-            <div className="flex items-center justify-center gap-3 bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-sm">
-              <Shield className="w-6 h-6 text-green-600" />
-              <span className="font-semibold text-gray-800">Zero Damage</span>
-            </div>
           </div>
         </div>
 
@@ -68,7 +84,7 @@ export default function Hero() {
         <div className="relative">
           <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800">
             {/* Video Placeholder with Play Button */}
-            <div className="relative aspect-video bg-gradient-to-br from-gray-800 to-gray-900">
+            <div className="relative aspect-[16/7] bg-gradient-to-br from-gray-800 to-gray-900">
               <Image
                 src="/images/hero-bg/hero.jpg"
                 alt="Nisha Roadways Fleet - Trucks moving across India's highways"
@@ -94,30 +110,6 @@ export default function Hero() {
                   <p className="text-gray-200 text-sm lg:text-base">
                     Watch our fleet in action across India's diverse landscapes
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating Stats */}
-          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 lg:p-8">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-orange-600 mb-1">35+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-blue-600 mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Happy Clients</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-green-600 mb-1">1,500+</div>
-                  <div className="text-sm text-gray-600">Projects Delivered</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-purple-600 mb-1">30+</div>
-                  <div className="text-sm text-gray-600">Branch Network</div>
                 </div>
               </div>
             </div>

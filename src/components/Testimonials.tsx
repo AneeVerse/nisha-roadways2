@@ -143,13 +143,13 @@ export default function Testimonials() {
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div>
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab]">Testimonials</span>
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab]">Client Stories</span>
           </div>
           <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-            How We Transformed <span className="whitespace-nowrap">Their Journey</span>
+            Trusted by Businesses <span className="whitespace-nowrap">Across India</span>
           </h2>
           <p className="mt-2 text-gray-600 max-w-3xl mx-auto text-sm sm:text-base">
-            Nisha Roadways is growing fast, and we are always looking for passionate people to help our customers succeed.
+            From small enterprises to large corporations, discover how Nisha Roadways has become their trusted logistics partner.
           </p>
         </div>
 

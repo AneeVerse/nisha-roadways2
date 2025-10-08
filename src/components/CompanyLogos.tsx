@@ -34,15 +34,7 @@ export default function CompanyLogos() {
           <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Industry Sectors */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12 max-w-2xl mx-auto">
-          {sectors.map((sector, index) => (
-            <div key={index} className="flex items-center justify-center gap-2 bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-              <div className="text-orange-600">{sector.icon}</div>
-              <span className="text-sm font-medium text-gray-700">{sector.name}</span>
-            </div>
-          ))}
-        </div>
+
 
         {/* Company Logos Marquee */}
         <div className="relative">
@@ -64,7 +56,7 @@ export default function CompanyLogos() {
                       alt={logo.alt}
                       width={120}
                       height={40}
-                      className="h-8 sm:h-10 w-auto object-contain select-none filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                      className="h-8 sm:h-10 w-auto object-contain select-none filter grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all duration-300"
                       sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 120px"
                     />
                   </div>
@@ -74,25 +66,9 @@ export default function CompanyLogos() {
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-6 bg-white rounded-2xl px-8 py-4 shadow-sm border border-gray-100">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-orange-600">500+</div>
-              <div className="text-sm text-gray-600">Companies</div>
-            </div>
-            <div className="w-px h-8 bg-gray-200"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-600">16+</div>
-              <div className="text-sm text-gray-600">Sectors</div>
-            </div>
-            <div className="w-px h-8 bg-gray-200"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">35+</div>
-              <div className="text-sm text-gray-600">Years</div>
-            </div>
-          </div>
-        </div>
+        
+          
+        
       </div>
     </section>
   );

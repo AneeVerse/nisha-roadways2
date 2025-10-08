@@ -39,65 +39,84 @@ const FeaturesSection = () => {
 
   return (
     <>
-    <section id="features-section" ref={sectionRef} className="relative mt-6 sm:mt-8 md:-mt-12 lg:-mt-16 xl:-mt-20 w-full px-0 mb-8 sm:mb-12 md:mb-16 lg:mb-20 mobile-features">
+    <section id="features-section" ref={sectionRef} className="relative w-full px-0 py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
+
       <div className="relative px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-start lg:items-center py-8 sm:py-10 md:py-12 lg:py-16 xl:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[85vh] lg:min-h-[80vh]">
             
             {/* Left Column - Text Content */}
-            <div className="flex flex-col justify-start lg:justify-center space-y-3 sm:space-y-4 md:space-y-5 lg:col-span-7 order-1 lg:order-1">
+            <div className="flex flex-col justify-center space-y-6 lg:col-span-7 order-1 lg:order-1">
               <div className="max-w-2xl">
-                <span className="text-xs sm:text-sm font-semibold uppercase mb-2 tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab]">
-                  About Us
-                </span>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.1] sm:leading-tight tracking-tighter mb-3 sm:mb-4 md:mb-5">
-                  Your Trusted Partner for Effortless Global Shipping
+                {/* Badge */}
+                <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-indigo-600/10 border border-blue-200/50 mb-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700">
+                    About Us
+                  </span>
+                </div>
+
+                {/* Main Title */}
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight mb-4">
+                  The Beginning That{' '}
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700">
+                    Never Stopped Growing
+                  </span>
                 </h2>
                 
-                <div className="space-y-3 sm:space-y-4 text-gray-600 leading-relaxed">
-                  <p className="text-sm sm:text-base md:text-lg">
-                    From booking to delivery, we simplify every step of the shipping process. ShipMate ensures your packages arrive safely, on time, and without hassle.
+                {/* Description */}
+                <div className="space-y-3 text-gray-700 leading-relaxed mb-6">
+                  <p className="text-base md:text-lg font-normal">
+                    Founded by <span className="font-semibold text-gray-900">Mr. Nandkishor Agarwal</span> in <span className="font-semibold text-blue-600">1982</span>, Nisha Roadways started from an 80 sq ft office and grew into India's leading logistics powerhouse.
+                  </p>
+                  <p className="text-sm md:text-base text-gray-600">
+                    What began as a dream named after his daughter became the bridge connecting businesses across the nation. Today, we serve <span className="font-semibold text-blue-600">500+ companies</span> with the same dedication that built our legacy.
                   </p>
                 </div>
                 
                 {/* Feature Points */}
-                <div className="mt-4 sm:mt-5 md:mt-6 space-y-4 sm:space-y-5 md:space-y-6">
-                  {/* Seamless Process */}
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-[#6a31eb]/10 via-[#9a45d1]/10 to-[#d560ab]/10 text-[#6a31eb] mt-0.5">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                <div className="space-y-4">
+                  {/* Three Decades of Excellence */}
+                  <div className="flex items-start gap-3 group">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-semibold text-gray-900">Seamless Process</h3>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">Book, track, and manage shipments with just a few clicks.</p>
+                    <div className="flex-1">
+                      <h3 className="text-base font-semibold text-gray-900 mb-1">Three Decades of Excellence</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">Since 1982, we've delivered consistent quality that earned us the trust and respect of India's biggest brands.</p>
                     </div>
                   </div>
                   
-                  {/* Dedicated Team */}
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-[#6a31eb]/10 via-[#9a45d1]/10 to-[#d560ab]/10 text-[#9a45d1] mt-0.5">
-                      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  {/* Pioneer in Empty Container Movement */}
+                  <div className="flex items-start gap-3 group">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-purple-500 to-violet-600 text-white shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-semibold text-gray-900">Dedicated Team</h3>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">Our logistics experts and trusted riders ensure smooth handling from pickup to delivery.</p>
+                    <div className="flex-1">
+                      <h3 className="text-base font-semibold text-gray-900 mb-1">Pioneer in Empty Container Movement</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">We revolutionized empty container transportation by road, setting industry benchmarks that others follow.</p>
                     </div>
                   </div>
                   
-                  {/* 24/7 Customer Support */}
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-[#6a31eb]/10 via-[#9a45d1]/10 to-[#d560ab]/10 text-[#d560ab] mt-0.5">
-                      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                  {/* 500+ Corporate Partners */}
+                  <div className="flex items-start gap-3 group">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-sm sm:text-base font-semibold text-gray-900">24/7 Customer Support</h3>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">Get real-time updates and assistance whenever you need it.</p>
+                    <div className="flex-1">
+                      <h3 className="text-base font-semibold text-gray-900 mb-1">500+ Corporate Partners</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">From shipping giants to pharma leaders, we've built lasting partnerships across every major industry sector.</p>
                     </div>
                   </div>
                 </div>
@@ -107,32 +126,36 @@ const FeaturesSection = () => {
             {/* Right Column - Video Card */}
             <div className="flex justify-center lg:justify-end lg:col-span-5 order-2 lg:order-2">
               <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-sm xl:max-w-md">
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-15 blur-xl animate-pulse" />
+                <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-full opacity-10 blur-2xl" />
+                
                 {/* Video Card Container */}
-                <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl overflow-hidden border border-white">
+                <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100/50 backdrop-blur-sm">
                   {!isVideoPlaying ? (
                     <div className="relative aspect-[4/5] overflow-hidden">
                       {/* Video Thumbnail Image */}
                       <Image 
-                        src="/images/about-us/about.png" 
-                        alt="Fitness retreat thumbnail"
+                        src="/images/our-solution/ship.avif" 
+                        alt="Nisha Roadways journey from 80 sq ft to pan-India success"
                         fill
-                        className="object-cover object-top"
+                        className="object-cover object-center"
                         style={{ objectPosition: 'center' }}
                       />
                       
                       {/* Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       
                       {/* Play Button - Bottom Right */}
-                      <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 right-3 sm:right-4 md:right-5 z-10">
+                      <div className="absolute bottom-4 right-4 z-10">
                         <div className="relative group">
-                          <span className="absolute -inset-1.5 sm:-inset-2 md:-inset-3 rounded-full bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab] opacity-60 blur-md sm:blur-lg animate-pulse group-hover:opacity-80" />
+                          <span className="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 opacity-50 blur-lg animate-pulse group-hover:opacity-70" />
                           <button
                             onClick={handlePlayVideo}
-                            className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center bg-black ring-1 sm:ring-2 ring-[#6a31eb] text-[#6a31eb] shadow-lg sm:shadow-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-[#6a31eb] hover:via-[#9a45d1] hover:to-[#d560ab] hover:text-white hover:ring-[#6a31eb] hover:scale-110"
+                            className="relative w-12 h-12 rounded-full flex items-center justify-center bg-white/95 backdrop-blur-sm ring-2 ring-white/50 text-blue-600 shadow-lg transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:ring-blue-400 hover:scale-110 group-hover:shadow-xl"
                             aria-label="Play video"
                           >
-                            <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 ml-0.5 sm:ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M8 5v14l11-7z" />
                             </svg>
                           </button>
@@ -140,12 +163,12 @@ const FeaturesSection = () => {
                       </div>
                       
                       {/* Video Title - Bottom Left */}
-                      <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 left-3 sm:left-4 md:left-5 z-10">
-                        <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-bold font-unbounded drop-shadow-lg">
-                          Watch Our Story
+                      <div className="absolute bottom-4 left-4 z-10 max-w-[70%]">
+                        <p className="text-white text-sm lg:text-base font-semibold drop-shadow-lg mb-1">
+                          From 80 Square Feet to Pan-India Success
                         </p>
-                        <p className="text-white/80 text-xs sm:text-xs md:text-sm mt-0.5 sm:mt-1">
-                          See what makes us different
+                        <p className="text-white/90 text-xs leading-tight">
+                          The remarkable journey of trust, innovation, and relentless growth
                         </p>
                       </div>
                     </div>
@@ -153,7 +176,7 @@ const FeaturesSection = () => {
                     <div className="relative aspect-[4/5] bg-black">
                       <video
                         ref={videoRef}
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-cover object-center"
                         style={{ objectPosition: 'center 25%' }}
                         controls
                         autoPlay
@@ -172,10 +195,10 @@ const FeaturesSection = () => {
                       {/* Close Button */}
                       <button
                         onClick={handlePauseVideo}
-                        className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-white/90 text-black ring-1 ring-black/30 hover:bg-white transition-colors backdrop-blur-sm"
+                        className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center bg-white/95 text-gray-800 ring-1 ring-white/50 hover:bg-white transition-colors backdrop-blur-sm shadow-lg"
                         aria-label="Close video"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                           <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06z" clipRule="evenodd" />
                         </svg>
                       </button>
@@ -184,8 +207,6 @@ const FeaturesSection = () => {
                 </div>
               </div>
             </div>
-
-            {/* Mobile CTA Buttons removed as per request */}
 
           </div>
         </div>
