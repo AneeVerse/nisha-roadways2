@@ -115,6 +115,17 @@ export default function Navbar() {
     { title: "FAQ", desc: "Answers to common questions", href: "/faq", image: "/images/use-everywhere/images3.png" },
   ];
 
+  // Sample data for latest blogs and programs
+  const latestBlogs = [
+    { title: "5 Reasons Why In-House Creative Teams Often Miss the ROI...", href: "/blog", image: "/images/use-everywhere/images1.png" },
+    { title: "Agency vs Freelancer vs In-House: 5 Reasons Agencies Win For...", href: "/blog", image: "/images/use-everywhere/images2.png" }
+  ];
+
+  const latestPrograms = [
+    { title: "Logistics Management Fundamentals", href: "/academy", image: "/images/use-everywhere/images3.png" },
+    { title: "Supply Chain Optimization", href: "/academy", image: "/images/use-everywhere/images4.png" }
+  ];
+
   function MegaPanel({ section }: { section: "services" | "whyus" | "resources" }) {
     const isOpen = openMenu === section;
     const items = section === "services" ? services : section === "whyus" ? whyUs : resources;
@@ -214,14 +225,105 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Why Us & Resources - Simple image and text format like Superside */}
-          {(section === "whyus" || section === "resources") && (
-            <div className={`grid grid-cols-1 ${section === "whyus" ? "md:grid-cols-2 justify-items-center max-w-3xl mx-auto" : "md:grid-cols-3"} ${section === "whyus" ? "gap-0 -space-x-2" : "gap-8"}`}>
-              {items.map((item) => (
-                <Link key={item.title} href={item.href} className={`group block ${section === "whyus" ? "w-full max-w-[360px] mx-auto" : ""}`}>
+          {/* Resources - New Layout with Left Menu and Right Content */}
+          {section === "resources" && (
+            <div className="flex gap-12">
+              {/* Left Side - Navigation Menu */}
+              <div className="w-64 flex-shrink-0">
+                <div className="space-y-1">
+                  {resources.map((item) => (
+                    <Link 
+                      key={item.title} 
+                      href={item.href} 
+                      className="group flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-blue-50/50 border border-transparent hover:border-blue-100/50 transition-all duration-300"
+                    >
+                      <div className="w-2 h-2 bg-blue-600 rounded-full group-hover:scale-125 transition-transform duration-200"></div>
+                      <div>
+                        <div className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-200">
+                          {item.title}
+                        </div>
+                        <div className="text-sm text-gray-600">
+                          {item.desc}
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Side - Content Sections */}
+              <div className="flex-1 grid grid-cols-2 gap-8">
+                {/* Blog Section */}
+                <div>
+                  <Link href="/blog" className="block mb-4 group">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-200">Blog</h3>
+                    <p className="text-sm text-gray-600">Latest articles and insights</p>
+                  </Link>
+                  <div className="grid grid-cols-1 gap-3">
+                    {latestBlogs.map((blog, index) => (
+                      <Link 
+                        key={index} 
+                        href={blog.href}
+                        className="group block p-3 rounded-xl hover:bg-gray-50/50 border border-transparent hover:border-gray-200/50 transition-all duration-300"
+                      >
+                        <div className="aspect-[3/1] bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg mb-3 overflow-hidden">
+                          <Image 
+                            src={blog.image} 
+                            alt={blog.title}
+                            width={300}
+                            height={100}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <h4 className="font-semibold text-sm text-gray-900 group-hover:text-blue-700 transition-colors duration-200 line-clamp-2">
+                          {blog.title}
+                        </h4>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Academy Section */}
+                <div>
+                  <Link href="/academy" className="block mb-4 group">
+                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors duration-200">Academy</h3>
+                    <p className="text-sm text-gray-600">Latest programs and courses</p>
+                  </Link>
+                  <div className="grid grid-cols-1 gap-3">
+                    {latestPrograms.map((program, index) => (
+                      <Link 
+                        key={index} 
+                        href={program.href}
+                        className="group block p-3 rounded-xl hover:bg-gray-50/50 border border-transparent hover:border-gray-200/50 transition-all duration-300"
+                      >
+                        <div className="aspect-[3/1] bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg mb-3 overflow-hidden">
+                          <Image 
+                            src={program.image} 
+                            alt={program.title}
+                            width={300}
+                            height={100}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <h4 className="font-semibold text-sm text-gray-900 group-hover:text-emerald-700 transition-colors duration-200 line-clamp-2">
+                          {program.title}
+                        </h4>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Why Us - Keep existing layout */}
+          {section === "whyus" && (
+            <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center max-w-3xl mx-auto gap-0 -space-x-2">
+              {whyUs.map((item) => (
+                <Link key={item.title} href={item.href} className="group block w-full max-w-[360px] mx-auto">
                   <div className="aspect-[5/2] bg-gray-100 rounded-lg overflow-hidden mb-4 mt-3">
                     <Image 
-                      src={'image' in item ? item.image : '/images/use-everywhere/images1.png'} 
+                      src={item.image} 
                       alt={item.title}
                       width={400}
                       height={300}
