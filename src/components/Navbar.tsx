@@ -248,41 +248,86 @@ export default function Navbar() {
   }
 
     return (
-      <header className="bg-white/98 backdrop-blur-md fixed top-0 left-0 right-0 z-[100] border-b border-gray-200/80 shadow-sm">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex items-center justify-between h-20">
+      <header className="bg-white/80 backdrop-blur-xl fixed top-0 left-0 right-0 z-[100] border-b border-white/20 shadow-lg shadow-black/5">
+        {/* Gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-white/40 to-purple-50/30"></div>
+        
+        <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12 relative">
+          <div className="flex items-center justify-between h-24">
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0">
-              <Image src="/images/nav-logo.png" alt="Nisha" width={120} height={36} className="h-10 sm:h-12 w-auto" />
+            <Link href="/" className="flex-shrink-0 group">
+              <div className="relative">
+                <Image 
+                  src="/images/nav-logo.png" 
+                  alt="Nisha" 
+                  width={140} 
+                  height={42} 
+                  className="h-12 sm:h-14 w-auto transition-all duration-300 group-hover:scale-105" 
+                />
+                {/* Subtle glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-10">
+            <nav className="hidden lg:flex items-center gap-12">
               {/* Mega menu triggers */}
               <div className="relative" onMouseEnter={() => setOpenMenu("services")} onClick={(e) => e.stopPropagation()}>
-                <button className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2">
-                  Services <ChevronDown className={`transition-transform duration-200 ${openMenu === "services" ? "rotate-180" : ""}`} />
+                <button className="group inline-flex items-center gap-2 text-base font-semibold text-gray-800 hover:text-blue-700 transition-all duration-300 py-3 px-2 relative">
+                  <span className="relative">
+                    Services
+                    {/* Animated underline */}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300 ease-out"></span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "services" ? "rotate-180 text-blue-600" : "group-hover:text-blue-600"}`} />
                 </button>
                 <MegaPanel section="services" />
               </div>
+              
               <div className="relative" onMouseEnter={() => setOpenMenu("whyus")} onClick={(e) => e.stopPropagation()}>
-                <button className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2">
-                  Why us <ChevronDown className={`transition-transform duration-200 ${openMenu === "whyus" ? "rotate-180" : ""}`} />
+                <button className="group inline-flex items-center gap-2 text-base font-semibold text-gray-800 hover:text-blue-700 transition-all duration-300 py-3 px-2 relative">
+                  <span className="relative">
+                    Why us
+                    {/* Animated underline */}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300 ease-out"></span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "whyus" ? "rotate-180 text-blue-600" : "group-hover:text-blue-600"}`} />
                 </button>
                 <MegaPanel section="whyus" />
               </div>
+              
               <div className="relative" onMouseEnter={() => setOpenMenu("resources")} onClick={(e) => e.stopPropagation()}>
-                <button className="inline-flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-2">
-                  Resources <ChevronDown className={`transition-transform duration-200 ${openMenu === "resources" ? "rotate-180" : ""}`} />
+                <button className="group inline-flex items-center gap-2 text-base font-semibold text-gray-800 hover:text-blue-700 transition-all duration-300 py-3 px-2 relative">
+                  <span className="relative">
+                    Resources
+                    {/* Animated underline */}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300 ease-out"></span>
+                  </span>
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "resources" ? "rotate-180 text-blue-600" : "group-hover:text-blue-600"}`} />
                 </button>
                 <MegaPanel section="resources" />
               </div>
             </nav>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:block">
-            <Button className="px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white transition-colors duration-200">Launch App</Button>
-          </div>
+            {/* Desktop CTA Button */}
+            <div className="hidden lg:block">
+              <Button className="group relative px-8 py-3.5 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 hover:from-blue-700 hover:via-blue-800 hover:to-purple-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 overflow-hidden">
+                {/* Animated background overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
+                
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+                
+                {/* Content */}
+                <span className="relative flex items-center gap-2">
+                  Launch App
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
+                    <path d="M5 12h14"/>
+                    <path d="m12 5 7 7-7 7"/>
+                  </svg>
+                </span>
+              </Button>
+            </div>
 
             {/* Mobile menu button */}
             <div className="lg:hidden">
@@ -290,7 +335,7 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen((s) => !s)}
-                className="text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                className="text-gray-800 hover:text-blue-700 hover:bg-blue-50/50 rounded-xl transition-all duration-300 w-12 h-12"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -300,17 +345,20 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-100 py-4">
-            <div className="divide-y divide-gray-100">
+          <div className="lg:hidden border-t border-white/20 py-6 bg-white/90 backdrop-blur-lg">
+            <div className="divide-y divide-gray-100/50">
               {/* Services */}
               <details open className="group">
-                <summary className="list-none flex items-center justify-between px-1 py-3 cursor-pointer text-base font-medium">Services <ChevronDown className="group-open:rotate-180 transition" /></summary>
-                <div className="grid grid-cols-1 gap-2 px-1 pb-4">
+                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-semibold text-gray-800">
+                  Services 
+                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-600" />
+                </summary>
+                <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {services.map((i) => (
-                    <Link key={i.title} href={i.href} className="rounded-lg px-3 py-2 hover:bg-gray-50">
-                      <div className="font-medium text-sm">{i.title}</div>
-                      <div className="text-xs text-gray-500 mb-1">{i.desc}</div>
-                      <div className="text-xs text-blue-600">Benefits: {i.benefits}</div>
+                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-blue-50/50 border border-transparent hover:border-blue-100/50 transition-all duration-300">
+                      <div className="font-semibold text-base text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{i.title}</div>
+                      <div className="text-sm text-gray-600 mb-2 leading-relaxed">{i.desc}</div>
+                      <div className="text-sm text-blue-600 font-medium">Benefits: {i.benefits}</div>
                     </Link>
                   ))}
                 </div>
@@ -318,12 +366,15 @@ export default function Navbar() {
 
               {/* Why us */}
               <details className="group">
-                <summary className="list-none flex items-center justify-between px-1 py-3 cursor-pointer text-base font-medium">Why us <ChevronDown className="group-open:rotate-180 transition" /></summary>
-                <div className="grid grid-cols-1 gap-2 px-1 pb-4">
+                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-semibold text-gray-800">
+                  Why us 
+                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-600" />
+                </summary>
+                <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {whyUs.map((i) => (
-                    <Link key={i.title} href={i.href} className="rounded-lg px-3 py-2 hover:bg-gray-50">
-                      <div className="font-medium">{i.title}</div>
-                      <div className="text-sm text-gray-500">{i.desc}</div>
+                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-blue-50/50 border border-transparent hover:border-blue-100/50 transition-all duration-300">
+                      <div className="font-semibold text-base text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{i.title}</div>
+                      <div className="text-sm text-gray-600">{i.desc}</div>
                     </Link>
                   ))}
                 </div>
@@ -331,19 +382,24 @@ export default function Navbar() {
 
               {/* Resources */}
               <details className="group">
-                <summary className="list-none flex items-center justify-between px-1 py-3 cursor-pointer text-base font-medium">Resources <ChevronDown className="group-open:rotate-180 transition" /></summary>
-                <div className="grid grid-cols-1 gap-2 px-1 pb-4">
+                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-semibold text-gray-800">
+                  Resources 
+                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-600" />
+                </summary>
+                <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {resources.map((i) => (
-                    <Link key={i.title} href={i.href} className="rounded-lg px-3 py-2 hover:bg-gray-50">
-                      <div className="font-medium">{i.title}</div>
-                      <div className="text-sm text-gray-500">{i.desc}</div>
+                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-blue-50/50 border border-transparent hover:border-blue-100/50 transition-all duration-300">
+                      <div className="font-semibold text-base text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{i.title}</div>
+                      <div className="text-sm text-gray-600">{i.desc}</div>
                     </Link>
                   ))}
                 </div>
               </details>
 
-              <div className="pt-4">
-                <Button className="w-full py-2.5 sm:py-3 text-sm sm:text-base">Launch App</Button>
+              <div className="pt-6 px-2">
+                <Button className="w-full py-4 text-base font-semibold bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 hover:from-blue-700 hover:via-blue-800 hover:to-purple-800 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                  Launch App
+                </Button>
               </div>
             </div>
           </div>
