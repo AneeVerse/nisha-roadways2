@@ -103,9 +103,9 @@ export default function Navbar() {
 
   const whyUs = [
     { title: "About", desc: "Who we are and our mission", href: "/about", image: "/images/use-everywhere/images1.png" },
-    { title: "Our team", desc: "Meet the folks behind Nisha", href: "#team", image: "/images/use-everywhere/images2.png" },
-    { title: "Collaborated with", desc: "Brands that trust us", href: "#collab", image: "/images/use-everywhere/images3.png" },
-    { title: "Testimonials", desc: "What customers say", href: "#testimonials", image: "/images/use-everywhere/images4.png" },
+    { title: "Our team", desc: "Meet the folks behind Nisha", href: "/team", image: "/images/use-everywhere/images2.png" },
+    { title: "Collaborated with", desc: "Brands that trust us", href: "/partners", image: "/images/use-everywhere/images3.png" },
+    { title: "Testimonials", desc: "What customers say", href: "/testimonials", image: "/images/use-everywhere/images4.png" },
   ];
 
   const resources = [
