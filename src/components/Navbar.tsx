@@ -203,10 +203,10 @@ export default function Navbar() {
 
           {/* Why Us & Resources - Simple image and text format like Superside */}
           {(section === "whyus" || section === "resources") && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className={`grid grid-cols-1 ${section === "whyus" ? "md:grid-cols-2 justify-items-center max-w-3xl mx-auto" : "md:grid-cols-3"} ${section === "whyus" ? "gap-0 -space-x-2" : "gap-8"}`}>
               {items.map((item) => (
-                <Link key={item.title} href={item.href} className="group block">
-                  <div className="aspect-[5/2] bg-gray-100 rounded-lg overflow-hidden mb-4">
+                <Link key={item.title} href={item.href} className={`group block ${section === "whyus" ? "w-full max-w-[360px] mx-auto" : ""}`}>
+                  <div className="aspect-[5/2] bg-gray-100 rounded-lg overflow-hidden mb-4 mt-3">
                     <Image 
                       src={'image' in item ? item.image : '/images/use-everywhere/images1.png'} 
                       alt={item.title}
