@@ -981,9 +981,17 @@ export default function AboutPage() {
             
             {/* Right Visual */}
             <div className="relative">
+              {/* Floating Elements - Moved Up */}
+              <div className="absolute -top-12 -right-4 bg-emerald-500 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg animate-bounce z-20">
+                We're Hiring!
+              </div>
+              <div className="absolute -top-8 -left-4 bg-teal-500 text-white px-6 py-3 rounded-full text-sm font-bold shadow-lg z-20">
+                5000+ Team Members
+              </div>
+              
               <div className="relative z-10">
-                {/* Main Card */}
-                <div className="bg-white rounded-3xl shadow-2xl p-8 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                {/* Main Card - Straightened */}
+                <div className="bg-white rounded-3xl shadow-2xl p-8 hover:shadow-3xl transition-all duration-500">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Users className="w-10 h-10 text-white" />
@@ -1010,16 +1018,8 @@ export default function AboutPage() {
                 </div>
               </div>
               
-              {/* Floating Elements */}
-              <div className="absolute -top-6 -right-6 bg-emerald-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
-                We're Hiring!
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-teal-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                5000+ Team Members
-              </div>
-              
-              {/* Background Decoration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl transform rotate-6 -z-10"></div>
+              {/* Background Decoration - Subtle */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-100/50 to-teal-100/50 rounded-3xl transform translate-x-2 translate-y-2 -z-10"></div>
             </div>
           </div>
           
