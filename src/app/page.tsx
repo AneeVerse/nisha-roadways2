@@ -17,7 +17,7 @@ export default function Home() {
       <CompanyLogos />
       <Feature />
       <Solutions />
-      <TrustedByBusiness />
+      {/* <TrustedByBusiness /> */}
       <SocialMosaic />
       <ReviewVideo />
           <Testimonials />
