@@ -1,46 +1,41 @@
 "use client";
 
 import Image from "next/image";
-import { Building2, Factory, Truck, Package } from "lucide-react";
 
 const logos = [
-  { src: "/images/company/logo.svg", alt: "Company logo 1" },
-  { src: "/images/company/medium.png", alt: "Company logo 2" },
-  { src: "/images/company/Republic-logo.png", alt: "Company logo 3" },
-  { src: "/images/company/Wow-Entrepreneurs-Logo-PNG.png", alt: "Company logo 4" },
-  { src: "/images/company/Deccan-Business-PNG-300x104.png", alt: "Company logo 5" },
-  { src: "/images/company/RD-Times-Business-PNG-5.png", alt: "Company logo 6" },
-];
-
-const sectors = [
-  { icon: <Building2 className="w-5 h-5" />, name: "Manufacturing" },
-  { icon: <Factory className="w-5 h-5" />, name: "Pharmaceuticals" },
-  { icon: <Truck className="w-5 h-5" />, name: "Automotive" },
-  { icon: <Package className="w-5 h-5" />, name: "FMCG" },
+  { src: "/images/company/images1.svg", alt: "Company logo 1" },
+  { src: "/images/company/images2.svg", alt: "Company logo 2" },
+  { src: "/images/company/images3.svg", alt: "Company logo 3" },
+  { src: "/images/company/images4.svg", alt: "Company logo 4" },
+  { src: "/images/company/images5.svg", alt: "Company logo 5" },
+  { src: "/images/company/images6.svg", alt: "Company logo 6" },
 ];
 
 export default function CompanyLogos() {
   return (
-    <section aria-label="Companies using our services" className="py-12 sm:py-16 md:py-20 bg-gray-50/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section aria-label="Companies using our services" className="bg-white py-12 sm:py-16 mt-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Trusted by Industry Leaders
+        <div className="mb-8 sm:mb-12 md:mb-16 text-center">
+          <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm border border-white/20 rounded-full text-blue-600 font-semibold mb-8 shadow-lg">
+            <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 animate-pulse"></span>
+            Industry Leaders
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-gray-900 tracking-tight mb-6">
+            COMPANIES WE HAVE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">COLLABORATED </span> WITH
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 mb-2">
-            Across 16+ Sectors
+          <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Trusted by Industry Leaders Across 16+ Sectors
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto rounded-full"></div>
         </div>
-
 
 
         {/* Company Logos Marquee */}
         <div className="relative">
           {/* Gradient masks for smooth fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50/50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50/50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
           
           {/* Scrolling logos */}
           <div className="overflow-hidden">
@@ -65,10 +60,6 @@ export default function CompanyLogos() {
             </ul>
           </div>
         </div>
-
-        
-          
-        
       </div>
     </section>
   );
