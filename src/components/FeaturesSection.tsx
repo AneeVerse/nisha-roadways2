@@ -25,9 +25,11 @@ const FeaturesSection = () => {
               <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 text-sm font-medium rounded-full mb-6">
                 ABOUT US
               </div>
-              <h1 className="text-3xl lg:text-4xl xl:text-[48px] font-bold text-gray-900 mb-8 leading-tight uppercase w-full">
+              <h1 className="text-3xl lg:text-4xl xl:text-[48px] font-bold text-gray-900 mb-4 leading-tight uppercase w-full">
                 The Beginning That <span className="text-blue-600">Never Stopped Growing</span>
+
               </h1>
+               <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>
               <p className="text-sm lg:text-base text-gray-600 max-w-5xl mx-auto leading-relaxed">
                 Founded by <span className="font-semibold text-gray-900">Mr. Nandkishor Agarwal</span> in <span className="font-semibold text-blue-600">1982</span>, Nisha Roadways started from an 80 sq ft office and grew into India's leading logistics powerhouse, now serving <span className="font-semibold text-blue-600">500+ companies</span> with the same dedication that built our legacy.
               </p>

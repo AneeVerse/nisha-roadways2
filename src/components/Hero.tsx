@@ -40,7 +40,7 @@ export default function Hero() {
             <div className="flex items-center gap-6 mb-20">
               <Button 
                 variant="outline"
-                className="group relative px-12 py-6 !bg-white hover:!bg-gradient-to-r hover:!from-blue-600 hover:!via-blue-700 hover:!to-blue-800 !text-gray-900 hover:!text-white text-xl font-semibold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 overflow-hidden min-w-[280px] !border !border-blue-200 hover:!border-blue-800"
+                className="group relative px-12 py-4 !bg-white hover:!bg-gradient-to-r hover:!from-blue-600 hover:!via-blue-700 hover:!to-blue-800 !text-gray-900 hover:!text-white text-xl font-semibold rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 overflow-hidden min-w-[280px] !border !border-blue-200 hover:!border-blue-800"
               >
                 {/* Animated background overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-blue-50/50 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>

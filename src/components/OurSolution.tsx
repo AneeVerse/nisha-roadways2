@@ -173,27 +173,21 @@ export default function OurSolution() {
       {/* Header Section */}
       <div className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          {/* Eyebrow */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-12 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
-            <span className="text-sm font-bold uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600">
-              OUR SERVICES
-            </span>
-            <div className="w-12 h-[2px] bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-full"></div>
+          {/* Badge */}
+          <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm border border-white/20 rounded-full text-blue-600 font-semibold mb-8 shadow-lg">
+            <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 animate-pulse"></span>
+            Our Services
           </div>
 
           {/* Title */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
-              Complete Logistics
-            </span>
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600">
-              Solutions
-            </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
+            COMPLETE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">LOGISTICS</span> SOLUTIONS
           </h2>
+          
+          {/* Gradient underline */}
+          <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>
 
-          <p className="mt-6 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Discover our comprehensive range of logistics services designed to meet your transportation needs with
             precision and reliability.
           </p>
