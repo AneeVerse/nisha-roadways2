@@ -403,51 +403,7 @@ export default function EmptyContainerTransportationPage() {
         </div>
       </section>
 
-      {/* Ready to Optimize */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 -mb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold mb-6">
-                Ready to Get Started?
-              </div>
-              <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Ready to Optimize Your <span className="text-blue-200">Container Movement?</span>
-              </h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
-                Join thousands of satisfied customers who trust Nisha Roadways for their empty container transportation needs. Get started today!
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="group px-8 py-4 bg-white text-blue-600 rounded-2xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center space-x-3">
-                <span>Get Quote Now</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-              
-              <button className="group px-8 py-4 bg-transparent border-2 border-white text-white rounded-2xl font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 hover:scale-105 flex items-center space-x-3">
-                <Phone className="w-5 h-5" />
-                <span>Call Us: +91-XXXXXXXXXX</span>
-              </button>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-16 border-t border-white/20">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">40+</div>
-                <div className="text-blue-200 font-medium">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">10,000+</div>
-                <div className="text-blue-200 font-medium">Containers Moved</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">99.9%</div>
-                <div className="text-blue-200 font-medium">On-Time Delivery</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <Footer />
     </div>
