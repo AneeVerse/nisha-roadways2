@@ -204,7 +204,7 @@ export default function OurSolution() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
           {/* Fixed Left Image Card */}
-          <div className="lg:w-1/2 order-2 lg:order-1 lg:self-start lg:sticky lg:top-24">
+          <div className="lg:w-1/2 order-2 lg:order-1 lg:self-start sticky top-24">
             <div className="relative group">
               {/* Card Container */}
               <div className="relative rounded-3xl bg-white shadow-2xl shadow-blue-500/20 border border-blue-100/50 backdrop-blur-sm">
