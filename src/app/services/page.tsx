@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import CtaBanner from "@/components/CtaBanner";
 import { 
   Truck, 
   Container, 
@@ -254,6 +255,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <CtaBanner />
       <Footer />
     </main>
   );

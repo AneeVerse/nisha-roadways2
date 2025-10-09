@@ -14,6 +14,7 @@ import {
   FileText
 } from "lucide-react";
 import Footer from "@/components/Footer";
+import CtaBanner from "@/components/CtaBanner";
 
 export default function EmptyContainerTransportationPage() {
   const keyBenefits = [
@@ -403,8 +404,7 @@ export default function EmptyContainerTransportationPage() {
         </div>
       </section>
 
-      
-
+      <CtaBanner />
       <Footer />
     </div>
   );

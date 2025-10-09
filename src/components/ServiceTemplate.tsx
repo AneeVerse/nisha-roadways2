@@ -15,6 +15,7 @@ import {
   Globe
 } from "lucide-react";
 import Footer from "@/components/Footer";
+import CtaBanner from "@/components/CtaBanner";
 import { ServiceData } from "@/data/services";
 
 interface ServiceTemplateProps {
@@ -344,8 +345,7 @@ export default function ServiceTemplate({ service }: ServiceTemplateProps) {
         </section>
       )}
 
-     
-
+      <CtaBanner />
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import Footer from "@/components/Footer";
+import CtaBanner from "@/components/CtaBanner";
 
 export default function ProjectCargoManagementPage() {
   const service = getServiceBySlug("project-cargo-management");
@@ -81,6 +82,7 @@ export default function ProjectCargoManagementPage() {
         </div>
       </section>
 
+      <CtaBanner />
       <Footer />
     </div>
   );

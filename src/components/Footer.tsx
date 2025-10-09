@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer ref={sectionRef} className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white mt-8 overflow-hidden">
+    <footer ref={sectionRef} className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white mt-0 overflow-hidden">
       {/* Glassmorphism background overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-white/10 to-transparent backdrop-blur-sm"></div>
       
