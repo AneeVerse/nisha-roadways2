@@ -22,6 +22,18 @@ import {
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [openMenu, setOpenMenu] = React.useState<null | "services" | "whyus" | "resources">(null);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  // Handle scroll effect
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close on escape
   React.useEffect(() => {
@@ -131,8 +143,8 @@ export default function Navbar() {
     const items = section === "services" ? services : section === "whyus" ? whyUs : resources;
 
     const panel = (
-      <div className="fixed left-0 right-0 top-full bg-white shadow-2xl border-t border-gray-100/50">
-        <div className="max-w-7xl mx-auto px-8 py-10">
+      <div className="fixed left-0 right-0 top-full bg-white/95 backdrop-blur-md shadow-2xl border-t border-gray-100/50 z-[110]">
+        <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24 py-10">
           {/* Services - 3 Column Layout */}
           {section === "services" && (
             <div>
@@ -350,12 +362,16 @@ export default function Navbar() {
   }
 
     return (
-      <header className="bg-white/80 backdrop-blur-xl fixed top-0 left-0 right-0 z-[100] border-b border-white/20 shadow-lg shadow-black/5">
-        {/* Gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-white/40 to-purple-50/30"></div>
+      <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        isScrolled || openMenu
+          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg' 
+          : 'bg-transparent border-b border-transparent'
+      }`}>
+        {/* Subtle gradient overlay - when scrolled or menu open */}
+        {(isScrolled || openMenu) && <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50"></div>}
         
-        <div className="max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12 relative">
-          <div className="flex items-center justify-between h-24">
+        <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24 relative">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 group">
               <div className="relative">
@@ -364,48 +380,80 @@ export default function Navbar() {
                   alt="Nisha" 
                   width={140} 
                   height={42} 
-                  className="h-12 sm:h-14 w-auto transition-all duration-300 group-hover:scale-105" 
+                  className={`h-10 sm:h-12 w-auto transition-all duration-300 group-hover:scale-105 ${
+                    isScrolled || openMenu ? 'brightness-100' : 'brightness-0 invert'
+                  }`}
                 />
                 {/* Subtle glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-12">
+            <nav className="hidden lg:flex items-center gap-10">
               {/* Mega menu triggers */}
               <div className="relative" onMouseEnter={() => setOpenMenu("services")} onClick={(e) => e.stopPropagation()}>
-                <button className="group inline-flex items-center gap-2 text-base font-semibold text-gray-800 hover:text-blue-700 transition-all duration-300 py-3 px-2 relative">
+                <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${
+                  isScrolled || openMenu
+                    ? 'text-gray-900 hover:text-blue-600' 
+                    : 'text-white hover:text-blue-400'
+                }`}>
                   <span className="relative">
                     Services
                     {/* Animated underline */}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300 ease-out"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300 ease-out"></span>
                   </span>
-                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "services" ? "rotate-180 text-blue-600" : "group-hover:text-blue-600"}`} />
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
+                    openMenu === "services" 
+                      ? "rotate-180 text-blue-400" 
+                      : isScrolled || openMenu
+                        ? "group-hover:text-blue-600" 
+                        : "group-hover:text-blue-400"
+                  }`} />
                 </button>
                 <MegaPanel section="services" />
               </div>
               
               <div className="relative" onMouseEnter={() => setOpenMenu("whyus")} onClick={(e) => e.stopPropagation()}>
-                <button className="group inline-flex items-center gap-2 text-base font-semibold text-gray-800 hover:text-blue-700 transition-all duration-300 py-3 px-2 relative">
+                <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${
+                  isScrolled || openMenu
+                    ? 'text-gray-900 hover:text-blue-600' 
+                    : 'text-white hover:text-blue-400'
+                }`}>
                   <span className="relative">
-                    Why us
+                    Why Us
                     {/* Animated underline */}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300 ease-out"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300 ease-out"></span>
                   </span>
-                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "whyus" ? "rotate-180 text-blue-600" : "group-hover:text-blue-600"}`} />
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
+                    openMenu === "whyus" 
+                      ? "rotate-180 text-blue-400" 
+                      : isScrolled || openMenu
+                        ? "group-hover:text-blue-600" 
+                        : "group-hover:text-blue-400"
+                  }`} />
                 </button>
                 <MegaPanel section="whyus" />
               </div>
               
               <div className="relative" onMouseEnter={() => setOpenMenu("resources")} onClick={(e) => e.stopPropagation()}>
-                <button className="group inline-flex items-center gap-2 text-base font-semibold text-gray-800 hover:text-blue-700 transition-all duration-300 py-3 px-2 relative">
+                <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${
+                  isScrolled || openMenu
+                    ? 'text-gray-900 hover:text-blue-600' 
+                    : 'text-white hover:text-blue-400'
+                }`}>
                   <span className="relative">
                     Resources
                     {/* Animated underline */}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300 ease-out"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300 ease-out"></span>
                   </span>
-                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "resources" ? "rotate-180 text-blue-600" : "group-hover:text-blue-600"}`} />
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
+                    openMenu === "resources" 
+                      ? "rotate-180 text-blue-400" 
+                      : isScrolled || openMenu
+                        ? "group-hover:text-blue-600" 
+                        : "group-hover:text-blue-400"
+                  }`} />
                 </button>
                 <MegaPanel section="resources" />
               </div>
@@ -413,16 +461,16 @@ export default function Navbar() {
 
             {/* Desktop CTA Button */}
             <div className="hidden lg:block">
-              <Button className="group relative px-8 py-3.5 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 hover:from-blue-700 hover:via-blue-800 hover:to-purple-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 overflow-hidden">
+              <Button className="group relative px-6 py-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 overflow-hidden">
                 {/* Animated background overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
                 
                 {/* Glow effect */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500"></div>
                 
                 {/* Content */}
                 <span className="relative flex items-center gap-2">
-                  GET QUOTE NOW
+                  Contact
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
                     <path d="M5 12h14"/>
                     <path d="m12 5 7 7-7 7"/>
@@ -437,7 +485,11 @@ export default function Navbar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen((s) => !s)}
-                className="text-gray-800 hover:text-blue-700 hover:bg-blue-50/50 rounded-xl transition-all duration-300 w-12 h-12"
+                className={`rounded-xl transition-all duration-300 w-12 h-12 ${
+                  isScrolled || openMenu
+                    ? 'text-gray-900 hover:text-blue-600 hover:bg-gray-100/50' 
+                    : 'text-white hover:text-blue-400 hover:bg-gray-800/50'
+                }`}
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -447,20 +499,20 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-white/20 py-6 bg-white/90 backdrop-blur-lg">
-            <div className="divide-y divide-gray-100/50">
+          <div className="lg:hidden border-t border-gray-700/50 py-6 bg-gray-900/95 backdrop-blur-lg">
+            <div className="divide-y divide-gray-700/50">
               {/* Services */}
               <details open className="group">
-                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-semibold text-gray-800">
+                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
                   Services 
-                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-600" />
+                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
                 </summary>
                 <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {services.map((i) => (
-                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-blue-50/50 border border-transparent hover:border-blue-100/50 transition-all duration-300">
-                      <div className="font-semibold text-base text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{i.title}</div>
-                      <div className="text-sm text-gray-600 mb-2 leading-relaxed">{i.desc}</div>
-                      <div className="text-sm text-blue-600 font-medium">Benefits: {i.benefits}</div>
+                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                      <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
+                      <div className="text-sm text-gray-300 mb-2 leading-relaxed">{i.desc}</div>
+                      <div className="text-sm text-blue-400 font-medium">Benefits: {i.benefits}</div>
                     </Link>
                   ))}
                 </div>
@@ -468,15 +520,15 @@ export default function Navbar() {
 
               {/* Why us */}
               <details className="group">
-                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-semibold text-gray-800">
-                  Why us 
-                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-600" />
+                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
+                  Why Us 
+                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
                 </summary>
                 <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {whyUs.map((i) => (
-                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-blue-50/50 border border-transparent hover:border-blue-100/50 transition-all duration-300">
-                      <div className="font-semibold text-base text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{i.title}</div>
-                      <div className="text-sm text-gray-600">{i.desc}</div>
+                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                      <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
+                      <div className="text-sm text-gray-300">{i.desc}</div>
                     </Link>
                   ))}
                 </div>
@@ -484,23 +536,23 @@ export default function Navbar() {
 
               {/* Resources */}
               <details className="group">
-                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-semibold text-gray-800">
+                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
                   Resources 
-                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-600" />
+                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
                 </summary>
                 <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {resources.map((i) => (
-                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-blue-50/50 border border-transparent hover:border-blue-100/50 transition-all duration-300">
-                      <div className="font-semibold text-base text-gray-900 group-hover:text-blue-700 transition-colors duration-200">{i.title}</div>
-                      <div className="text-sm text-gray-600">{i.desc}</div>
+                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                      <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
+                      <div className="text-sm text-gray-300">{i.desc}</div>
                     </Link>
                   ))}
                 </div>
               </details>
 
               <div className="pt-6 px-2">
-                <Button className="w-full py-4 text-base font-semibold bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 hover:from-blue-700 hover:via-blue-800 hover:to-purple-800 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                  GET QUOTE NOW
+                <Button className="w-full py-4 text-base font-medium bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                  Contact
                 </Button>
               </div>
             </div>
