@@ -12,7 +12,7 @@ import SocialMosaic from "@/components/SocialMosaic";
 
 export default function Home() {
   return (
-    <main className="pt-20">
+    <main className="pt-20 ">
       <Hero />
       <CompanyLogos />
       <Feature />
