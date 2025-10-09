@@ -44,12 +44,12 @@ export default function EmptyContainerTransportationPage() {
      
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden pt-0">
         <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[600px]">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[600px]">
             <div className="space-y-8 flex flex-col justify-center">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-600/30 rounded-full text-sm font-medium w-fit">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-600/30 rounded-full text-sm font-medium w-fit ">
                 <Container className="w-4 h-4 mr-2" />
                 Empty Container Transportation
               </div>
@@ -65,13 +65,13 @@ export default function EmptyContainerTransportationPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-semibold text-lg">
-                  Get Instant Quote
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                <Button className="px-8 py-3 text-lg hover:shadow-lg hover:scale-105">
+                  Get Quote Now
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-                <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 font-semibold text-lg transition-all duration-300">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Call Now
+                <Button variant="outline" className="!border-2 !border-white !text-white hover:!bg-white hover:!text-blue-900 !bg-transparent px-8 py-3 text-lg transition-all duration-300">
+                  <Phone className="mr-2 w-5 h-5" />
+                  Call Expert
                 </Button>
               </div>
             </div>
