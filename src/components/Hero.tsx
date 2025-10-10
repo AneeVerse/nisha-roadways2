@@ -28,12 +28,17 @@ export default function Hero() {
       <div className="relative z-10 flex items-center justify-start min-h-screen pt-20">
         <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24">
           <div className="max-w-4xl">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-normal text-white leading-[0.9] tracking-tight mb-8">
-              Get set for an <br />
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white leading-[0.9] tracking-tight mb-8">
+              India's Most Trusted <br />
               <span className="text-white">
-                electric future
+               Logistics Partner 
               </span>
             </h1>
+             <p className="text-xl sm:text-2xl lg:text-3xl text-white/90 max-w-[800px]  mb-8 font-ligh lg:mt-10">
+              From containers to project cargo, we move what matters most to your business
+              Pan-India coverage. Zero damage guarantee. 24/7 tracking..
+            </p>
+
              {/* CTA Button - White background with blue accents */}
             <div className="flex items-center gap-6 mb-20">
               <Button 
@@ -46,8 +51,9 @@ export default function Hero() {
                 {/* Blue glow effect on hover */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/10 via-blue-500/20 to-blue-600/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
                 
-                <span className="relative flex items-center justify-center gap-12">
-                  Our solutions
+                <span className="relative flex items-center justify-center gap-12 uppercase">
+                 Track Your Shipment
+
                   {/* Blue icon */}
                   <div className="relative w-10 h-10 rounded-full  bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 group-hover:bg-blue-600 flex items-center justify-center transition-all duration-300 shadow-lg">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
@@ -59,10 +65,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            <p className="text-xl sm:text-2xl lg:text-4xl text-white/90 max-w-[480px]  mb-8 font-ligh lg:-mt-10">
-              Powering peace of mind with <br />
-              tailored EV charging solutions.
-            </p>
+
 
            
 

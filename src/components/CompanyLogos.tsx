@@ -18,7 +18,7 @@ export default function CompanyLogos() {
         {/* Section Header */}
         <div className="mb-8 sm:mb-12 md:mb-16 text-center">
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[40px] font-bold text-gray-900 tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-6">
             COMPANIES WE HAVE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">COLLABORATED </span> WITH
           </h2>
 
@@ -49,7 +49,7 @@ export default function CompanyLogos() {
                       alt={logo.alt}
                       width={120}
                       height={40}
-                      className="h-8 sm:h-10 w-auto object-contain select-none filter grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all duration-300"
+                      className="h-8  w-auto object-contain select-none filter grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all duration-300"
                       sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 120px"
                     />
                   </div>

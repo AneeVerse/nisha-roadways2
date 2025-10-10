@@ -143,7 +143,7 @@ export default function Navbar() {
     const items = section === "services" ? services : section === "whyus" ? whyUs : resources;
 
     const panel = (
-      <div className="fixed left-0 right-0 top-full bg-white/95 backdrop-blur-md shadow-2xl border-t border-gray-100/50 z-[110]">
+      <div className="fixed left-0 right-0 top-full bg-white/100  shadow-2xl border-t border-gray-100/50 z-[110]">
         <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24 py-10">
           {/* Services - 3 Column Layout */}
           {section === "services" && (
@@ -470,7 +470,7 @@ export default function Navbar() {
                 
                 {/* Content */}
                 <span className="relative flex items-center gap-2">
-                  Contact
+                 GET QUOTE NOW
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
                     <path d="M5 12h14"/>
                     <path d="m12 5 7 7-7 7"/>

@@ -97,7 +97,7 @@ export default function BlogSection() {
             <span className="w-2 h-2 bg-blue-600 rounded-full mr-3 animate-pulse"></span>
             Our Blogs
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-6">
             LATEST <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">INSIGHTS</span> FROM OUR TRUCKER TOOLS
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>

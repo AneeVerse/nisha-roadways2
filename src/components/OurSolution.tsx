@@ -180,8 +180,9 @@ export default function OurSolution() {
           </div>
 
           {/* Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-6">
-            COMPLETE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">LOGISTICS</span> SOLUTIONS
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-6">
+            COMPLETE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">LOGISTICS SOLUTIONS</span> UNDER ONE ROOF
+
           </h2>
           
           {/* Gradient underline */}
