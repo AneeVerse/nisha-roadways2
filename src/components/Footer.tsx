@@ -246,33 +246,38 @@ const Footer: React.FC = () => {
               <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
                 
                 {/* Left Side - Copyright */}
-                <div className="text-center lg:text-left order-2 lg:order-1">
-                  <span className="text-sm text-gray-400">© 2025 Name change gazette. All rights reserved.</span>
+                <div 
+                  className="relative z-10 text-center lg:text-left order-2 lg:order-1 text-sm text-gray-400 transition-colors duration-200 hover:text-blue-300"
+                >
+                  <span>© 2025 Name change gazette. All rights reserved.</span>
+                </div>
+                
+                {/* Middle Section - Privacy Policy and Terms of Service */}
+                <div 
+                  className="relative z-10 flex items-center justify-center space-x-4 sm:space-x-6 text-sm text-gray-400 order-3 lg:order-2 transition-colors duration-200 hover:text-blue-300"
+                >
+                  <a href="#" className="hover:underline">Privacy Policy</a>
+                  <a href="#" className="hover:underline">Terms of Service</a>
                 </div>
 
-                {/* Center - Privacy Policy and Terms of Service */}
-                <div className="flex items-center justify-center space-x-4 sm:space-x-6 text-sm text-gray-400 order-3 lg:order-2">
-                  <Link href="#" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Privacy Policy</Link>
-                  <span className="text-gray-600">|</span>
-                  <Link href="#" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Terms of Service</Link>
-                </div>
-
-                {/* Right Side - Aneeverse Credit */}
+                {/* Right Section - Aneeverse Credit */}
                 <div className="text-center lg:text-right order-1 lg:order-3">
                   <a 
                     href="https://www.aneeverse.com/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center lg:justify-end space-x-2 text-sm text-gray-400 hover:text-white transition-colors duration-200 group"
+                    className="relative z-10 flex items-center justify-center lg:justify-end text-sm text-gray-400 transition-all duration-300 hover:text-blue-300"
                   >
-                    <span className="whitespace-nowrap">Designed & Managed by Aneeverse</span>
-                    <Image
-                      src="/images/aneeverse-logo.svg"
-                      alt="Aneeverse"
-                      width={16}
-                      height={16}
-                      className=" brightness-0 invert flex-shrink-0"
-                    />
+                    <div className="flex items-center space-x-2">
+                      <span className="whitespace-nowrap hover:underline">Designed & Managed by Aneeverse</span>
+                      <Image
+                        src="/images/aneeverse-logo.svg"
+                        alt="Aneeverse"
+                        width={16}
+                        height={16}
+                        className="w-auto h-7 brightness-0 invert"
+                      />
+                    </div>
                   </a>
                 </div>
               </div>
