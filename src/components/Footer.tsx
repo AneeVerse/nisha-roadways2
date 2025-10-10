@@ -87,15 +87,16 @@ const Footer: React.FC = () => {
               {/* Two-column layout with left-right spacing */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
                 
-                {/* Left Column - Main Text */}
+                {/* Left Column - Logo */}
                 <div className="space-y-6">
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-bold text-white leading-tight">
-                      Nisha Roadways - Your Trusted Logistics Partner
-                    </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      Join 500+ companies who trust us with their logistics needs. With over 43 years of excellence and zero-damage delivery guarantee, we&apos;re India&apos;s leading transportation solution.
-                    </p>
+                  <div className="flex justify-center lg:justify-start -ml-3">
+                    <Image 
+                      src="/images/nav-logo.png" 
+                      alt="Nisha Roadways" 
+                      width={200} 
+                      height={60} 
+                      className="h-20 w-auto brightness-0 invert"
+                    />
                   </div>
                   
                   {/* Company Address and Contact Information */}
