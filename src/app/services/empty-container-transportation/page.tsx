@@ -45,63 +45,44 @@ export default function EmptyContainerTransportationPage() {
      
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden pt-0">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-20 lg:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[600px]">
-            <div className="space-y-8 flex flex-col justify-center">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-600/30 rounded-full text-sm font-medium w-fit ">
-                <Container className="w-4 h-4 mr-2" />
-                Empty Container Transportation
-              </div>
-              
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                India&apos;s Pioneer in{" "}
-                <span className="text-blue-300">Empty Container</span>{" "}
-                Transportation
+      <section className="relative bg-gradient-to-br from-gray-50 to-white py-16 lg:py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-left">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                India&apos;s Pioneer in
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
+                  Empty Container Transportation
+                </span>
               </h1>
-              
-              <p className="text-xl text-blue-100 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
                 Connecting all major ports and ICDs with cost-effective empty container solutions since 1982.
               </p>
-              
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="px-8 py-3 text-lg hover:shadow-lg hover:scale-105">
+                <Button className="px-8 py-3 text-lg">
                   Get Quote Now
-                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-                <Button variant="outline" className="!border-2 !border-white !text-white hover:!bg-white hover:!text-blue-900 !bg-transparent px-8 py-3 text-lg transition-all duration-300">
-                  <Phone className="mr-2 w-5 h-5" />
+                <Button
+                  variant="outline"
+                  className="!border-2 !border-gray-900 !text-gray-900 hover:!bg-gray-900 hover:!text-white px-8 py-3 text-lg transition-all duration-300"
+                >
                   Call Expert
                 </Button>
               </div>
             </div>
-            
-            <div className="relative flex items-center justify-center h-full">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full max-w-lg">
+
+            {/* Right Image */}
+            <div className="relative max-w-full h-full flex items-center">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full">
                 <Image
                   src="/images/use-everywhere/images1.png"
                   alt="Empty Container Transportation"
                   width={600}
-                  height={500}
-                  className="w-full h-[500px] object-cover"
+                  height={600}
+                  className="w-full h-full object-cover max-w-full min-h-[400px] lg:min-h-[500px]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-              
-              {/* Floating Stats */}
-              <div className="absolute -bottom-6 -left-6 bg-white text-gray-900 p-6 rounded-xl shadow-xl">
-                <div className="flex items-center space-x-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">40%</div>
-                    <div className="text-sm text-gray-600">Cost Savings</div>
-                  </div>
-                  <div className="w-px h-12 bg-gray-200"></div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">24/7</div>
-                    <div className="text-sm text-gray-600">Availability</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

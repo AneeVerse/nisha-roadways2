@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { 
   Menu,
@@ -23,6 +24,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [openMenu, setOpenMenu] = React.useState<null | "services" | "whyus" | "resources">(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const pathname = usePathname();
 
   // Handle scroll effect
   React.useEffect(() => {
@@ -361,12 +363,14 @@ export default function Navbar() {
     );
   }
 
-    return (
-      <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        isScrolled || openMenu
-          ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg' 
-          : 'bg-transparent border-b border-transparent'
-      }`}>
+  return (
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+      isScrolled || openMenu
+        ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg' 
+        : pathname === '/' && !isScrolled && !openMenu
+        ? 'bg-transparent border-b border-transparent'
+        : 'bg-white border-b border-gray-200/50'
+    }`}>
         {/* Subtle gradient overlay - when scrolled or menu open */}
         {(isScrolled || openMenu) && <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50"></div>}
         
@@ -381,7 +385,7 @@ export default function Navbar() {
                   width={140} 
                   height={42} 
                   className={`h-10 sm:h-12 w-auto transition-all duration-300 group-hover:scale-105 ${
-                    isScrolled || openMenu ? 'brightness-100' : 'brightness-0 invert'
+                    isScrolled || openMenu || pathname !== '/' ? 'brightness-100' : 'brightness-0 invert'
                   }`}
                 />
                 {/* Subtle glow effect on hover */}
@@ -394,7 +398,7 @@ export default function Navbar() {
               {/* Mega menu triggers */}
               <div className="relative" onMouseEnter={() => setOpenMenu("services")} onClick={(e) => e.stopPropagation()}>
                 <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${
-                  isScrolled || openMenu
+                  isScrolled || openMenu || pathname !== '/'
                     ? 'text-gray-900 hover:text-blue-600' 
                     : 'text-white hover:text-blue-400'
                 }`}>
@@ -406,7 +410,7 @@ export default function Navbar() {
                   <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
                     openMenu === "services" 
                       ? "rotate-180 text-blue-400" 
-                      : isScrolled || openMenu
+                      : isScrolled || openMenu || pathname !== '/'
                         ? "group-hover:text-blue-600" 
                         : "group-hover:text-blue-400"
                   }`} />
@@ -416,7 +420,7 @@ export default function Navbar() {
               
               <div className="relative" onMouseEnter={() => setOpenMenu("whyus")} onClick={(e) => e.stopPropagation()}>
                 <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${
-                  isScrolled || openMenu
+                  isScrolled || openMenu || pathname !== '/'
                     ? 'text-gray-900 hover:text-blue-600' 
                     : 'text-white hover:text-blue-400'
                 }`}>
@@ -428,7 +432,7 @@ export default function Navbar() {
                   <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
                     openMenu === "whyus" 
                       ? "rotate-180 text-blue-400" 
-                      : isScrolled || openMenu
+                      : isScrolled || openMenu || pathname !== '/'
                         ? "group-hover:text-blue-600" 
                         : "group-hover:text-blue-400"
                   }`} />
@@ -438,7 +442,7 @@ export default function Navbar() {
               
               <div className="relative" onMouseEnter={() => setOpenMenu("resources")} onClick={(e) => e.stopPropagation()}>
                 <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${
-                  isScrolled || openMenu
+                  isScrolled || openMenu || pathname !== '/'
                     ? 'text-gray-900 hover:text-blue-600' 
                     : 'text-white hover:text-blue-400'
                 }`}>
@@ -450,7 +454,7 @@ export default function Navbar() {
                   <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
                     openMenu === "resources" 
                       ? "rotate-180 text-blue-400" 
-                      : isScrolled || openMenu
+                      : isScrolled || openMenu || pathname !== '/'
                         ? "group-hover:text-blue-600" 
                         : "group-hover:text-blue-400"
                   }`} />
@@ -486,7 +490,7 @@ export default function Navbar() {
                 size="icon"
                 onClick={() => setIsMobileMenuOpen((s) => !s)}
                 className={`rounded-xl transition-all duration-300 w-12 h-12 ${
-                  isScrolled || openMenu
+                  isScrolled || openMenu || pathname !== '/'
                     ? 'text-gray-900 hover:text-blue-600 hover:bg-gray-100/50' 
                     : 'text-white hover:text-blue-400 hover:bg-gray-800/50'
                 }`}
