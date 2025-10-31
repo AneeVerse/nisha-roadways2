@@ -136,15 +136,15 @@ export default function VCardPage() {
 
       {/* Scrollable Main Content */}
       <div className="relative z-10 h-full overflow-y-auto">
-        <div className="flex flex-col items-center justify-center min-h-full p-2 sm:p-4 py-4 sm:py-8">
+        <div className="flex flex-col items-center justify-start pt-16 sm:justify-center min-h-full p-2 sm:p-4 py-4 sm:py-8">
         {/* Card Container - Mobile responsive */}
         <div className="relative w-full max-w-sm sm:max-w-md mx-auto">
           {/* Business Card - Responsive aspect ratio and sizing */}
           <div className="relative w-full aspect-[1/1] sm:aspect-[1/1] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500">
             <div 
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover"
               style={{
-                backgroundImage: `url('/images/vcard/nisha-card-bg.webp')`
+                backgroundImage: `url('/images/vcard/nisha-bg.png')`
               }}
             />
             
@@ -152,8 +152,8 @@ export default function VCardPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60">
               <div className="flex flex-col justify-between h-full p-3 sm:p-6">
                 {/* Logo and Company Name - Mobile responsive positioning */}
-                <div className="flex items-center space-x-2 sm:space-x-3 mt-42 ml-25 sm:ml-30 sm:mt-48 -mb-4 sm:-mb-8">
-                  <div className="relative w-28 sm:w-40 h-28 sm:h-40">
+                <div className="flex justify-center items-center mt-34 sm:mt-40 -mb-20 sm:-mb-14">
+                  <div className="relative w-50 sm:w-60 h-50 sm:h-60">
                     <Image
                       src="/images/vcard/nisha-logo.png"
                       alt="Nisha Logo"
