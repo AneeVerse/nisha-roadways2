@@ -79,19 +79,19 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "Empty Container Transportation (ECT)",
           description: "Exim and domestic empty container services",
-          icon: <FaBoxes className="text-blue-600" />,
+          icon: <FaBoxes className="text-[#374151]" />,
           slug: "empty-container-transportation"
         },
         {
           name: "Export Import Containers",
           description: "ExIm transport services for international trade",
-          icon: <FaShippingFast className="text-blue-600" />,
+          icon: <FaShippingFast className="text-[#374151]" />,
           slug: "export-import-containers"
         },
         {
           name: "Domestic Cargo In Our Containers",
           description: "Secured cargo in owned ISO containers",
-          icon: <FaTruck className="text-blue-600" />,
+          icon: <FaTruck className="text-[#374151]" />,
           slug: "domestic-cargo-containers"
         }
       ]
@@ -105,25 +105,25 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "Solar Panel & Parts Transportation",
           description: "Renewable energy components logistics",
-          icon: <FaSolarPanel className="text-amber-600" />,
+          icon: <FaSolarPanel className="text-[#374151]" />,
           slug: "solar-panel-transportation"
         },
         {
           name: "Over Dimension Cargo (ODC)",
           description: "Oversized machinery and project cargo",
-          icon: <FaIndustry className="text-amber-600" />,
+          icon: <FaIndustry className="text-[#374151]" />,
           slug: "over-dimension-cargo"
         },
         {
           name: "Bulk Cargo Transportation",
           description: "Steel coils, grains, construction materials",
-          icon: <FaWarehouse className="text-amber-600" />,
+          icon: <FaWarehouse className="text-[#374151]" />,
           slug: "bulk-cargo-solutions"
         },
         {
           name: "Chemical Transportation",
           description: "Tank container logistics for chemicals",
-          icon: <FaFlask className="text-amber-600" />,
+          icon: <FaFlask className="text-[#374151]" />,
           slug: "chemical-transportation"
         }
       ]
@@ -137,13 +137,13 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "Rail Services",
           description: "Container and bulk cargo by rail",
-          icon: <FaTrain className="text-emerald-600" />,
+          icon: <FaTrain className="text-[#374151]" />,
           slug: "rail-services"
         },
         {
           name: "Coastal Services",
           description: "Maritime shipping across major Indian ports",
-          icon: <FaShip className="text-emerald-600" />,
+          icon: <FaShip className="text-[#374151]" />,
           slug: "coastal-services"
         }
       ]
@@ -157,19 +157,19 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "LCL Consolidation",
           description: "Less-than-Container-Load optimization",
-          icon: <FaBoxes className="text-violet-600" />,
+          icon: <FaBoxes className="text-[#374151]" />,
           slug: "lcl-consolidation"
         },
         {
           name: "High Value Goods Transportation",
           description: "GPS-tracked premium cargo with security",
-          icon: <FaShieldAlt className="text-violet-600" />,
+          icon: <FaShieldAlt className="text-[#374151]" />,
           slug: "high-value-goods"
         },
         {
           name: "Storage and Warehousing",
           description: "Comprehensive storage solutions",
-          icon: <FaWarehouse className="text-violet-600" />,
+          icon: <FaWarehouse className="text-[#374151]" />,
           slug: "storage-warehousing"
         }
       ]
@@ -248,13 +248,13 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                               {item.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h4 className="text-xs sm:text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300 flex items-center truncate">
+                              <h4 className="text-sm sm:text-sm -ml-1 font-semibold text-[#374151] group-hover:text-blue-600 transition-colors duration-300 flex items-center truncate">
                                 <span className="h-[4px] w-[4px] bg-blue-600 inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-2 flex-shrink-0" />  
                                 <span className="truncate">{item.name}</span>
                               </h4>
-                              <p className="text-xs text-gray-500 mt-1 line-clamp-1 sm:line-clamp-2">{item.description}</p>
+                              <p className="text-xs text-[#374151] mt-1 line-clamp-1 sm:line-clamp-2">{item.description}</p>
                             </div>
-                            <FaArrowRight className="text-gray-400 text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
+                            <FaArrowRight className="text-[#374151] text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
                           </Link>
                         ))}
                       </div>
