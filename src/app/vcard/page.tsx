@@ -136,15 +136,15 @@ export default function VCardPage() {
 
       {/* Scrollable Main Content */}
       <div className="relative z-10 h-full overflow-y-auto">
-        <div className="flex flex-col items-center justify-start pt-16 sm:justify-center min-h-full p-2 sm:p-4 py-4 sm:py-8">
-        {/* Card Container - Mobile responsive */}
-        <div className="relative w-full max-w-sm sm:max-w-md mx-auto">
-          {/* Business Card - Responsive aspect ratio and sizing */}
-          <div className="relative w-full aspect-[1/1] sm:aspect-[1/1] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500">
+        <div className="flex flex-col items-center justify-center min-h-screen p-2 xxs:p-3 xs:p-4 sm:p-4 md:p-6 py-4 xxs:py-5 xs:py-6 sm:py-8 md:py-8">
+        {/* Card Container - Comprehensive mobile responsive design */}
+        <div className="relative w-full max-w-[300px] xxs:max-w-[310px] xs:max-w-[350px] sm:max-w-sm md:max-w-md mx-auto">
+          {/* Business Card - Responsive aspect ratio for all devices */}
+          <div className="relative w-full aspect-[1.5/1] xxs:aspect-[1.6/1] xs:aspect-[1.65/1] sm:aspect-[1.7/1] md:aspect-[1.9/1] rounded-lg xxs:rounded-xl xs:rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500">
             <div 
               className="absolute inset-0 bg-cover"
               style={{
-                backgroundImage: `url('/images/vcard/nisha-bg.png')`
+                backgroundImage: `url('/images/vcard/nisha-card-bg.webp')`
               }}
             />
             
@@ -152,7 +152,7 @@ export default function VCardPage() {
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60">
               <div className="flex flex-col justify-between h-full p-3 sm:p-6">
                 {/* Logo and Company Name - Mobile responsive positioning */}
-                <div className="flex justify-center items-center mt-34 sm:mt-40 -mb-20 sm:-mb-14">
+                <div className="flex justify-center items-center  sm:-mt-10 -mb-20 sm:-mb-14">
                   <div className="relative w-50 sm:w-60 h-50 sm:h-60">
                     <Image
                       src="/images/vcard/nisha-logo.png"
@@ -194,46 +194,83 @@ export default function VCardPage() {
             </div>
           </div>
 
-          {/* Contact Information Card - Mobile responsive */}
-          <div className="mt-4 sm:mt-6 bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6">
-            <div className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
-              <div className="w-6 sm:w-8 h-6 sm:h-8 bg-gray-800 rounded-lg flex items-center justify-center">
-                <svg className="w-3 sm:w-5 h-3 sm:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                </svg>
+          {/* Contact Information Card - Comprehensive responsive design for all mobile devices */}
+          <div className="mt-3 xxs:mt-4 xs:mt-5 sm:mt-6 md:mt-6 bg-white rounded-lg xxs:rounded-xl xs:rounded-xl sm:rounded-2xl shadow-xl p-3 xxs:p-4 xs:p-5 sm:p-6 md:p-6 min-h-[280px] xxs:min-h-[300px] xs:min-h-[320px] sm:min-h-[340px] md:min-h-auto">
+            <div className="flex items-center justify-between mb-2 xxs:mb-3 xs:mb-4 sm:mb-4 md:mb-4">
+              <div className="flex items-center space-x-1.5 xxs:space-x-2 xs:space-x-2.5 sm:space-x-3 md:space-x-3">
+                <div className="w-5 xxs:w-6 xs:w-7 sm:w-8 md:w-8 h-5 xxs:h-6 xs:h-7 sm:h-8 md:h-8 bg-gray-800 rounded-md xxs:rounded-lg xs:rounded-lg sm:rounded-lg flex items-center justify-center">
+                  <svg className="w-2.5 xxs:w-3 xs:w-4 sm:w-5 md:w-5 h-2.5 xxs:h-3 xs:h-4 sm:h-5 md:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </div>
+                <h3 className="text-xs xxs:text-sm xs:text-base sm:text-lg md:text-lg font-semibold text-gray-800">Contact Us</h3>
               </div>
-              <h3 className="text-base sm:text-lg font-semibold text-gray-800">Contact Us</h3>
+              {/* Form Button - Responsive for all screen sizes */}
+              <button 
+                onClick={() => setShowContactForm(true)}
+                className="bg-blue-600 text-white px-2 xxs:px-2.5 xs:px-3 sm:px-3 md:px-3 py-1 xxs:py-1.5 xs:py-1.5 sm:py-1.5 rounded-md xxs:rounded-lg xs:rounded-lg sm:rounded-lg text-xs xxs:text-xs xs:text-xs sm:text-sm md:text-sm font-medium hover:bg-blue-700 transition-colors"
+              >
+                Form
+              </button>
             </div>
 
-            {/* Call Us Section - Mobile responsive text */}
-            <div className="mb-3 sm:mb-4">
-              <h4 className="text-xs sm:text-sm font-medium text-gray-600 mb-1 sm:mb-2">Call Us</h4>
-              <p className="text-gray-800 text-xs sm:text-sm mb-1">+91 22 4163 222</p>
-              <p className="text-gray-800 text-xs sm:text-sm mb-1">+91 98 2042 0924</p>
-              <p className="text-gray-800 text-xs sm:text-sm mb-1">+91 93 2008 8518</p>
-            </div>
+            {/* Contact Sections - Comprehensive responsive spacing for all devices */}
+            <div className="space-y-3 xxs:space-y-4 xs:space-y-5 sm:space-y-6 md:space-y-6">
+              {/* Call Us Section */}
+              <div className="mb-3 xxs:mb-4 xs:mb-5 sm:mb-6 md:mb-6">
+                <div className="flex items-center space-x-1.5 xxs:space-x-2 xs:space-x-2.5 sm:space-x-3 md:space-x-3 mb-1.5 xxs:mb-2 xs:mb-2.5 sm:mb-3 md:mb-3">
+                  <div className="w-3 xxs:w-4 xs:w-5 sm:w-5 md:w-5 h-3 xxs:h-4 xs:h-5 sm:h-5 md:h-5 bg-green-500 rounded-full flex items-center justify-center">
+                    <svg className="w-1.5 xxs:w-2 xs:w-2.5 sm:w-3 md:w-3 h-1.5 xxs:h-2 xs:h-2.5 sm:h-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                  </div>
+                  <h4 className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm font-medium text-gray-700">Call Us</h4>
+                </div>
+                <div className="space-y-0.5 xxs:space-y-1 xs:space-y-1.5 sm:space-y-2 md:space-y-2">
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">+91 22 4163 222</p>
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">+91 98 2042 0924</p>
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">+91 93 2008 8518</p>
+                </div>
+              </div>
 
-            {/* Email Section - Mobile responsive text */}
-            <div className="mb-3 sm:mb-4">
-              <h4 className="text-xs sm:text-sm font-medium text-gray-600 mb-1 sm:mb-2">Email</h4>
-              <p className="text-gray-800 text-xs sm:text-sm">info@nisharoadways.com</p>
-            </div>
+              {/* Email Section */}
+              <div className="mb-3 xxs:mb-4 xs:mb-5 sm:mb-6 md:mb-6">
+                <div className="flex items-center space-x-1.5 xxs:space-x-2 xs:space-x-2.5 sm:space-x-3 md:space-x-3 mb-1.5 xxs:mb-2 xs:mb-2.5 sm:mb-3 md:mb-3">
+                  <div className="w-3 xxs:w-4 xs:w-5 sm:w-5 md:w-5 h-3 xxs:h-4 xs:h-5 sm:h-5 md:h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                    <svg className="w-1.5 xxs:w-2 xs:w-2.5 sm:w-3 md:w-3 h-1.5 xxs:h-2 xs:h-2.5 sm:h-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                  </div>
+                  <h4 className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm font-medium text-gray-700">Email</h4>
+                </div>
+                <div className="space-y-0.5 xxs:space-y-0.5 xs:space-y-1 sm:space-y-1 md:space-y-1">
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">info@nisharoadways.com</p>
+                </div>
+              </div>
 
-            {/* Address Section - Mobile responsive text */}
-            <div className="mb-3 sm:mb-4">
-              <h4 className="text-xs sm:text-sm font-medium text-gray-600 mb-1 sm:mb-2">Address</h4>
-              <div className="text-gray-800 text-xs sm:text-sm">
-                <p>809, Mayuresh Cosmos,</p>
-                <p>Plot No 57, Sector 11, C.B.D. Belapur,</p>
-                <p>Navi Mumbai, Maharashtra, 400614</p>
-                <p>India</p>
+              {/* Address Section */}
+              <div>
+                <div className="flex items-center space-x-1.5 xxs:space-x-2 xs:space-x-2.5 sm:space-x-3 md:space-x-3 mb-1.5 xxs:mb-2 xs:mb-2.5 sm:mb-3 md:mb-3">
+                  <div className="w-3 xxs:w-4 xs:w-5 sm:w-5 md:w-5 h-3 xxs:h-4 xs:h-5 sm:h-5 md:h-5 bg-red-500 rounded-full flex items-center justify-center">
+                    <svg className="w-1.5 xxs:w-2 xs:w-2.5 sm:w-3 md:w-3 h-1.5 xxs:h-2 xs:h-2.5 sm:h-3 md:h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  <h4 className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm font-medium text-gray-700">Address</h4>
+                </div>
+                <div className="space-y-0.5 xxs:space-y-0.5 xs:space-y-1 sm:space-y-1 md:space-y-1">
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">809, Mayuresh Cosmos,</p>
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">Plot No 57, Sector 11, C.B.D. Belapur,</p>
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">Navi Mumbai, Maharashtra, 400614</p>
+                  <p className="text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm text-gray-600">India</p>
+                </div>
               </div>
             </div>
 
             {/* Direction Button - Mobile responsive */}
             <button 
               onClick={handleDirectionClick}
-              className="w-full bg-gray-800 text-white py-2 sm:py-2 px-3 sm:px-4 rounded-lg text-xs sm:text-sm font-medium flex items-center justify-center space-x-2 hover:bg-gray-700 transition-colors"
+              className="w-full bg-gray-800 text-white py-2 sm:py-2 px-3 sm:px-4 rounded-lg text-xs sm:text-sm font-medium mt-2 flex items-center justify-center space-x-2 hover:bg-gray-700 transition-colors"
             >
               <svg className="w-3 sm:w-4 h-3 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -246,10 +283,10 @@ export default function VCardPage() {
         </div>
       </div>
 
-      {/* QR Button - Bottom Left - Mobile responsive */}
+      {/* QR Button - Bottom Left - Comprehensive mobile responsive */}
       <button 
         onClick={() => setShowQRPopup(true)}
-        className="fixed bottom-2 sm:bottom-4 left-2 sm:left-4 w-12 sm:w-16 h-12 sm:h-16 bg-white rounded-full p-2 sm:p-3 shadow-lg z-20 hover:scale-110 transition-transform duration-200"
+        className="fixed bottom-3 xxs:bottom-2 xs:bottom-2 sm:bottom-3 md:bottom-4 left-1 xxs:left-2 xs:left-2 sm:left-3 md:left-4 w-10 xxs:w-11 xs:w-12 sm:w-14 md:w-16 h-10 xxs:h-11 xs:h-12 sm:h-14 md:h-16 bg-white rounded-full p-1.5 xxs:p-2 xs:p-2 sm:p-2.5 md:p-3 shadow-lg z-20 hover:scale-110 transition-transform duration-200"
       >
         <Image
           src="/images/vcard/qr.webp"
@@ -260,26 +297,25 @@ export default function VCardPage() {
         />
       </button>
 
-      {/* Add to Contact Button - Bottom Right - Mobile responsive */}
+      {/* Add to Contact Button - Bottom Right - Comprehensive mobile responsive */}
       <button 
         onClick={handleDownloadVCF}
-        className="fixed bottom-2 sm:bottom-4 right-3 sm:right-8 bg-white rounded-full px-2 sm:px-4 py-2 sm:py-3 shadow-lg z-20 hover:scale-105 transition-transform duration-200 flex items-center space-x-1 sm:space-x-2"
+        className="fixed bottom-3 xxs:bottom-2 xs:bottom-2 sm:bottom-3 md:bottom-4 right-1 xxs:right-2 xs:right-3 sm:right-6 md:right-8 bg-white rounded-full px-1.5 xxs:px-2 xs:px-2 sm:px-3 md:px-4 py-1.5 xxs:py-2 xs:py-2 sm:py-2.5 md:py-3 shadow-lg z-20 hover:scale-105 transition-transform duration-200 flex items-center space-x-0.5 xxs:space-x-1 xs:space-x-1 sm:space-x-1.5 md:space-x-2"
       >
-        <svg className="w-4 sm:w-5 h-4 sm:h-5 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3 xxs:w-3.5 xs:w-4 sm:w-4.5 md:w-5 h-3 xxs:h-3.5 xs:h-4 sm:h-4.5 md:h-5 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
         </svg>
-        <span className="text-gray-800 font-medium text-xs sm:text-sm hidden xs:inline">Add to Contact</span>
-        <span className="text-gray-800 font-medium text-xs sm:text-sm xs:hidden">Add to Contact  </span>
+        <span className="text-gray-800 font-medium text-xs xxs:text-xs xs:text-xs sm:text-xs md:text-sm">Add to Contact</span>
       </button>
 
-      {/* QR Code Full Screen Popup - Mobile responsive */}
+      {/* QR Code Full Screen Popup - Comprehensive mobile responsive */}
       {showQRPopup && (
-        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center p-2 xxs:p-3 xs:p-4 sm:p-4 md:p-6">
           <button 
             onClick={() => setShowQRPopup(false)}
-            className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 sm:w-10 h-8 sm:h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+            className="absolute top-1 xxs:top-2 xs:top-2 sm:top-3 md:top-4 right-1 xxs:right-2 xs:right-2 sm:right-3 md:right-4 w-6 xxs:w-7 xs:w-8 sm:w-9 md:w-10 h-6 xxs:h-7 xs:h-8 sm:h-9 md:h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
           >
-            <svg className="w-4 sm:w-6 h-4 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3 xxs:w-3.5 xs:w-4 sm:w-5 md:w-6 h-3 xxs:h-3.5 xs:h-4 sm:h-5 md:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -289,35 +325,35 @@ export default function VCardPage() {
               alt="QR Code"
               width={250}
               height={250}
-              className="object-contain w-64 sm:w-80 h-64 sm:h-80"
+              className="object-contain w-48 xxs:w-52 xs:w-60 sm:w-72 md:w-80 h-48 xxs:h-52 xs:h-60 sm:h-72 md:h-80"
             />
          
           </div>
         </div>
       )}
 
-      {/* Contact Form Modal - Mobile responsive */}
+      {/* Contact Form Modal - Comprehensive mobile responsive */}
       {showContactForm && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-sm sm:max-w-md w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
-            {/* Header - Mobile responsive */}
-            <div className="flex items-center justify-between p-4 sm:p-6 border-b">
-              <h2 className="text-lg sm:text-xl font-semibold text-gray-800">Contact Us</h2>
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-1 xxs:p-2 xs:p-2 sm:p-3 md:p-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-xs xxs:max-w-sm xs:max-w-sm sm:max-w-md md:max-w-md w-full max-h-[98vh] xxs:max-h-[96vh] xs:max-h-[95vh] sm:max-h-[92vh] md:max-h-[90vh] overflow-y-auto">
+            {/* Header - Comprehensive mobile responsive */}
+            <div className="flex items-center justify-between p-3 xxs:p-4 xs:p-4 sm:p-5 md:p-6 border-b">
+              <h2 className="text-base xxs:text-lg xs:text-lg sm:text-xl md:text-xl font-semibold text-gray-800">Contact Us</h2>
               <button 
                 onClick={() => setShowContactForm(false)}
-                className="w-6 sm:w-8 h-6 sm:h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+                className="w-5 xxs:w-6 xs:w-6 sm:w-7 md:w-8 h-5 xxs:h-6 xs:h-6 sm:h-7 md:h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
               >
-                <svg className="w-4 sm:w-5 h-4 sm:h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-3 xxs:w-3.5 xs:w-4 sm:w-4.5 md:w-5 h-3 xxs:h-3.5 xs:h-4 sm:h-4.5 md:h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
 
-            {/* Form - Mobile responsive spacing */}
-            <form onSubmit={handleFormSubmit} className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+            {/* Form - Comprehensive mobile responsive spacing */}
+            <form onSubmit={handleFormSubmit} className="p-3 xxs:p-4 xs:p-4 sm:p-5 md:p-6 space-y-2.5 xxs:space-y-3 xs:space-y-3 sm:space-y-3.5 md:space-y-4">
               {/* Name Field */}
               <div>
-                <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-xs xxs:text-xs xs:text-xs sm:text-sm md:text-sm font-medium text-gray-700 mb-0.5 xxs:mb-1 xs:mb-1 sm:mb-1 md:mb-1">
                   Name of the Person *
                 </label>
                 <input
@@ -327,14 +363,14 @@ export default function VCardPage() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500 text-sm"
+                  className="w-full px-2 xxs:px-2.5 xs:px-3 sm:px-3 md:px-3 py-1.5 xxs:py-2 xs:py-2 sm:py-2 md:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500 text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm"
                   placeholder="Enter your full name"
                 />
               </div>
 
               {/* Company Name Field */}
               <div>
-                <label htmlFor="companyName" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="companyName" className="block text-xs xxs:text-xs xs:text-xs sm:text-sm md:text-sm font-medium text-gray-700 mb-0.5 xxs:mb-1 xs:mb-1 sm:mb-1 md:mb-1">
                   Company Name *
                 </label>
                 <input
@@ -344,14 +380,14 @@ export default function VCardPage() {
                   value={formData.companyName}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500 text-sm"
+                  className="w-full px-2 xxs:px-2.5 xs:px-3 sm:px-3 md:px-3 py-1.5 xxs:py-2 xs:py-2 sm:py-2 md:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500 text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm"
                   placeholder="Enter your company name"
                 />
               </div>
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-xs xxs:text-xs xs:text-xs sm:text-sm md:text-sm font-medium text-gray-700 mb-0.5 xxs:mb-1 xs:mb-1 sm:mb-1 md:mb-1">
                   Email ID *
                 </label>
                 <input
@@ -361,14 +397,14 @@ export default function VCardPage() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500 text-sm"
+                  className="w-full px-2 xxs:px-2.5 xs:px-3 sm:px-3 md:px-3 py-1.5 xxs:py-2 xs:py-2 sm:py-2 md:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500 text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm"
                   placeholder="Enter your email address"
                 />
               </div>
 
               {/* Business Type Dropdown */}
               <div>
-                <label htmlFor="businessType" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="businessType" className="block text-xs xxs:text-xs xs:text-xs sm:text-sm md:text-sm font-medium text-gray-700 mb-0.5 xxs:mb-1 xs:mb-1 sm:mb-1 md:mb-1">
                   Business Type *
                 </label>
                 <select
@@ -377,7 +413,7 @@ export default function VCardPage() {
                   value={formData.businessType}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm"
+                  className="w-full px-2 xxs:px-2.5 xs:px-3 sm:px-3 md:px-3 py-1.5 xxs:py-2 xs:py-2 sm:py-2 md:py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm"
                 >
                   <option value="">Select your business type</option>
                   {businessTypes.map((type) => (
@@ -390,7 +426,7 @@ export default function VCardPage() {
 
               {/* Submit Message */}
               {submitMessage && (
-                <div className={`p-3 rounded-md text-xs sm:text-sm ${
+                <div className={`p-2 xxs:p-2.5 xs:p-3 sm:p-3 md:p-3 rounded-md text-xs xxs:text-xs xs:text-xs sm:text-sm md:text-sm ${
                   submitMessage.includes('successfully') 
                     ? 'bg-green-100 text-green-700 border border-green-200' 
                     : 'bg-red-100 text-red-700 border border-red-200'
@@ -403,7 +439,7 @@ export default function VCardPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-2 sm:py-3 px-4 rounded-md font-medium transition-colors text-sm ${
+                className={`w-full py-2 xxs:py-2 xs:py-2 sm:py-2.5 md:py-3 px-3 xxs:px-3.5 xs:px-4 sm:px-4 md:px-4 rounded-md font-medium transition-colors text-xs xxs:text-xs xs:text-sm sm:text-sm md:text-sm ${
                   isSubmitting
                     ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
                     : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'

@@ -6,6 +6,15 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      'xxs': '320px',   // iPhone SE, small phones
+      'xs': '375px',    // iPhone 12 mini, iPhone SE 2nd gen
+      'sm': '414px',    // iPhone 12 Pro, most standard phones
+      'md': '768px',    // Tablets
+      'lg': '1024px',   // Desktop
+      'xl': '1280px',   // Large desktop
+      '2xl': '1536px',  // Extra large desktop
+    },
     extend: {
       animation: {
         'marquee-left': 'marquee-left 60s linear infinite',
