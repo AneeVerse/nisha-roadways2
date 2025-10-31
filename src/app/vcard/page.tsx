@@ -2,19 +2,12 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import VCardPopupForm from '../../components/VCardPopupForm';
 
 export default function VCardPage() {
   const [showQRPopup, setShowQRPopup] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [hasShownAutoPopup, setHasShownAutoPopup] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    companyName: '',
-    email: '',
-    businessType: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
 
   // Auto-popup after 3 seconds
   useEffect(() => {
@@ -27,63 +20,6 @@ export default function VCardPage() {
 
     return () => clearTimeout(timer);
   }, [hasShownAutoPopup]);
-
-  const businessTypes = [
-    'Shipping Line',
-    'CHA',
-    'Freight Forwarder',
-    'Importer',
-    'Exporter',
-    'Manufacturer',
-    'Service Provider',
-    'Others'
-  ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setSubmitMessage('Thank you! Your message has been sent successfully.');
-        setFormData({
-          name: '',
-          companyName: '',
-          email: '',
-          businessType: ''
-        });
-        setTimeout(() => {
-          setShowContactForm(false);
-          setSubmitMessage('');
-        }, 3000);
-      } else {
-        setSubmitMessage(result.message || 'Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      setSubmitMessage('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const handleDownloadVCF = () => {
     const link = document.createElement('a');
@@ -199,6 +135,9 @@ export default function VCardPage() {
               }}
             />
             
+            {/* Blue Overlay Layer */}
+            <div className="absolute inset-0 bg-blue-600/30"></div>
+            
             {/* Card Content Overlay with Flexbox */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60">
               <div 
@@ -206,7 +145,7 @@ export default function VCardPage() {
                 style={{ padding: 'clamp(0.75rem, 3vw, 1.5rem)' }}
               >
                 {/* Logo Section with Fluid Sizing */}
-                <div className="flex justify-center items-center" style={{ marginBottom: 'clamp(-5rem, -12vw, -3.5rem)' }}>
+                <div className="flex justify-center items-center relative z-10" style={{ marginBottom: 'clamp(-5rem, -12vw, -3.5rem)' }}>
                   <div 
                     className="relative"
                     style={{
@@ -604,210 +543,11 @@ export default function VCardPage() {
         </div>
       )}
 
-      {/* Contact Form Modal */}
-      {showContactForm && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center"
-          style={{ padding: 'clamp(0.25rem, 1vw, 1rem)' }}
-        >
-          <div 
-            className="bg-white rounded-lg shadow-xl w-full overflow-y-auto"
-            style={{
-              maxWidth: 'clamp(300px, 90vw, 400px)',
-              maxHeight: 'clamp(95vh, 95vh, 90vh)',
-              borderRadius: 'clamp(0.5rem, 1.5vw, 1rem)'
-            }}
-          >
-            {/* Header */}
-            <div 
-              className="flex items-center justify-between border-b"
-              style={{ padding: 'clamp(0.75rem, 3vw, 1.5rem)' }}
-            >
-              <h2 
-                className="font-semibold text-gray-800"
-                style={{ fontSize: 'clamp(1rem, 4vw, 1.25rem)' }}
-              >
-                Contact Us
-              </h2>
-              <button 
-                onClick={() => setShowContactForm(false)}
-                className="bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
-                style={{
-                  width: 'clamp(1.25rem, 4vw, 2rem)',
-                  height: 'clamp(1.25rem, 4vw, 2rem)'
-                }}
-              >
-                <svg 
-                  className="text-gray-600" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  style={{
-                    width: 'clamp(0.75rem, 2.5vw, 1.25rem)',
-                    height: 'clamp(0.75rem, 2.5vw, 1.25rem)'
-                  }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Form */}
-            <form 
-              onSubmit={handleFormSubmit} 
-              className="grid gap-3"
-              style={{ 
-                padding: 'clamp(0.75rem, 3vw, 1.5rem)',
-                gap: 'clamp(0.625rem, 2.5vw, 1rem)'
-              }}
-            >
-              {/* Name Field */}
-              <div>
-                <label 
-                  htmlFor="name" 
-                  className="block font-medium text-gray-700"
-                  style={{ 
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    marginBottom: 'clamp(0.125rem, 0.5vw, 0.25rem)'
-                  }}
-                >
-                  Name of the Person *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500"
-                  placeholder="Enter your full name"
-                  style={{
-                    padding: 'clamp(0.375rem, 1.5vw, 0.5rem) clamp(0.5rem, 2vw, 0.75rem)',
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    borderRadius: 'clamp(0.25rem, 1vw, 0.375rem)'
-                  }}
-                />
-              </div>
-
-              {/* Company Name Field */}
-              <div>
-                <label 
-                  htmlFor="companyName" 
-                  className="block font-medium text-gray-700"
-                  style={{ 
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    marginBottom: 'clamp(0.125rem, 0.5vw, 0.25rem)'
-                  }}
-                >
-                  Company Name *
-                </label>
-                <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500"
-                  placeholder="Enter your company name"
-                  style={{
-                    padding: 'clamp(0.375rem, 1.5vw, 0.5rem) clamp(0.5rem, 2vw, 0.75rem)',
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    borderRadius: 'clamp(0.25rem, 1vw, 0.375rem)'
-                  }}
-                />
-              </div>
-
-              {/* Email Field */}
-              <div>
-                <label 
-                  htmlFor="email" 
-                  className="block font-medium text-gray-700"
-                  style={{ 
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    marginBottom: 'clamp(0.125rem, 0.5vw, 0.25rem)'
-                  }}
-                >
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white placeholder-gray-500"
-                  placeholder="Enter your email address"
-                  style={{
-                    padding: 'clamp(0.375rem, 1.5vw, 0.5rem) clamp(0.5rem, 2vw, 0.75rem)',
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    borderRadius: 'clamp(0.25rem, 1vw, 0.375rem)'
-                  }}
-                />
-              </div>
-
-              {/* Business Type Field */}
-              <div>
-                <label 
-                  htmlFor="businessType" 
-                  className="block font-medium text-gray-700"
-                  style={{ 
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    marginBottom: 'clamp(0.125rem, 0.5vw, 0.25rem)'
-                  }}
-                >
-                  Business Type *
-                </label>
-                <select
-                  id="businessType"
-                  name="businessType"
-                  value={formData.businessType}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white"
-                  style={{
-                    padding: 'clamp(0.375rem, 1.5vw, 0.5rem) clamp(0.5rem, 2vw, 0.75rem)',
-                    fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)',
-                    borderRadius: 'clamp(0.25rem, 1vw, 0.375rem)'
-                  }}
-                >
-                  <option value="">Select your business type</option>
-                  {businessTypes.map((type) => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 disabled:bg-blue-400 transition-colors"
-                style={{
-                  padding: 'clamp(0.5rem, 2vw, 0.75rem)',
-                  fontSize: 'clamp(0.875rem, 3vw, 1rem)',
-                  borderRadius: 'clamp(0.25rem, 1vw, 0.375rem)',
-                  marginTop: 'clamp(0.25rem, 1vw, 0.5rem)'
-                }}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-
-              {/* Submit Message */}
-              {submitMessage && (
-                <p 
-                  className={`text-center ${submitMessage.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}
-                  style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)' }}
-                >
-                  {submitMessage}
-                </p>
-              )}
-            </form>
-          </div>
-        </div>
-      )}
+      {/* VCard Popup Form */}
+      <VCardPopupForm 
+        show={showContactForm} 
+        onClose={() => setShowContactForm(false)} 
+      />
     </div>
   );
 }
