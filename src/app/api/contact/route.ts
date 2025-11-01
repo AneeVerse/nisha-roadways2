@@ -126,24 +126,28 @@ export async function POST(request: Request) {
               </div>
               
               <div style="background: #e8f5e8; padding: 20px; border-radius: 8px; border-left: 4px solid #4caf50;">
-                <h3 style="color: #2e7d32; margin-top: 0;">What Happens Next?</h3>
-                <ul style="color: #333; line-height: 1.6; margin: 0; padding-left: 20px;">
-                  <li>Our logistics experts will review your ${businessType.toLowerCase()} requirements</li>
-                  <li>We'll contact you within 24-48 hours with tailored solutions</li>
-                  <li>We'll provide you with competitive pricing and service options</li>
-                  <li>Our team will guide you through our comprehensive logistics services</li>
-                </ul>
+                <h3 style="color: #2e7d32; margin-top: 0;">The Way Forward</h3>
+                <ol style="color: #333; line-height: 1.6; margin: 0; padding-left: 20px;">
+                  <li>Someone from our Sales/ Marketing will contact you to understand more on your enquiry.</li>
+                  <li>We shall update you with all kind of services that we provide and also offer you the best one that suits your requirement.</li>
+                  <li>We shall offer you the most competitive pricing, time required for completion and other related action plan from our side.</li>
+                </ol>
               </div>
               
               <div style="background: #fff3e0; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="color: #f57c00; margin-top: 0;">Our Services Include:</h3>
-                <ul style="color: #333; line-height: 1.6; margin: 0; padding-left: 20px;">
-                  <li>Road Transportation & Logistics</li>
-                  <li>Freight Forwarding Services</li>
-                  <li>Warehousing & Distribution</li>
-                  <li>Custom Clearance Support</li>
-                  <li>Supply Chain Management</li>
-                </ul>
+                <h3 style="color: #f57c00; margin-top: 0;">Our Services Include (Within India)</h3>
+                <ol style="color: #333; line-height: 1.6; margin: 0; padding-left: 20px;">
+                  <li>Road Transportation of any type and size, including odd dimensions</li>
+                  <li>Movement of Empty Containers and Tanks</li>
+                  <li>Movement of Import and Export Containers</li>
+                  <li>Movement of Over Dimension Cargo and Structures</li>
+                  <li>Making Empty Containers available for your cargo as per your need on pre agreed rates and timelines</li>
+                  <li>Making Specialized Cargo Movements with Double Drivers and Escort Facility</li>
+                  <li>Movement of High Value Items</li>
+                  <li>Movement of Solar Panels</li>
+                  <li>Container buying and selling assistance</li>
+                  <li>Other Misc. Services, ancillary to main business</li>
+                </ol>
               </div>
               
               <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
@@ -151,7 +155,7 @@ export async function POST(request: Request) {
                 <p style="color: #333; font-weight: bold; margin: 5px 0;">📞 +91 22 4163 222 | 📱 +91 98 2042 0924</p>
                 <p style="color: #666; font-size: 14px;">📧 business@nisharoadways.com</p>
                 <p style="color: #666; font-size: 12px; margin-top: 15px;">
-                  909, Mayureh cosmos, plot no 37, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614
+                  909, Mayuresh cosmos, plot no 37, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614
                 </p>
               </div>
             </div>

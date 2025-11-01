@@ -298,7 +298,7 @@ export default function VCardPage() {
                   className="text-gray-600"
                   style={{ fontSize: 'clamp(0.75rem, 2.5vw, 0.875rem)' }}
                 >
-                  business@nisharoadys.com
+                  business@nisharoadways.com
                 </p>
               </div>
 
