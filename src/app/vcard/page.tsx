@@ -247,7 +247,7 @@ export default function VCardPage() {
                   className="grid gap-1"
                   style={{ gap: 'clamp(0.125rem, 0.5vw, 0.5rem)' }}
                 >
-                  {['+91 22 4163 222', '+91 98 2042 0924', '+91 93 2008 8518'].map((phone, index) => (
+                  {['022 - 41632222', '+91 98 2042 0924', '+91 93 2008 8518'].map((phone, index) => (
                     <p 
                       key={index}
                       className="text-gray-600"

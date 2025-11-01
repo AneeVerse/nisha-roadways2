@@ -102,7 +102,7 @@ export async function POST(request: Request) {
         Best regards,
         Nisha Roadways Team
         Email: business@nisharoadways.com
-        Phone: +91 22 4163 222
+        Phone: 022 - 41632222
       `,
       html: `
         <div style="font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; max-width: 600px; margin: 0 auto; background: #f5f5f5; padding: 20px;">
@@ -152,7 +152,7 @@ export async function POST(request: Request) {
               
               <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
                 <p style="color: #666; margin: 0;">Need immediate assistance?</p>
-                <p style="color: #333; font-weight: bold; margin: 5px 0;">📞 +91 22 4163 222 | 📱 +91 98 2042 0924</p>
+                <p style="color: #333; font-weight: bold; margin: 5px 0;">📞 022 - 41632222 | 📱 +91 98 2042 0924</p>
                 <p style="color: #666; font-size: 14px;">📧 business@nisharoadways.com</p>
                 <p style="color: #666; font-size: 12px; margin-top: 15px;">
                   909, Mayuresh cosmos, plot no 37, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614
