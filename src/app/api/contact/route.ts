@@ -164,6 +164,33 @@ export async function POST(request: Request) {
     await transporter.sendMail(adminMailOptions);
     await transporter.sendMail(thankYouMailOptions);
 
+    // Send data to Google Sheets
+    try {
+      const GOOGLE_APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL;
+      
+      if (GOOGLE_APPS_SCRIPT_URL) {
+        const sheetsResponse = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            companyName: companyName,
+            email: email,
+            businessType: businessType,
+            source: 'VCard Contact Form'
+          }),
+        });
+        
+        const sheetsResult = await sheetsResponse.json();
+        console.log('Google Sheets response:', sheetsResult);
+      } else {
+        console.warn('Google Apps Script URL not configured');
+      }
+    } catch (sheetError) {
+      console.error('Error sending data to Google Sheets:', sheetError);
+      // Don't fail the entire request if Google Sheets fails
+    }
+
     return NextResponse.json(
       { success: true, message: 'Thank you for your inquiry! We will contact you soon.' },
       { status: 200 }

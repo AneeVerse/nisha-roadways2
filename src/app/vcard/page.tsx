@@ -342,7 +342,7 @@ export default function VCardPage() {
                   style={{ gap: 'clamp(0.125rem, 0.5vw, 0.25rem)' }}
                 >
                   {[
-                    '909, Mayureh cosmos,',
+                    '909, Mayuresh cosmos,',
                     'plot no 37, Sector 11, CBD Belapur,',
                     'Navi Mumbai, Maharashtra 400614',
                     'India'
