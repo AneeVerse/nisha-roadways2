@@ -24,7 +24,7 @@ export default function VCardPage() {
 
   const handleDownloadVCF = () => {
     const link = document.createElement('a');
-    link.href = '/images/vcard/vcf';
+    link.href = '/images/vcard/vcf.vcf';
     link.download = 'nisha-roadways-contact.vcf';
     link.setAttribute('type', 'text/vcard');
     document.body.appendChild(link);
