@@ -152,7 +152,7 @@ export async function POST(request: Request) {
               
               <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
                 <p style="color: #666; margin: 0;">Need immediate assistance?</p>
-                <p style="color: #333; font-weight: bold; margin: 5px 0;">📞 022 - 41632222 | 📱 +91 9320088518</p>
+                <p style="color: #333; font-weight: bold; margin: 5px 0;">📞 022 - 41632222 | 📱 +91 89769713488</p>
                 <p style="color: #666; font-size: 14px;">📧 business@nisharoadways.com</p>
                 <p style="color: #666; font-size: 12px; margin-top: 15px;">
                   909, Mayuresh cosmos, plot no 37, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra 400614
