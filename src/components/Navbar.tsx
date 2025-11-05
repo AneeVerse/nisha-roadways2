@@ -71,6 +71,18 @@ export default function Navbar() {
     };
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  React.useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   // Hover delay functions
   const handleMenuEnter = (menuType: "services" | "whyus" | "resources") => {
     if (hoverTimeoutRef.current) {
@@ -442,7 +454,7 @@ export default function Navbar() {
         {/* Subtle gradient overlay - when scrolled or menu open */}
         {(isScrolled || openMenu) && <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50"></div>}
         
-        <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24 relative">
+        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 relative">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 group">
@@ -565,10 +577,27 @@ export default function Navbar() {
             </div>
           </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Full-screen overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-700/50 py-6 bg-gray-900/95 backdrop-blur-lg">
-            <div className="divide-y divide-gray-700/50">
+          <div className="fixed inset-0 z-[120] lg:hidden w-screen h-[100dvh] bg-gray-900 overflow-hidden">
+            <div className="flex flex-col h-full">
+              {/* Top bar with logo and close button */}
+              <div className="flex items-center justify-between px-4 py-4 border-b border-gray-700/40">
+                <Link href="/" className="flex-shrink-0">
+                  <Image src="/images/nav-logo.png" alt="Nisha" width={120} height={36} className="h-9 w-auto" />
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                  className="rounded-xl w-10 h-10 text-white hover:text-blue-400 hover:bg-gray-800/50"
+                >
+                  <X className="h-6 w-6" />
+                </Button>
+              </div>
+              <div className="flex-1 overflow-y-auto">
+                <div className="divide-y divide-gray-700/50 px-2 pb-10 pt-2">
               {/* Services */}
               <details open className="group">
                 <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
@@ -618,10 +647,12 @@ export default function Navbar() {
                 </div>
               </details>
 
-              <div className="pt-6 px-2">
-                <Button className="w-full py-4 text-base font-medium bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                  Contact
-                </Button>
+                  <div className="pt-6 px-2">
+                    <Button className="w-full py-4 text-base font-medium bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                      Contact
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

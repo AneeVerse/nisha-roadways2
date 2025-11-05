@@ -62,8 +62,14 @@ p, body, div, span, a, li, td, th, label, input, textarea, select, button {
   font-weight: 500;
 }
 
+/* Prevent horizontal panning/scroll bleed across the site */
 html {
-  overflow-x: hidden
+  overflow-x: clip; /* stronger than hidden for layout, avoids scrollbars */
+}
+
+body {
+  overflow-x: clip;
+  overscroll-behavior-x: none; /* disables side-swipe elasticity on mobile */
 }
 
 * {

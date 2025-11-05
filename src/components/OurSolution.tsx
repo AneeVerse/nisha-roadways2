@@ -215,8 +215,8 @@ export default function OurSolution() {
       {/* Main Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 lg:pb-40">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-          {/* Fixed Left Image Card */}
-          <div className="lg:w-1/2 order-2 lg:order-1 lg:self-start sticky top-28 lg:my-12">
+          {/* Fixed Left Image Card (sticky only on desktop) */}
+          <div className="lg:w-1/2 order-2 lg:order-1 lg:self-start lg:sticky lg:top-28 lg:my-12">
             <div className="relative group">
               {/* Card Container */}
               <div className="relative rounded-3xl bg-white shadow-2xl shadow-black/50 border border-blue-100/50 backdrop-blur-sm">

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen w-full overflow-hidden pt-0 -mt-20">
+    <section id="home" className="relative min-h-screen w-screen overflow-hidden pt-0 -mt-20">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <video
@@ -26,7 +26,7 @@ export default function Hero() {
       </div>
       
       <div className="relative z-10 flex items-center justify-start min-h-screen pt-20">
-        <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24">
+        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24">
           <div className="max-w-4xl">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white leading-[0.9] tracking-tight mb-8">
               Intelligent Solutions for Every Supply Chain Challenge
