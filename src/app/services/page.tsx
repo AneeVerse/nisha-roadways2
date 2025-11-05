@@ -198,7 +198,7 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 md:pt-24">
+      <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-24">
         {/* Animated Background */}
         <motion.div 
           className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900"
@@ -206,7 +206,7 @@ const ServicesPage = () => {
         >
           {/* Animated geometric shapes */}
           <motion.div 
-            className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"
+            className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl hidden sm:block"
             animate={{ 
               x: [0, 30, 0],
               y: [0, -20, 0],
@@ -219,7 +219,7 @@ const ServicesPage = () => {
             }}
           />
           <motion.div 
-            className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"
+            className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl hidden sm:block"
             animate={{ 
               rotate: [0, 180, 360],
               scale: [1, 0.8, 1]
@@ -231,7 +231,7 @@ const ServicesPage = () => {
             }}
           />
           <motion.div 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl hidden sm:block"
             animate={{ 
               rotate: [0, 360],
               scale: [1, 1.2, 1]
@@ -244,7 +244,7 @@ const ServicesPage = () => {
           />
           
           {/* Enhanced grid pattern */}
-          <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0 opacity-30 hidden sm:block">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] animate-pulse" />
           </div>
         </motion.div>
@@ -267,12 +267,13 @@ const ServicesPage = () => {
               Comprehensive Logistics Solutions
             </motion.div>
 
-            {/* Main Title */}
+            {/* Main Title */
+            }
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
              
               <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text text-transparent">

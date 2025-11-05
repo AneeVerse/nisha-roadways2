@@ -7,7 +7,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 pt-24">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -20,8 +20,8 @@ export default function AboutPage() {
           backgroundImage: `url(&quot;data:image/svg+xml,%3Csvg width=&apos;60&apos; height=&apos;60&apos; viewBox=&apos;0 0 60 60&apos; xmlns=&apos;http://www.w3.org/2000/svg&apos;%3E%3Cg fill=&apos;none&apos; fill-rule=&apos;evenodd&apos;%3E%3Cg fill=&apos;%23000000&apos; fill-opacity=&apos;1&apos;%3E%3Ccircle cx=&apos;7&apos; cy=&apos;7&apos; r=&apos;1&apos;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;)`
         }}></div>
         
-        <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen py-12">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[60vh] sm:min-h-screen py-10 sm:py-12">
             
             {/* Left Content - Perfectly Aligned */}
             <div className="flex flex-col justify-center space-y-6 lg:pr-8">
