@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Star, Quote, Trophy } from 'lucide-react'
 import Footer from '@/components/Footer'
+import CtaBanner from '@/components/CtaBanner'
 
 export default function TestimonialsPage() {
   const testimonials = [
@@ -127,22 +128,8 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Join Our Success Stories */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Join These Companies
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Join 500+ companies who&apos;ve transformed their logistics operations through our partnership approach. Experience the difference that four decades of excellence makes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-colors">
-              Start Your First Shipment
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* CTA Banner */}
+      <CtaBanner />
 
       {/* Footer */}
       <Footer />

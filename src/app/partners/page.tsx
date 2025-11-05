@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Users, Award, Target, Building2, Package, Ship, Train, Warehouse, ShieldCheck, Zap } from 'lucide-react'
 import Footer from '@/components/Footer'
+import CtaBanner from '@/components/CtaBanner'
 
 export default function PartnersPage() {
   return (
@@ -173,25 +174,8 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Ready to Experience Integrated Logistics?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Discover how our partner network delivers complete logistics solutions for businesses across India.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-colors">
-              Get Started
-            </Link>
-            <Link href="/testimonials" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-              Read Success Stories
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* CTA Banner */}
+      <CtaBanner />
 
       {/* Footer */}
       <Footer />

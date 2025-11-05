@@ -167,6 +167,7 @@ export default function Navbar() {
     { title: "Blogs", desc: "Insights and updates", href: "/blog", image: "/images/use-everywhere/images1.png" },
     { title: "Nisha Academy", desc: "Logistics education and training", href: "/academy", image: "/images/use-everywhere/images2.png" },
     { title: "FAQ", desc: "Answers to common questions", href: "/faq", image: "/images/use-everywhere/images3.png" },
+    { title: "Contact", desc: "Get in touch with us", href: "/contact", image: "/images/use-everywhere/images4.png" },
   ];
 
   // Sample data for latest blogs and programs
@@ -305,6 +306,11 @@ export default function Navbar() {
                           {item.title === "FAQ" && (
                             <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                          )}
+                          {item.title === "Contact" && (
+                            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                           )}
                         </div>
