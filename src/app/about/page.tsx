@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { ArrowRight, Award, Users, Globe, Shield, Truck, Warehouse, Cpu, Target, Eye, Heart, Star, CheckCircle, MapPin } from 'lucide-react';
+import Footer from '@/components/Footer';
+import TeamProfileCard from '@/components/TeamProfileCard';
 
 export default function AboutPage() {
   return (
@@ -26,7 +28,7 @@ export default function AboutPage() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-blue-200/50 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold shadow-lg w-fit">
                 <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                Since 1982 • 40+ Years of Excellence
+                Since 1982 • 43 Years of Excellence
               </div>
               
               {/* Main Heading - Perfect Typography */}
@@ -43,6 +45,18 @@ export default function AboutPage() {
                 43 years later, we&apos;re moving 96,000 shipments annually across India. We&apos;ve grown from local transport to pan-India operations with plans for Dubai and Africa.
               </p>
               
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div>
+                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">2.3M+</div>
+                  <div className="text-sm font-semibold text-gray-600 mt-1">Shipments Moved</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">300+</div>
+                  <div className="text-sm font-semibold text-gray-600 mt-1">Active Clients</div>
+                </div>
+              </div>
+              
               {/* CTA Buttons - Perfect Alignment */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <button className="group bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-2xl text-base transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center gap-2 shadow-xl">
@@ -57,21 +71,7 @@ export default function AboutPage() {
                 </button>
               </div>
               
-              {/* Stats - Perfect Grid */}
-              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200/50">
-                <div className="text-center group">
-                  <div className="text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">500+</div>
-                  <div className="text-xs font-semibold text-gray-600 mt-1">Companies Served</div>
-                </div>
-                <div className="text-center group">
-                  <div className="text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">16+</div>
-                  <div className="text-xs font-semibold text-gray-600 mt-1">Industries</div>
-                </div>
-                <div className="text-center group">
-                  <div className="text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">30+</div>
-                  <div className="text-xs font-semibold text-gray-600 mt-1">Branches</div>
-                </div>
-              </div>
+
             </div>
             
             {/* Right Visual - Perfect Alignment */}
@@ -142,14 +142,14 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Timeline Cards */}
             <div className="space-y-8">
-              {/* 1982 Card */}
+              {/* Real Tracking Card */}
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                 <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
                       <div className="bg-gradient-to-br from-yellow-500 to-orange-500 text-white rounded-2xl w-16 h-16 flex items-center justify-center font-bold text-xl shadow-lg">
-                        1982
+                        <Target className="w-8 h-8" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -166,14 +166,14 @@ export default function AboutPage() {
                 </div>
               </div>
               
-              {/* 1975 Card */}
+              {/* Fleet Card */}
               <div className="group relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
                 <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
                       <div className="bg-gradient-to-br from-blue-500 to-indigo-500 text-white rounded-2xl w-16 h-16 flex items-center justify-center font-bold text-xl shadow-lg">
-                        1975
+                        <Truck className="w-8 h-8" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -203,7 +203,7 @@ export default function AboutPage() {
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center">
-                        <div className="w-6 h-6 bg-white rounded-full"></div>
+                        <Warehouse className="w-6 h-6 text-blue-900" />
                       </div>
                       <h3 className="text-3xl font-bold">500 containers ready</h3>
                     </div>
@@ -215,7 +215,7 @@ export default function AboutPage() {
                     <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center">
-                          <div className="w-4 h-4 bg-white rounded-full"></div>
+                          <CheckCircle className="w-4 h-4 text-blue-900" />
                         </div>
                         <p className="text-yellow-300 font-bold text-lg">Our Approach</p>
                       </div>
@@ -225,72 +225,12 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-                
-                {/* Floating Image */}
-                <div className="absolute -top-8 -right-8 z-20">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full blur-lg opacity-50"></div>
-                    <Image 
-                      src="/images/use-everywhere/images2.png" 
-                      alt="Nisha Roadways Journey" 
-                      width={120} 
-                      height={120} 
-                      className="relative w-32 h-32 object-cover rounded-full border-4 border-white shadow-2xl"
-                    />
-                  </div>
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Chairman's Message */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">The Chairman Speaks</h2>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
-          </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-orange-50 to-yellow-50 p-8 md:p-12 rounded-3xl shadow-xl relative">
-              <div className="absolute top-6 left-6 text-6xl text-orange-400 opacity-50">&quot;</div>
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-orange-600 mb-4">JAI MATA DI!</h3>
-              </div>
-              
-              <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
-                <p>
-                  As the economy improves and India marches to a brighter future, we at Nisha Roadways boost our business to bolster growth and progress. Over the years, we have persistently explored options aiming to be one of the leading logistics companies in this industry segment.
-                </p>
-                <p>
-                  Our cornerstone is our team of qualified and earnest employees. They have been our major strength in delivering optimum solutions to our clients. Together we are planning our bright way forward, strategizing processes to meet new challenges.
-                </p>
-                <p>
-                  I take this opportunity to welcome prospective clients, vendors and associates to the Nisha Parivaar for a valuable relationship and journey towards success.
-                </p>
-              </div>
-              
-              <div className="mt-8 text-center">
-                <div className="inline-flex items-center gap-4 bg-white p-4 rounded-2xl shadow-lg">
-                  <Image 
-                    src="/images/use-everywhere/images3.png" 
-                    alt="Nandkishor Agarwal" 
-                    width={80} 
-                    height={80} 
-                    className="rounded-full object-cover"
-                  />
-                  <div className="text-left">
-                    <p className="font-bold text-gray-900 text-xl">Nandkishor Agarwal</p>
-                    <p className="text-gray-600">Founder and Chairman</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Technology Integration */}
       <section className="py-20 bg-white">
@@ -298,7 +238,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Technology Integration</h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
-            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto leading-relaxed">
               We&apos;re building <span className="font-bold text-blue-600">DICE</span>, our end-to-end logistics platform. It handles orders, tracking, documentation, and billing with minimal human intervention. AI integration improves route planning and reduces delivery times.
             </p>
           </div>
@@ -311,8 +251,11 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Training Matters</h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
-            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
-              <span className="font-bold text-blue-600">Aamita</span> is our weekly training program where industry experts share real experiences. Our team learns from people who&apos;ve handled ODC movements in monsoons, cleared customs in 2 hours, and managed port congestion. Better training means better service for you.
+            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto leading-relaxed">
+              <span className="font-bold text-blue-600">Aamita</span> is our weekly training program where industry experts share real experiences. Our team learns from people who&apos;ve handled ODC movements in monsoons, cleared customs in 2 hours, and managed port congestion.
+            </p>
+            <p className="text-lg text-gray-700 mt-4 max-w-2xl mx-auto font-semibold">
+              Better training means better service for you.
             </p>
           </div>
         </div>
@@ -324,7 +267,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Building Relationships</h2>
             <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
-            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto leading-relaxed">
               We organize the <span className="font-bold text-blue-600">Nisha Cricket Team IPL Championship</span> every year. Clients join us for friendly matches. It&apos;s not about winning—it&apos;s about knowing the people who move your cargo.
             </p>
           </div>
@@ -340,130 +283,41 @@ export default function AboutPage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Nandkishor Agarwal */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-64 bg-gradient-to-br from-blue-600 to-indigo-700">
-                <Image 
-                  src="/images/use-everywhere/images1.png" 
-                  alt="Nandkishor Agarwal" 
-                  width={300} 
-                  height={300} 
-                  className="w-full h-full object-cover opacity-20"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                    <Users className="w-16 h-16 text-blue-600" />
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Nandkishor Agarwal</h3>
-                <p className="text-blue-600 font-semibold mb-4">Founder & Chairman</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Born and brought up in Calcutta, Mr. Nandkishor Agarwal moved to Mumbai in 1975. Having completed his education in Calcutta, he got a job in a small transport company as Supervisor as soon as he arrived in Mumbai. He subsequently started out on his own and founded Nisha Roadways Pvt. Ltd. in 1982. The company has grown from strength to strength over the years. His rich experience of 43 years in the transport sector has earned him tremendous goodwill and respect amongst his clients, competitors and industry biggies.
-                </p>
-              </div>
-            </div>
-
-            {/* Navin Agarwal */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-64 bg-gradient-to-br from-green-600 to-emerald-700">
-                <Image 
-                  src="/images/use-everywhere/images2.png" 
-                  alt="Navin Agarwal" 
-                  width={300} 
-                  height={300} 
-                  className="w-full h-full object-cover opacity-20"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                    <Target className="w-16 h-16 text-green-600" />
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Navin Agarwal</h3>
-                <p className="text-green-600 font-semibold mb-4">Chief Executive Officer</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  After completing his B.Com from Mumbai University, Navin acquired an MBA from K. J. Somaiya Institute of Management Studies, Mumbai, and subsequently joined the business in the year 2000. Bringing innovative ideas, he worked to boost the business from just four to 30+ branches, thus widening the network pan-India. Making calculated strategies work for him, he diversified into other segments like tank division, LCL, FCL services, warehousing and packaging etc. Today under his astute supervision, NRPL is steadily growing with their own fleet on roads.
-                </p>
-              </div>
-            </div>
-
-            {/* Rajkumar Agarwal */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-64 bg-gradient-to-br from-purple-600 to-violet-700">
-                <Image 
-                  src="/images/use-everywhere/images3.png" 
-                  alt="Rajkumar Agarwal" 
-                  width={300} 
-                  height={300} 
-                  className="w-full h-full object-cover opacity-20"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                    <Shield className="w-16 h-16 text-purple-600" />
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Rajkumar Agarwal</h3>
-                <p className="text-purple-600 font-semibold mb-4">Mentor</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Mr. Raj Kumar Agarwal, a practicing lawyer in the field of Income tax, left his practice to pursue his dream in the field of Real estate in the year 1990. Currently the founder & Managing Director of Kolkata&apos;s Real Estate company &quot;AMBEY GROUP&quot;, engaged in construction and land development for both residential as well as commercial spaces since more than two decades.
-                </p>
-              </div>
-            </div>
-
-            {/* Sumit Singhania */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-64 bg-gradient-to-br from-orange-600 to-red-700">
-                <Image 
-                  src="/images/use-everywhere/images4.png" 
-                  alt="Sumit Singhania" 
-                  width={300} 
-                  height={300} 
-                  className="w-full h-full object-cover opacity-20"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                    <Award className="w-16 h-16 text-orange-600" />
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Sumit Singhania</h3>
-                <p className="text-orange-600 font-semibold mb-4">Chartered Accountant, BAS & CO.</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  He is a chartered accountant with over 18 years of working experience in the field of audit, finance, real-estate and taxation. He has extensive knowledge of the Indian real-estate sector and has passion for developing innovative products for the real-estate sector. He carries with him the experience of working with the big 4 CA Firms and has executed several projects in the country as the leader. He is presently serving as a Consultant in BAS & CO. LLP and is also acting as a CEO & Founder of Distress Bricks Private Limited.
-                </p>
-              </div>
-            </div>
-
-            {/* Arun Kumar Pandey */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 md:col-span-2 lg:col-span-1">
-              <div className="relative h-64 bg-gradient-to-br from-teal-600 to-cyan-700">
-                <Image 
-                  src="/images/use-everywhere/images5.png" 
-                  alt="Arun Kumar Pandey" 
-                  width={300} 
-                  height={300} 
-                  className="w-full h-full object-cover opacity-20"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                    <Star className="w-16 h-16 text-teal-600" />
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Arun Kumar Pandey</h3>
-                <p className="text-teal-600 font-semibold mb-4">Chartered Accountant, Pandey & Associates</p>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  Arun Pandey comes with a rock solid experience of 30 years as a Chartered Accountant. Having worked with 15 companies which are in the big league, today he runs his own company &quot;A Pandey & Associates&quot;. Immensely benefitting his collective experience working has given him in-depth proficiency about the working of this industry. Today he is amongst the core group of NRPL.
-                </p>
-              </div>
-            </div>
+            <TeamProfileCard
+              name="NK AGARWAL"
+              role="Founder & Chairman"
+              imageSrc="/images/dream-team/imgi_2_nka.jpg"
+              description="Born and brought up in Calcutta, Mr. Nandkishor Agarwal moved to Mumbai in 1975. Having completed his education in Calcutta, he got a job in a small transport company as Supervisor as soon as he arrived in Mumbai. He subsequently started out on his own and founded Nisha Roadways Pvt. Ltd. in 1982. The company has grown from strength to strength over the years. His rich experience of 43 years in the transport sector has earned him tremendous goodwill and respect amongst his clients, competitors and industry biggies."
+              accentGradient="from-blue-600 to-indigo-700"
+            />
+            <TeamProfileCard
+              name="NAVIN AGARWAL"
+              role="CEO"
+              imageSrc="/images/dream-team/imgi_3_navina.jpg"
+              description="After completing his B.Com from Mumbai University, Navin acquired an MBA from K. J. Somaiya Institute of Management Studies, Mumbai, and subsequently joined the business in the year 2000. Bringing innovative ideas, he worked to boost the business from just four to 30+ branches, thus widening the network pan-India. Making calculated strategies work for him, he diversified into other segments like tank division, LCL, FCL services, warehousing and packaging etc. Today under his astute supervision, NRPL is steadily growing with their own fleet on roads."
+              accentGradient="from-green-600 to-emerald-700"
+            />
+            <TeamProfileCard
+              name="RAJKUMAR AGARWAL"
+              role="Mentor"
+              imageSrc="/images/dream-team/imgi_4_rajkumara.jpg"
+              description="Mr. Raj Kumar Agarwal, a practicing lawyer in the field of Income tax, left his practice to pursue his dream in the field of Real estate in the year 1990. Currently the founder &amp; Managing Director of Kolkata's Real Estate company &quot;AMBEY GROUP&quot;, engaged in construction and land development for both residential as well as commercial spaces since more than two decades."
+              accentGradient="from-purple-600 to-violet-700"
+            />
+            <TeamProfileCard
+              name="SUMIT SINGHANIA"
+              role="C.A (Consultant)"
+              imageSrc="/images/dream-team/imgi_5_sumits.jpg"
+              description="He is a chartered accountant with over 18 years of working experience in the field of audit, finance, real-estate and taxation. He has extensive knowledge of the Indian real-estate sector and has passion for developing innovative products for the real-estate sector. He carries with him the experience of working with the big 4 CA Firms and has executed several projects in the country as the leader. He is presently serving as a Consultant in BAS &amp; CO. LLP and is also acting as a CEO &amp; Founder of Distress Bricks Private Limited."
+              accentGradient="from-orange-600 to-red-700"
+            />
+            <TeamProfileCard
+              name="ARUN KUMAR PANDEY"
+              role="C.A (Consultant)"
+              imageSrc="/images/dream-team/imgi_6_arunkumar.jpg"
+              description="Arun Pandey comes with a rock solid experience of 30 years as a Chartered Accountant. Having worked with 15 companies which are in the big league, today he runs his own company &quot;A Pandey &amp; Associates&quot;. Immensely benefitting his collective experience working has given him in-depth proficiency about the working of this industry. Today he is amongst the core group of NRPL."
+              accentGradient="from-teal-600 to-cyan-700"
+            />
           </div>
         </div>
       </section>
@@ -1085,6 +939,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -1,97 +1,45 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, Star, Quote, CheckCircle, Trophy, FileText, Factory, Building2, Filter, Download, Anchor, Pill } from 'lucide-react'
+import { ArrowRight, Star, Quote, Trophy } from 'lucide-react'
+import Footer from '@/components/Footer'
 
 export default function TestimonialsPage() {
-  const [selectedIndustry, setSelectedIndustry] = useState('All')
-  
-  const industries = ['All', 'Chemicals', 'Shipping', 'Pharmaceuticals', 'Textiles', 'FMCG', 'Electronics', 'Engineering', 'Entertainment', 'Energy', 'Retail', 'Construction', 'Oil & Gas', 'Steel', 'Cement', 'Aviation']
-
   const testimonials = [
     {
       id: 1,
       name: "S Varadarajan",
       position: "Executive Director & CEO",
       company: "Shreyas Relay Systems Ltd.",
-      industry: "Engineering",
-      image: "/api/placeholder/80/80",
       rating: 5,
       testimonial: "Nisha Roadways have been our trusted partners for our container movements for the last decade. They have always been very service-centric and maintained excellent transparent relationships with the company. Always ready to meet any challenges that are given to them.",
-      keyMetrics: "10+ years partnership, Service-centric approach, Transparent relationships"
     },
     {
       id: 2,
       name: "Capt. Thaddeus Choo",
       position: "OOCL (INDIA) PVT. LTD.",
       company: "OOCL (INDIA) PVT. LTD.",
-      industry: "Shipping",
-      image: "/api/placeholder/80/80",
       rating: 5,
       testimonial: "At OOCL (India), we have always found Nisha Roadways services to be very prompt, transparent, and customer-oriented. Where we have challenges, Nisha Roadways is there to listen and work with us to tackle the challenges.",
-      keyMetrics: "Prompt service, Transparent operations, Customer-oriented approach"
     },
     {
       id: 3,
       name: "Apurva Sheth",
       position: "Director",
       company: "CKB GROUPS",
-      industry: "Trading",
-      image: "/api/placeholder/80/80",
       rating: 5,
       testimonial: "[Include full testimonial from website]",
-      keyMetrics: "Trusted partnership, Reliable service"
     },
     {
       id: 4,
       name: "Nitin Chhibber",
       position: "Emirates Shipping",
       company: "Emirates Shipping",
-      industry: "Shipping",
-      image: "/api/placeholder/80/80",
       rating: 5,
       testimonial: "Nisha Roadways Pvt. Ltd. is one of the most respected transportation companies in India. They have grown into this leadership position because they are flexible and open to changes to get the job done right—without compromising on their ethics or safety standards. NRPL is always our top choice for transportation at Emirates Shipping.",
-      keyMetrics: "Respected leadership, Flexible approach, Uncompromising ethics"
     }
   ]
-
-  const caseStudies = [
-    {
-      title: "Container Shipping Revolution",
-      client: "Major Shipping Line",
-      industry: "Shipping & Logistics",
-      challenge: "Inefficient empty container repositioning causing 40% cost overruns and port congestion",
-      solution: "Pioneered road-based empty container transportation with optimized routing algorithms",
-      results: ["35% reduction in repositioning costs", "50% faster container turnaround", "Eliminated port congestion delays"],
-      timeline: "6 months implementation",
-      icon: <Anchor className="w-8 h-8" />
-    },
-    {
-      title: "Pharmaceutical Cold Chain Excellence",
-      client: "Leading Pharma Company",
-      industry: "Pharmaceuticals",
-      challenge: "Temperature-sensitive drug transportation with zero tolerance for deviations",
-      solution: "Implemented GPS-enabled temperature monitoring with real-time alerts and backup systems",
-      results: ["100% temperature compliance achieved", "Zero product loss incidents", "Regulatory audit success rate: 100%"],
-      timeline: "3 months setup",
-      icon: <Pill className="w-8 h-8" />
-    },
-    {
-      title: "Steel Industry Optimization",
-      client: "Major Steel Manufacturer",
-      industry: "Steel & Heavy Industry",
-      challenge: "Heavy steel coil transportation with frequent damage claims and delays",
-      solution: "Developed specialized securing techniques and route optimization for heavy cargo",
-      results: ["Zero damage claims in 2 years", "30% reduction in transit time", "98.5% on-time delivery rate"],
-      timeline: "4 months optimization",
-      icon: <Factory className="w-8 h-8" />
-    }
-  ]
-
-  const filteredTestimonials = selectedIndustry === 'All' 
-    ? testimonials 
-    : testimonials.filter(t => t.industry === selectedIndustry)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 overflow-x-hidden">
@@ -118,7 +66,7 @@ export default function TestimonialsPage() {
 
         <div className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-lg text-blue-700 font-semibold text-sm tracking-wide uppercase  mt-18">
+            <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-lg text-blue-700 font-semibold text-sm tracking-wide uppercase mt-18">
               <Star className="w-4 h-4" />
               Client Success Stories
             </div>
@@ -132,68 +80,17 @@ export default function TestimonialsPage() {
             Here&apos;s what industry leaders say about working with us.
           </p>
 
-          {/* Testimonial Impact Metrics */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 max-w-6xl mx-auto">
-            <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg">
-              <div className="text-3xl font-bold text-blue-600 mb-2">4.9/5</div>
-              <div className="text-gray-700 font-medium">Average Rating</div>
-            </div>
-            <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg">
-              <div className="text-3xl font-bold text-purple-600 mb-2">98%</div>
-              <div className="text-gray-700 font-medium">Client Retention</div>
-            </div>
-            <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg">
-              <div className="text-3xl font-bold text-green-600 mb-2">15+</div>
-              <div className="text-gray-700 font-medium">Avg Partnership Years</div>
-            </div>
-            <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-lg">
-              <div className="text-3xl font-bold text-orange-600 mb-2">500+</div>
-              <div className="text-gray-700 font-medium">Success Stories</div>
-            </div>
-          </div>
-          
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
             <Link href="#testimonials" className="group w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
               Read Testimonials
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="#case-studies" className="w-full sm:w-auto px-10 py-5 bg-white/30 backdrop-blur-md border border-white/40 text-gray-700 rounded-2xl font-semibold text-lg hover:bg-white/40 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-              <FileText className="w-5 h-5" />
-              Case Studies
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Industry Filter */}
-      <section id="testimonials" className="py-12 bg-white/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center mb-8">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full font-semibold text-sm">
-              <Filter className="w-4 h-4" />
-              Filter by Industry
-            </div>
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            {industries.map((industry) => (
-              <button
-                key={industry}
-                onClick={() => setSelectedIndustry(industry)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  selectedIndustry === industry
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white/70 text-gray-700 hover:bg-blue-50 border border-gray-200'
-                }`}
-              >
-                {industry}
-              </button>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-20 lg:py-32">
+      <section id="testimonials" className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -202,7 +99,7 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {filteredTestimonials.map((testimonial) => (
+            {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-start gap-6 mb-6">
                   <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl">
@@ -224,102 +121,6 @@ export default function TestimonialsPage() {
                   <Quote className="w-8 h-8 text-blue-300 mb-4" />
                   <p className="text-gray-700 leading-relaxed text-lg">{testimonial.testimonial}</p>
                 </div>
-                
-                <div className="bg-blue-50 rounded-2xl p-4">
-                  <h4 className="font-semibold text-gray-900 mb-2">Key Metrics:</h4>
-                  <p className="text-blue-700 font-medium">{testimonial.keyMetrics}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section id="case-studies" className="py-20 lg:py-32 bg-white/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 px-8 py-4 bg-green-100/80 backdrop-blur-sm text-green-700 rounded-full font-semibold text-sm tracking-wide uppercase mb-8 shadow-lg">
-              <Trophy className="w-4 h-4" />
-              Success Stories
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Transforming Industries
-              <span className="block text-green-600 mt-2">Through Innovation</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {caseStudies.map((study, index) => (
-              <div key={index} className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white">
-                    {study.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900">{study.title}</h3>
-                    <p className="text-green-600 font-semibold">{study.industry}</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-4 mb-6">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Challenge:</h4>
-                    <p className="text-gray-600 text-sm">{study.challenge}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Solution:</h4>
-                    <p className="text-gray-600 text-sm">{study.solution}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Results:</h4>
-                    <ul className="space-y-1">
-                      {study.results.map((result, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                          <CheckCircle className="w-4 h-4 text-green-500" />
-                          {result}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-sm text-gray-500">{study.timeline}</span>
-                  <button className="flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors">
-                    <Download className="w-4 h-4" />
-                    Download PDF
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Client Logo Wall */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Trusted by Industry
-              <span className="block text-blue-300 mt-2">Leaders Nationwide</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            {[
-              'Tata Steel', 'Maersk Line', 'Sun Pharma', 'L&T Construction', 
-              'BHEL', 'Reliance Industries', 'Mahindra Group', 'Bajaj Auto',
-              'Asian Paints', 'UltraTech Cement', 'Godrej Group', 'ITC Limited'
-            ].map((company, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Building2 className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="text-sm font-semibold text-white">{company}</div>
-                </div>
               </div>
             ))}
           </div>
@@ -333,71 +134,19 @@ export default function TestimonialsPage() {
             Join These Companies
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-          Join 500+ companies who&apos;ve transformed their logistics operations through our partnership approach. Experience the difference that four decades of excellence makes.
-        </p>
+            Join 500+ companies who&apos;ve transformed their logistics operations through our partnership approach. Experience the difference that four decades of excellence makes.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-colors">
               Start Your First Shipment
             </Link>
-            <Link href="/partners" className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-              View All Partners
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* Testimonial Submission Form */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-              Share Your Experience
-            </h2>
-            <p className="text-lg text-gray-600">
-          Are you a current client? We&apos;d love to hear about your experience with Nisha Roadways.
-        </p>
-          </div>
-
-          <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Company</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors" />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Position</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Industry</label>
-                  <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors">
-                    <option>Select Industry</option>
-                    {industries.slice(1).map(industry => (
-                      <option key={industry} value={industry}>{industry}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Your Experience</label>
-                <textarea rows={6} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors" placeholder="Tell us about your experience with Nisha Roadways..."></textarea>
-              </div>
-              <div className="text-center">
-                <button type="submit" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300">
-                  Submit Testimonial
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
+
