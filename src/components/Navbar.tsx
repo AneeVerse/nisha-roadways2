@@ -583,7 +583,7 @@ export default function Navbar() {
             <div className="flex flex-col h-full">
               {/* Top bar with logo and close button */}
               <div className="flex items-center justify-between px-4 py-4 border-b border-gray-700/40">
-                <Link href="/" className="flex-shrink-0">
+                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex-shrink-0">
                   <Image src="/images/nav-logo.png" alt="Nisha" width={120} height={36} className="h-9 w-auto" />
                 </Link>
                 <Button
@@ -606,7 +606,7 @@ export default function Navbar() {
                 </summary>
                 <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {services.map((i) => (
-                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                    <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
                       <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
                       <div className="text-sm text-gray-300 mb-2 leading-relaxed">{i.desc}</div>
                       <div className="text-sm text-blue-400 font-medium">Benefits: {i.benefits}</div>
@@ -623,7 +623,7 @@ export default function Navbar() {
                 </summary>
                 <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {whyUs.map((i) => (
-                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                    <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
                       <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
                       <div className="text-sm text-gray-300">{i.desc}</div>
                     </Link>
@@ -639,7 +639,7 @@ export default function Navbar() {
                 </summary>
                 <div className="grid grid-cols-1 gap-3 px-2 pb-6">
                   {resources.map((i) => (
-                    <Link key={i.title} href={i.href} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                    <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
                       <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
                       <div className="text-sm text-gray-300">{i.desc}</div>
                     </Link>
@@ -648,7 +648,7 @@ export default function Navbar() {
               </details>
 
                   <div className="pt-6 px-2">
-                    <Button className="w-full py-4 text-base font-medium bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                    <Button onClick={() => setIsMobileMenuOpen(false)} className="w-full py-4 text-base font-medium bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
                       Contact
                     </Button>
                   </div>

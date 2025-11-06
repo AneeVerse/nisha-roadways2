@@ -38,7 +38,7 @@ export default function CompanyLogos() {
           {/* Scrolling logos */}
           <div className="overflow-hidden -mt-10">
             <ul
-              className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-[logos-marquee_40s_linear_infinite] hover:[animation-play-state:paused]"
+              className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-[logos-marquee_10s_linear_infinite] md:animate-[logos-marquee_40s_linear_infinite] hover:[animation-play-state:paused]"
               aria-label="Scrolling company logos"
             >
               {[...logos, ...logos, ...logos].map((logo, idx) => (

@@ -55,34 +55,34 @@ const CtaBanner: React.FC = () => {
             </div>
 
             {/* Right Stats */}
-            <div className="flex gap-6 lg:gap-8">
-              <div className="text-center p-4 w-25 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <div className="flex items-center justify-center w-8 h-8 bg-yellow-500/20 rounded-full mb-2 mx-auto">
-                  <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex gap-3 sm:gap-4 lg:gap-8">
+              <div className="text-center p-2.5 sm:p-3 lg:p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+                <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-yellow-500/20 rounded-full mb-1.5 sm:mb-2 mx-auto">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-4 lg:h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 </div>
-                <div className="text-lg font-bold text-white">4.9/5</div>
+                <div className="text-base sm:text-base lg:text-lg font-bold text-white">4.9/5</div>
                 <div className="text-xs text-slate-300">Rating</div>
               </div>
 
-              <div className="text-center p-4 w-25 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <div className="flex items-center justify-center w-8 h-8 bg-green-500/20 rounded-full mb-2 mx-auto">
-                  <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+              <div className="text-center p-2.5 sm:p-3 lg:p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+                <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-green-500/20 rounded-full mb-1.5 sm:mb-2 mx-auto">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-4 lg:h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <div className="text-lg font-bold text-white">ISO</div>
+                <div className="text-base sm:text-base lg:text-lg font-bold text-white">ISO</div>
                 <div className="text-xs text-slate-300">Certified</div>
               </div>
 
-              <div className="text-center p-4 w-25 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
-                <div className="flex items-center justify-center w-8 h-8 bg-blue-500/20 rounded-full mb-2 mx-auto">
-                  <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <div className="text-center p-2.5 sm:p-3 lg:p-4 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+                <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 bg-blue-500/20 rounded-full mb-1.5 sm:mb-2 mx-auto">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-4 lg:h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5zM8 15V9h4v6H8z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <div className="text-lg font-bold text-white">500+</div>
+                <div className="text-base sm:text-base lg:text-lg font-bold text-white">500+</div>
                 <div className="text-xs text-slate-300">Clients</div>
               </div>
             </div>

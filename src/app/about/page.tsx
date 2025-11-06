@@ -524,21 +524,21 @@ export default function AboutPage() {
           </div>
           
           {/* Bottom Stats */}
-          <div className="mt-16 text-center">
-            <div className="inline-flex items-center space-x-8 bg-white/80 backdrop-blur-sm border border-white/30 rounded-2xl px-8 py-6 shadow-xl">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-indigo-600">16+</div>
-                <div className="text-sm text-gray-600 font-medium">Industries</div>
+          <div className="mt-12 sm:mt-16 text-center">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-0 sm:space-x-6 md:space-x-8 bg-white/80 backdrop-blur-sm border border-white/30 rounded-2xl px-6 sm:px-6 md:px-8 py-8 sm:py-6 shadow-xl">
+              <div className="text-center w-full sm:w-auto">
+                <div className="text-4xl sm:text-2xl md:text-3xl font-bold text-indigo-600">16+</div>
+                <div className="text-base sm:text-xs md:text-sm text-gray-600 font-medium mt-1.5 sm:mt-1">Industries</div>
               </div>
-              <div className="w-px h-12 bg-gray-300"></div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-purple-600">500+</div>
-                <div className="text-sm text-gray-600 font-medium">Clients Served</div>
+              <div className="hidden sm:block w-px h-12 bg-gray-300"></div>
+              <div className="text-center w-full sm:w-auto">
+                <div className="text-4xl sm:text-2xl md:text-3xl font-bold text-purple-600">500+</div>
+                <div className="text-base sm:text-xs md:text-sm text-gray-600 font-medium mt-1.5 sm:mt-1">Clients Served</div>
               </div>
-              <div className="w-px h-12 bg-gray-300"></div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-blue-600">99.8%</div>
-                <div className="text-sm text-gray-600 font-medium">Success Rate</div>
+              <div className="hidden sm:block w-px h-12 bg-gray-300"></div>
+              <div className="text-center w-full sm:w-auto">
+                <div className="text-4xl sm:text-2xl md:text-3xl font-bold text-blue-600">99.8%</div>
+                <div className="text-base sm:text-xs md:text-sm text-gray-600 font-medium mt-1.5 sm:mt-1">Success Rate</div>
               </div>
             </div>
           </div>
