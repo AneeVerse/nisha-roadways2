@@ -18,7 +18,11 @@ import {
   Lock,
   Warehouse,
   FileText,
-  Zap
+  Zap,
+  Train,
+  Ship,
+  Sun,
+  Box
 } from "lucide-react";
 
 export default function Navbar() {
@@ -165,6 +169,34 @@ export default function Navbar() {
       benefits: "Reduced shipping costs, weekly consolidations, nationwide reach",
       href: "/services/lcl-consolidation-services",
       icon: <FileText className="w-5 h-5" />
+    },
+    { 
+      title: "DOMESTIC CARGO IN OUR CONTAINERS", 
+      desc: "Move your domestic cargo in our 20-foot or 40-foot ISO containers. Secure transportation without owning the container.", 
+      benefits: "Your own seals, GPS tracking, insurance options, no container rental",
+      href: "/services/domestic-cargo-containers",
+      icon: <Box className="w-5 h-5" />
+    },
+    { 
+      title: "SOLAR PANEL & PARTS TRANSPORTATION", 
+      desc: "Specialized solar transportation with trained drivers and specialized equipment for fragile solar panels.", 
+      benefits: "Proper stacking, specialized equipment, trained drivers, damage-free delivery",
+      href: "/services/solar-panel-transportation",
+      icon: <Sun className="w-5 h-5" />
+    },
+    { 
+      title: "RAIL SERVICES", 
+      desc: "Cost-effective rail transportation for high-volume, low-value products. Combined Rail + Road solutions.", 
+      benefits: "40% cost savings, large quantities, long distances, door-to-door service",
+      href: "/services/rail-services",
+      icon: <Train className="w-5 h-5" />
+    },
+    { 
+      title: "COASTAL SERVICES", 
+      desc: "Coastal shipping services connecting 10 major Indian ports. 30-50% cost savings for long-distance movements.", 
+      benefits: "10 major ports, 30-50% savings, bi-directional service, complete door-to-door",
+      href: "/services/coastal-services",
+      icon: <Ship className="w-5 h-5" />
     },
   ];
 
@@ -600,18 +632,43 @@ export default function Navbar() {
                 <div className="divide-y divide-gray-700/50 px-2 pb-10 pt-2">
               {/* Services */}
               <details className="group">
-                <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
-                  Services 
-                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
+                <summary className="list-none flex items-center justify-between px-3 py-4 cursor-pointer text-lg font-semibold text-white hover:text-blue-400 transition-colors">
+                  <span>Services</span>
+                  <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400 flex-shrink-0" />
                 </summary>
-                <div className="grid grid-cols-1 gap-3 px-2 pb-6">
-                  {services.map((i) => (
-                    <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
-                      <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
-                      <div className="text-sm text-gray-300 mb-2 leading-relaxed">{i.desc}</div>
-                      <div className="text-sm text-blue-400 font-medium">Benefits: {i.benefits}</div>
-                    </Link>
-                  ))}
+                <div className="px-3 pb-4 space-y-2">
+                  {/* View All Services Link */}
+                  <Link 
+                    href="/services" 
+                    onClick={() => setIsMobileMenuOpen(false)} 
+                    className="block w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl text-center shadow-lg transition-all duration-300 mb-4"
+                  >
+                    View All Services
+                  </Link>
+                  
+                  {/* Services List - Compact Design */}
+                  <div className="space-y-2">
+                    {services.map((i) => (
+                      <Link 
+                        key={i.title} 
+                        href={i.href} 
+                        onClick={() => setIsMobileMenuOpen(false)} 
+                        className="group flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-gray-800/60 border border-transparent hover:border-gray-700/50 transition-all duration-200 active:bg-gray-800/70"
+                      >
+                        <div className="flex-shrink-0 w-8 h-8 bg-blue-500/20 group-hover:bg-blue-500/30 rounded-lg flex items-center justify-center mt-0.5 transition-colors text-blue-400 group-hover:text-blue-300">
+                          {i.icon}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="font-semibold text-sm text-white group-hover:text-blue-400 transition-colors duration-200 leading-tight mb-1">
+                            {i.title}
+                          </div>
+                          <div className="text-xs text-gray-400 truncate">
+                            {i.desc}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </details>
 
