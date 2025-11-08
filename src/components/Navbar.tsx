@@ -132,7 +132,7 @@ export default function Navbar() {
       title: "PROJECT CARGO MANAGEMENT", 
       desc: "Oversized and heavy machinery transportation with route surveys, permits, and specialized vehicles. No cargo too complex.", 
       benefits: "Custom engineering solutions, permit management, dedicated project managers",
-      href: "/services/project-cargo-management",
+      href: "/services/over-dimension-cargo",
       icon: <Settings className="w-5 h-5" />
     },
     { 
@@ -153,21 +153,21 @@ export default function Navbar() {
       title: "HIGH-VALUE GOODS ESCORT", 
       desc: "Armed security escort services with GPS tracking for valuable and sensitive cargo shipments.", 
       benefits: "24/7 surveillance, trained security personnel, comprehensive insurance",
-      href: "/services/high-value-goods-escort",
+      href: "/services/high-value-goods",
       icon: <Lock className="w-5 h-5" />
     },
     { 
       title: "WAREHOUSING & STORAGE", 
       desc: "Climate-controlled facilities near major ports with inventory management and last-mile distribution.", 
       benefits: "Strategic locations, inventory tracking, flexible storage terms",
-      href: "/services/warehousing-storage",
+      href: "/services/storage-warehousing",
       icon: <Warehouse className="w-5 h-5" />
     },
     { 
       title: "LCL CONSOLIDATION", 
       desc: "Small package delivery across India with consolidated shipping for cost-effective transportation.", 
       benefits: "Reduced shipping costs, weekly consolidations, nationwide reach",
-      href: "/services/lcl-consolidation-services",
+      href: "/services/lcl-consolidation",
       icon: <FileText className="w-5 h-5" />
     },
     { 
