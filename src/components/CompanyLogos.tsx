@@ -16,17 +16,14 @@ export default function CompanyLogos() {
     <section aria-label="Companies using our services" className="bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 mt-10">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
         {/* Section Header */}
-        {/* <div className="mb-8 sm:mb-12 md:mb-16 text-center">
-          
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-6">
-            COMPANIES WE HAVE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">COLLABORATED </span> WITH
-          </h2>
-
-         
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Trusted by Industry Leaders Across 16+ Sectors
+        <div className="mb-12 text-center">
+          <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] mb-4">
+            Trusted by Industry Leaders
           </p>
-        </div> */}
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+            Companies We Have <span className="text-blue-600">Collaborated</span> With
+          </h2>
+        </div>
 
 
         {/* Company Logos Marquee */}
@@ -34,9 +31,9 @@ export default function CompanyLogos() {
           {/* Gradient masks for smooth fade effect */}
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
-          
+
           {/* Scrolling logos */}
-          <div className="overflow-hidden -mt-10">
+          <div className="overflow-hidden">
             <ul
               className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-[logos-marquee_10s_linear_infinite] md:animate-[logos-marquee_40s_linear_infinite] hover:[animation-play-state:paused]"
               aria-label="Scrolling company logos"
