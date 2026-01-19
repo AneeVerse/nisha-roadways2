@@ -1,9 +1,54 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { Phone, Mail, MapPin, Clock, Building2, CheckCircle, Send } from 'lucide-react'
-import Footer from '@/components/Footer'
-import CtaBanner from '@/components/CtaBanner'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Phone, Mail, MapPin, Clock, Building2, Send, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe } from 'lucide-react';
+import Footer from '@/components/Footer';
+import CtaBanner from '@/components/CtaBanner';
+
+const SERVICES = [
+  'Empty Container Transportation',
+  'Export Import Containers',
+  'Domestic Cargo',
+  'Solar & Project Cargo',
+  'ODC Specialized',
+  'Bulk & Rail Services',
+  'Coastal & LCL',
+  'Warehousing & Storage'
+];
+
+const CONTACT_METHODS = [
+  {
+    icon: Phone,
+    title: "Call Us",
+    desc: "24/7 Operations Support",
+    action: "022 - 41632222",
+    link: "tel:+912241632222",
+    color: "blue"
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    desc: "Quick business inquiries",
+    action: "business@nisharoadways.com",
+    link: "mailto:business@nisharoadways.com",
+    color: "indigo"
+  },
+  {
+    icon: MessageSquare,
+    title: "Live Chat",
+    desc: "Chat with our team",
+    action: "Start instant chat",
+    link: "#",
+    color: "purple"
+  }
+];
+
+const BRANCHES = [
+  'Mumbai', 'Surat', 'Vapi', 'Ankleshwar', 'Vadodara', 'Ahmedabad',
+  'Gandhidham', 'Mundra', 'Pipava', 'Jodhpur', 'Bikaner', 'Jaipur',
+  'Delhi', 'Dadri', 'Kanpur', 'Ludhiana', 'Indore', 'Kolkata', 'Chennai'
+];
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -12,450 +57,272 @@ export default function ContactPage() {
     email: '',
     phone: '',
     service: '',
-    origin: '',
-    destination: '',
     message: ''
-  })
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' })
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus({ type: null, message: '' })
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (response.ok && data.success) {
-        setSubmitStatus({ type: 'success', message: data.message || 'Thank you for your inquiry! We will contact you within 24 hours.' })
-        // Reset form
-        setFormData({
-          name: '',
-          company: '',
-          email: '',
-          phone: '',
-          service: '',
-          origin: '',
-          destination: '',
-          message: ''
-        })
-        // Scroll to top to show success message
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      } else {
-        setSubmitStatus({ type: 'error', message: data.message || 'Failed to send message. Please try again.' })
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      setSubmitStatus({ type: 'error', message: 'Failed to send message. Please try again or contact us directly.' })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const services = [
-    'Empty Container Transportation',
-    'Export Import Containers',
-    'Domestic Cargo in Our Containers',
-    'Solar Panel & Parts Transportation',
-    'Over Dimension Cargo (ODC)',
-    'Bulk Cargo Transportation',
-    'Rail Services',
-    'Coastal Services',
-    'LCL Consolidation',
-    'Transportation Of High Value Goods',
-    'Storage and Warehousing',
-    'Chemical Transportation in Tank Containers'
-  ]
-
-  const branchOffices = [
-    'Mumbai', 'Kalamboli', 'Nhava Sheva', 'Surat', 'Vapi', 'Ankleshwar',
-    'Vadodara', 'Ahmedabad', 'Gandhidham', 'Mundra', 'Pipava', 'Jodhpur',
-    'Bikaner', 'Jaipur', 'Delhi', 'Dadri', 'Kanpur', 'Ludhiana',
-    'Indore', 'Kolkata', 'Chennai'
-  ]
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setStatus('success');
+      setFormData({ name: '', company: '', email: '', phone: '', service: '', message: '' });
+    }, 1500);
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
-        {/* Enhanced Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-purple-50/60 to-indigo-50/80"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-          <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 w-72 h-72 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000"></div>
+      <section className="relative pt-32 pb-48 overflow-hidden bg-[#0a0a1a]">
+        <div className="absolute inset-0 z-0 text-[30vw] font-black text-white/[0.02] select-none text-center flex items-center justify-center whitespace-nowrap">
+          NISHA
         </div>
-
-        <div className="relative z-10 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-0">
-          <div className="mb-6 sm:mb-12">
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 bg-white/30 backdrop-blur-md rounded-full border border-white/40 shadow-lg text-blue-700 font-semibold text-xs sm:text-sm tracking-wide uppercase mb-2">
-              <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
-              Get In Touch
-            </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-8"
+            >
+              <span className="text-xs font-black text-blue-400 uppercase tracking-widest">Get in touch</span>
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight"
+            >
+              Let's move your <span className="text-blue-500">cargo.</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-slate-400 font-medium leading-relaxed"
+            >
+              Ready to transform your supply chain? Let's discuss how our integrated solutions can optimize your operations.
+            </motion.p>
           </div>
-          
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 sm:mb-12 leading-tight tracking-tight px-2">
-            Let&apos;s Move Your Cargo
-          </h1>
-          
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-16 max-w-5xl mx-auto leading-relaxed font-medium px-2">
-            Ready to transform your supply chain? Let&apos;s discuss how our integrated logistics solutions can optimize your operations, reduce costs, and accelerate your growth.
-          </p>
         </div>
       </section>
 
-      {/* Contact Information Section */}
-      <section className="py-12 sm:py-20 lg:py-32 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-12">
-            {/* Head Office */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-white/40 shadow-xl">
-              <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                  <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Head Office</h2>
-              </div>
+      <section className="py-24 -mt-16 relative z-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
 
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+            {/* Left Side - Info */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-slate-900 rounded-[48px] p-10 text-white relative overflow-hidden group border border-white/5">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 opacity-20 rounded-full blur-3xl -mr-32 -mt-32 group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-blue-600 rounded-3xl flex items-center justify-center mb-10 shadow-xl shadow-blue-900/40">
+                    <Building2 className="w-8 h-8" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-1 sm:mb-2">Address</h3>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                      909, Mayuresh Cosmos, Plot No. 37, Sector 11<br />
-                      CBD Belapur, Navi Mumbai, Maharashtra 400614 India
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-1 sm:mb-2">Call Us</h3>
-                    <div className="space-y-1">
-                      <a href="tel:+91-22-41632222" className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium block">022 - 41632222</a>
-                      <a href="tel:+918976971348" className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium block">+91 8976971348</a>
-                      <a href="tel:+918976768586" className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium block">+91 8976768586</a>
+                  <h2 className="text-3xl font-black mb-6">Head Office</h2>
+                  <div className="space-y-8">
+                    <div className="flex gap-4">
+                      <MapPin className="w-6 h-6 text-blue-500 flex-shrink-0" />
+                      <div>
+                        <p className="text-slate-400 text-sm font-bold uppercase tracking-widest mb-2">Location</p>
+                        <p className="text-lg font-medium text-slate-200">
+                          909, Mayuresh Cosmos, Plot 37, Sector 11, CBD Belapur, Navi Mumbai 400614
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4">
+                      <Clock className="w-6 h-6 text-blue-500 flex-shrink-0" />
+                      <div>
+                        <p className="text-slate-400 text-sm font-bold uppercase tracking-widest mb-2">Hours</p>
+                        <p className="text-lg font-medium text-slate-200">
+                          Mon – Sat: 09:00 – 19:00<br />
+                          <span className="text-blue-500 font-bold">24/7 Ops Support Available</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-100 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-1 sm:mb-2">Email</h3>
-                    <a href="mailto:business@nisharoadways.com" className="text-xs sm:text-sm text-blue-600 hover:text-blue-700 font-medium break-all">
-                      business@nisharoadways.com
+              <div className="grid sm:grid-cols-2 gap-4">
+                {CONTACT_METHODS.slice(0, 2).map((method, idx) => {
+                  const Icon = method.icon;
+                  return (
+                    <a href={method.link} key={idx} className="bg-white p-8 rounded-[40px] border border-slate-100 hover:shadow-2xl hover:shadow-blue-500/5 transition-all group">
+                      <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                        <Icon className="w-6 h-6 text-blue-600 group-hover:text-white" />
+                      </div>
+                      <h3 className="text-lg font-black text-slate-900 mb-1">{method.title}</h3>
+                      <p className="text-slate-400 text-sm font-bold mb-4">{method.desc}</p>
+                      <p className="text-blue-600 font-black text-sm">{method.action}</p>
                     </a>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Business Hours & Support */}
-            <div className="space-y-4 sm:space-y-6">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-white/40 shadow-xl">
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                    <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Business Hours</h2>
-                </div>
-                <div className="space-y-2 sm:space-y-3">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm text-gray-700 font-medium">Monday-Saturday: 9:00 AM - 7:00 PM</span>
-                  </div>
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm text-gray-700 font-medium">Sunday: Closed</span>
-                  </div>
-                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
-                    <p className="text-xs sm:text-sm text-gray-600 italic">
-                      Operations team available 24/7 for tracking and emergencies
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-xl">
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-xl sm:rounded-2xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-bold">24/7 Support</h2>
-                </div>
-                <div className="space-y-3 sm:space-y-4">
-                  <div>
-                    <p className="text-xs sm:text-sm text-blue-100 font-medium mb-1">Operations Team</p>
-                    <p className="text-sm sm:text-base text-white font-semibold">Available 24/7</p>
-                  </div>
-                  <div>
-                    <p className="text-xs sm:text-sm text-blue-100 font-medium mb-1">Customer Service</p>
-                    <p className="text-sm sm:text-base text-white font-semibold">Available 24/7</p>
-                  </div>
-                  <div>
-                    <p className="text-xs sm:text-sm text-blue-100 font-medium mb-1">Email</p>
-                    <a href="mailto:business@nisharoadways.com" className="text-xs sm:text-sm text-white font-semibold hover:underline break-all">
-                      business@nisharoadways.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="py-12 sm:py-20 lg:py-32 bg-white/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-16">
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 bg-blue-100/80 backdrop-blur-sm text-blue-700 rounded-full font-semibold text-xs sm:text-sm tracking-wide uppercase mb-4 sm:mb-8 shadow-lg">
-              <Send className="w-3 h-3 sm:w-4 sm:h-4" />
-              Quick Contact Form
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-2">
-              Send Us Your Inquiry
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-2">
-              Fill out the form below and our team will get back to you within 24 hours.
-            </p>
-          </div>
-
-          {/* Status Messages */}
-          {submitStatus.type && (
-            <div className={`mb-6 p-4 rounded-xl ${
-              submitStatus.type === 'success' 
-                ? 'bg-green-50 border border-green-200 text-green-800' 
-                : 'bg-red-50 border border-red-200 text-red-800'
-            }`}>
-              <div className="flex items-center gap-3">
-                <CheckCircle className={`w-5 h-5 ${submitStatus.type === 'success' ? 'text-green-600' : 'text-red-600'}`} />
-                <p className="font-medium">{submitStatus.message}</p>
-              </div>
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-white/40 shadow-xl">
-            <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-              <div>
-                <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors placeholder:text-gray-500 text-gray-900 text-sm sm:text-base"
-                  placeholder="Your full name"
-                />
-              </div>
-              <div>
-                <label htmlFor="company" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Company
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors placeholder:text-gray-500 text-gray-900 text-sm sm:text-base"
-                  placeholder="Your company name"
-                />
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-              <div>
-                <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Email <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors placeholder:text-gray-500 text-gray-900 text-sm sm:text-base"
-                  placeholder="your.email@company.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Phone <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors placeholder:text-gray-500 text-gray-900 text-sm sm:text-base"
-                  placeholder="+91 9876543210"
-                />
-              </div>
-            </div>
-
-            <div className="mb-4 sm:mb-6">
-              <label htmlFor="service" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                Service Interested In
-              </label>
-              <select
-                id="service"
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors text-gray-900 text-sm sm:text-base"
+            {/* Right Side - Form */}
+            <div className="lg:col-span-7">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-white rounded-[48px] p-8 md:p-12 border border-slate-100 shadow-2xl shadow-slate-200/50"
               >
-                <option value="" className="text-gray-500">Select a service</option>
-                {services.map((service, index) => (
-                  <option key={index} value={service}>{service}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-              <div>
-                <label htmlFor="origin" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Origin
-                </label>
-                <input
-                  type="text"
-                  id="origin"
-                  name="origin"
-                  value={formData.origin}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors placeholder:text-gray-500 text-gray-900 text-sm sm:text-base"
-                  placeholder="Pickup location"
-                />
-              </div>
-              <div>
-                <label htmlFor="destination" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                  Destination
-                </label>
-                <input
-                  type="text"
-                  id="destination"
-                  name="destination"
-                  value={formData.destination}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors placeholder:text-gray-500 text-gray-900 text-sm sm:text-base"
-                  placeholder="Delivery location"
-                />
-              </div>
-            </div>
-
-            <div className="mb-6 sm:mb-8">
-              <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors resize-none placeholder:text-gray-500 text-gray-900 text-sm sm:text-base"
-                placeholder="Tell us about your logistics requirements..."
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg sm:rounded-xl text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center justify-center gap-2 sm:gap-3 shadow-xl"
-            >
-              {isSubmitting ? (
-                <>
-                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                  Submit Inquiry
-                </>
-              )}
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* Branch Offices Section */}
-      <section className="py-12 sm:py-20 lg:py-32 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-16">
-            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-8 py-2 sm:py-4 bg-gradient-to-r from-blue-100/80 to-indigo-100/80 backdrop-blur-sm text-blue-700 rounded-full font-semibold text-xs sm:text-sm tracking-wide uppercase mb-4 sm:mb-8 shadow-lg">
-              <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
-              Our Network
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-2">
-              Branch Offices
-            </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-              We have offices in 20+ cities across India to serve you better
-            </p>
-          </div>
-
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-10 border border-white/40 shadow-xl">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-4">
-              {branchOffices.map((city, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-1.5 sm:gap-2 p-2 sm:p-3 bg-blue-50 rounded-lg sm:rounded-xl hover:bg-blue-100 transition-colors"
-                >
-                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0" />
-                  <span className="text-gray-700 font-medium text-xs sm:text-sm">{city}</span>
+                <div className="mb-10">
+                  <h2 className="text-4xl font-black text-slate-900 mb-4">Send an inquiry</h2>
+                  <p className="text-slate-500 font-medium">Complete the form below and our team will be in touch shortly.</p>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="mt-8 sm:mt-12 text-center px-2">
-            <p className="text-xs sm:text-sm text-gray-600 italic">
-              <strong>Note:</strong> A map showing all branch locations will be displayed here. Contact information for each branch is available upon request.
-            </p>
+                {status === 'success' ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-12 text-center"
+                  >
+                    <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle className="w-10 h-10" />
+                    </div>
+                    <h3 className="text-2xl font-black text-slate-900 mb-2">Message Sent!</h3>
+                    <p className="text-slate-500 font-medium mb-8">We'll get back to you within 24 hours.</p>
+                    <button
+                      onClick={() => setStatus('idle')}
+                      className="px-8 py-3 bg-slate-900 text-white rounded-2xl font-bold hover:bg-black transition-all"
+                    >
+                      Send another
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 text-slate-900 focus:ring-2 focus:ring-blue-500/50 transition-all font-medium"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Company</label>
+                        <input
+                          type="text"
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 text-slate-900 focus:ring-2 focus:ring-blue-500/50 transition-all font-medium"
+                          placeholder="Logistics Inc."
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Email</label>
+                        <input
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 text-slate-900 focus:ring-2 focus:ring-blue-500/50 transition-all font-medium"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Phone</label>
+                        <input
+                          type="tel"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 text-slate-900 focus:ring-2 focus:ring-blue-500/50 transition-all font-medium"
+                          placeholder="+91 00000 00000"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Service Interest</label>
+                      <select
+                        required
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 text-slate-900 focus:ring-2 focus:ring-blue-500/50 transition-all font-medium appearance-none"
+                      >
+                        <option value="" disabled>Select a service</option>
+                        {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
+                      </select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs font-black text-slate-400 uppercase tracking-widest ml-1">Message</label>
+                      <textarea
+                        required
+                        rows={4}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 text-slate-900 focus:ring-2 focus:ring-blue-500/50 transition-all font-medium resize-none"
+                        placeholder="Tell us about your requirements..."
+                      ></textarea>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white font-black py-5 rounded-3xl text-lg shadow-xl shadow-blue-500/20 transition-all flex items-center justify-center gap-3 group"
+                    >
+                      {isSubmitting ? (
+                        <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      ) : (
+                        <>
+                          Submit Inquiry
+                          <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <CtaBanner />
+      {/* Network Section */}
+      <section className="py-24 bg-white overflow-hidden">
+        <div className="container mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 rounded-full mb-8 font-black text-xs uppercase tracking-widest">
+            <Globe className="w-4 h-4" />
+            Our Network
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Pan-India Presence</h2>
+          <p className="text-slate-500 max-w-2xl mx-auto mb-20 font-medium">30+ strategic branches across India ensuring seamless connectivity to every corner.</p>
 
-      {/* Footer */}
+          <div className="flex flex-wrap justify-center gap-3">
+            {BRANCHES.map((city, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.02 }}
+                className="px-6 py-3 bg-slate-50 border border-slate-100 rounded-2xl font-bold text-slate-600 hover:bg-blue-600 hover:text-white hover:shadow-xl hover:shadow-blue-500/20 transition-all cursor-default"
+              >
+                {city}
+              </motion.div>
+            ))}
+            <div className="px-6 py-3 bg-blue-600 text-white rounded-2xl font-black shadow-xl shadow-blue-500/20">
+              +11 More Branches
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CtaBanner />
       <Footer />
     </div>
-  )
+  );
 }
-
