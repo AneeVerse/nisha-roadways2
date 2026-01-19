@@ -20,7 +20,7 @@ export default function Home() {
       {/* <TrustedByBusiness /> */}
       {/* <SocialMosaic /> */}
       <ReviewVideo />
-          <Testimonials />
+      <Testimonials hideHeader={true} singleRow={true} hideStats={true} />
       <BlogSection />
       <CtaBanner />
       <Footer />
