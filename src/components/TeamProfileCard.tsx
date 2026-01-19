@@ -16,26 +16,39 @@ export default function TeamProfileCard({
   accentGradient = 'from-slate-500 to-slate-700',
 }: TeamProfileCardProps) {
   return (
-    <div className="bg-white rounded-3xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition-all duration-300">
-      <div className={`relative h-64 bg-gradient-to-br ${accentGradient}`}>
+    <div className="group bg-white rounded-[2rem] shadow-xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-500 flex flex-col h-full hover:-translate-y-2">
+      {/* Image Container */}
+      <div className={`relative h-72 sm:h-80 w-full overflow-hidden`}>
+        <div className={`absolute inset-0 bg-gradient-to-br ${accentGradient} opacity-20 z-10 group-hover:opacity-10 transition-opacity duration-500`} />
         <Image
           src={imageSrc}
           alt={name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-          className="object-cover"
+          className="object-cover group-hover:scale-110 transition-transform duration-700"
           priority={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="text-2xl font-bold text-white drop-shadow-sm">{name}</h3>
-          <p className="text-white/80 font-semibold text-sm">{role}</p>
+
+        {/* Overlay Info */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-20" />
+        <div className="absolute bottom-6 left-6 right-6 z-30">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-[10px] font-black uppercase tracking-widest text-white mb-3">
+            {role}
+          </div>
+          <h3 className="text-3xl font-black text-white leading-tight">{name}</h3>
         </div>
       </div>
-      <div className="p-6">
-        <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+
+      {/* Description Container */}
+      <div className="p-8 flex flex-col flex-grow bg-white">
+        <p className="text-slate-600 leading-relaxed text-base font-medium line-clamp-6">
           {description}
         </p>
+
+        {/* Decorative footer element */}
+        <div className="mt-6 pt-6 border-t border-slate-100 mt-auto">
+          <div className={`h-1.5 w-12 bg-gradient-to-r ${accentGradient} rounded-full`} />
+        </div>
       </div>
     </div>
   );
