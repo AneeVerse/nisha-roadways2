@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState, useRef, useEffect } from "react"
 import { type LucideIcon, Truck, Container, Shield, Package, Warehouse, Zap, CheckCircle } from "lucide-react"
 import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
 
 type ServiceKey =
   | "container-logistics"
@@ -98,13 +99,13 @@ export default function OurSolution() {
       if (ref) {
         const observer = new IntersectionObserver(
           ([entry]) => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            if (entry.isIntersecting) {
               setActiveServiceIndex(index)
             }
           },
           {
-            threshold: [0.5],
-            rootMargin: "-20% 0px -20% 0px",
+            threshold: 0.1,
+            rootMargin: "-45% 0px -45% 0px",
           },
         )
 
@@ -136,7 +137,7 @@ export default function OurSolution() {
   }, [])
 
   const activeService = SERVICES[activeServiceIndex]
-  
+
   // Icon mappings for category and benefits (lucide-react)
   const categoryIcons: Record<ServiceKey, LucideIcon> = {
     "container-logistics": Container,
@@ -188,7 +189,7 @@ export default function OurSolution() {
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-indigo-200/40 via-blue-200/30 to-cyan-200/40 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-100/20 via-cyan-100/20 to-indigo-100/20 rounded-full blur-3xl"></div>
       </div>
-      
+
       {/* Extended blue background that goes further down */}
       <div className="absolute inset-x-0 top-0 bottom-0 -z-10 bg-blue-50"></div>
 
@@ -202,7 +203,7 @@ export default function OurSolution() {
             Integrated Intelligence. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Seamless Connectivity.</span>
 
           </h2>
-          
+
           {/* Gradient underline */}
           <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>
 
@@ -213,45 +214,55 @@ export default function OurSolution() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 lg:pb-40">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-32 lg:pb-40">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
           {/* Fixed Left Image Card (hidden on mobile) */}
-          <div className="hidden lg:block lg:w-1/2 order-2 lg:order-1 lg:self-start lg:sticky lg:top-28 lg:my-12">
-            <div className="relative group">
-              {/* Card Container */}
-              <div className="relative rounded-3xl bg-white shadow-2xl shadow-black/50 border border-blue-100/50 backdrop-blur-sm">
-                {/* Animated border */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 via-cyan-500/20 to-indigo-500/20 p-[2px]">
-                  <div className="w-full h-full rounded-3xl bg-white"></div>
-                </div>
-
+          <div className="hidden lg:block lg:w-[54%] order-2 lg:order-1 lg:self-start lg:sticky lg:top-0 lg:h-screen lg:flex lg:items-center">
+            <div className="relative group w-full pr-4">
+              {/* Card Container - Slightly more balanced aspect ratio */}
+              <div className="relative rounded-3xl bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-blue-100/50 backdrop-blur-sm overflow-hidden aspect-[16/11] w-full mx-auto">
                 {/* Image Container */}
-                <div className="relative h-[320px] sm:h-[420px] lg:h-[480px] overflow-hidden rounded-3xl">
-                  <Image
-                    key={activeService.imageSrc}
-                    src={activeService.imageSrc || "/placeholder.svg"}
-                    alt={activeService.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className={`object-cover transition-all duration-700 ease-in-out ${
-                      isScrolling ? "scale-105" : "scale-100"
-                    } group-hover:scale-110`}
-                    priority
-                  />
+                <div className="absolute inset-0 bg-slate-100">
+                  {SERVICES.map((service, index) => (
+                    <motion.div
+                      key={service.key}
+                      initial={false}
+                      animate={{
+                        opacity: activeServiceIndex === index ? 1 : 0,
+                        scale: activeServiceIndex === index ? 1 : 1.05
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        ease: "easeInOut"
+                      }}
+                      className="absolute inset-0"
+                      style={{ zIndex: activeServiceIndex === index ? 10 : 0 }}
+                    >
+                      <Image
+                        src={service.imageSrc || "/placeholder.svg"}
+                        alt={service.imageAlt}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover"
+                        priority
+                      />
+                      {/* Gradient overlay for depth */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent z-20"></div>
+                    </motion.div>
+                  ))}
 
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-800/20 to-transparent"></div>
+                  {/* Glass highlight overlay */}
+                  <div className="absolute inset-0 rounded-3xl border border-white/20 pointer-events-none z-30"></div>
                 </div>
               </div>
 
-              {/* Floating elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-400/30 to-cyan-400/30 rounded-full blur-xl animate-bounce"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-indigo-400/30 to-blue-400/30 rounded-full blur-xl animate-pulse"></div>
+              {/* Refined side-glow effect */}
+              <div className="absolute -inset-10 bg-blue-400/5 blur-3xl -z-10 rounded-full"></div>
             </div>
           </div>
 
           {/* Right Side - Scrollable Services */}
-          <div className="order-1 lg:order-2 lg:w-1/2 lg:flex-shrink-0">
+          <div className="order-1 lg:order-2 lg:w-[46%] lg:flex-shrink-0 lg:pt-[22vh] lg:pb-[35vh]">
             {SERVICES.map((service, index) => (
               <div
                 key={service.key}
@@ -261,9 +272,19 @@ export default function OurSolution() {
                 className="relative transition-all duration-500 mb-6 last:mb-0"
               >
                 {/* Service Card */}
-                <div className="relative group">
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  whileHover={{ scale: 1.01, translateX: 5 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative group cursor-pointer"
+                >
                   {/* Background card - simplified to match reference style */}
-                  <div className="relative rounded-2xl p-6 sm:p-7 lg:p-8 bg-white shadow-sm border border-blue-100 hover:shadow-md transition-all duration-300 min-h-[220px]">
+                  <div className={`relative rounded-2xl p-6 sm:p-8 lg:p-10 bg-white border transition-all duration-500 min-h-[260px] ${activeServiceIndex === index
+                    ? "shadow-2xl shadow-blue-900/20 border-blue-400 ring-2 ring-blue-50/50"
+                    : "shadow-sm border-blue-100 hover:border-blue-200"
+                    }`}>
                     <div className="relative z-10">
                       {/* Icon + Category title */}
                       {(() => {
@@ -297,7 +318,7 @@ export default function OurSolution() {
 
                       {/* CTA Button - untouched functionality */}
                       <div className="mt-6">
-                        <Link 
+                        <Link
                           href={service.link}
                           className="group relative inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
                         >
@@ -305,22 +326,20 @@ export default function OurSolution() {
                           <span className="relative flex items-center gap-2">
                             EXPLORE ALL SERVICES
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
-                              <path d="M5 12h14"/>
-                              <path d="m12 5 7 7-7 7"/>
+                              <path d="M5 12h14" />
+                              <path d="m12 5 7 7-7 7" />
                             </svg>
                           </span>
                         </Link>
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-
     </section>
   )
 }
