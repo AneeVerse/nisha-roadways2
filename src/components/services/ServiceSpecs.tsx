@@ -1,4 +1,7 @@
-import { Wrench } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { Settings, Layers, Truck, Package } from "lucide-react";
 
 interface Spec {
     title: string;
@@ -10,29 +13,67 @@ interface ServiceSpecsProps {
 }
 
 export default function ServiceSpecs({ specs }: ServiceSpecsProps) {
-    return (
-        <section className="py-20 bg-gray-50">
-            <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24">
-                <div className="mb-12">
-                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 leading-tight">
-                        Technical Specifications & Details
-                    </h2>
-                </div>
+    const specIcons = [Settings, Layers, Truck, Package];
+    const colors = [
+        { bg: "from-blue-600 to-indigo-600" },
+        { bg: "from-emerald-500 to-teal-600" },
+        { bg: "from-orange-500 to-red-500" },
+        { bg: "from-purple-600 to-pink-600" },
+    ];
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {specs.map((spec, index) => (
-                        <div key={index} className="group p-6 bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition-all duration-300 hover:border-blue-200">
-                            <div className="flex items-start gap-4">
-                                <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">
-                                    <Wrench className="w-5 h-5 text-blue-600" />
+    return (
+        <section className="relative py-20 bg-slate-50 overflow-hidden">
+            <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-3xl mb-12"
+                >
+                    <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 leading-tight tracking-tight mb-3">
+                        Specifications & Details
+                    </h2>
+                    <p className="text-base text-slate-600 leading-relaxed">
+                        Everything you need to know about our service capabilities.
+                    </p>
+                </motion.div>
+
+                {/* Specs Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    {specs.map((spec, index) => {
+                        const IconComponent = specIcons[index % specIcons.length];
+                        const color = colors[index % colors.length];
+
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.08 }}
+                                className="group"
+                            >
+                                <div className="relative h-full bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg border border-slate-100 hover:border-slate-200 transition-all duration-300">
+                                    {/* Icon */}
+                                    <div className={`w-12 h-12 bg-gradient-to-br ${color.bg} rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}>
+                                        <IconComponent className="w-6 h-6 text-white" />
+                                    </div>
+
+                                    {/* Title */}
+                                    <h3 className="text-lg font-bold text-slate-900 mb-3">
+                                        {spec.title}
+                                    </h3>
+
+                                    {/* Description */}
+                                    <p className="text-sm text-slate-500 leading-relaxed">
+                                        {spec.description}
+                                    </p>
                                 </div>
-                                <div className="flex-1">
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{spec.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed">{spec.description}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
