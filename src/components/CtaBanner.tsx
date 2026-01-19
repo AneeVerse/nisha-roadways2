@@ -5,7 +5,7 @@ import React from 'react';
 
 const CtaBanner: React.FC = () => {
   return (
-    <section className="py-6 flex justify-center">
+    <section className="py-6 flex justify-center mt-10">
       <div className="relative bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900 text-white overflow-hidden rounded-2xl max-w-7xl w-full mx-4 mb-10">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -18,7 +18,7 @@ const CtaBanner: React.FC = () => {
 
         <div className="px-8 py-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            
+
             {/* Left Content */}
             <div className="flex-1 text-center lg:text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-4">
@@ -26,7 +26,7 @@ const CtaBanner: React.FC = () => {
                   Ready to Transform Your Supply Chain?
                 </span>
               </h2>
-              
+
               <p className="text-base sm:text-lg text-slate-200 mb-6 leading-relaxed font-light">
                 Let's discuss how our integrated logistics solutions can optimize your operations, reduce costs, and accelerate your growth.
               </p>
