@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { Quote } from "lucide-react";
 
 type Testimonial = {
   name: string;
@@ -16,121 +17,110 @@ const TOP_ROW: Testimonial[] = [
     role: "Ops Lead, Crescent Logistics",
     avatar: "/images/review/Aditya Bhardwaj.png",
     quote:
-      "SalesSync provides essential tools for scaling our ops. Processes are streamlined and our team is always aligned. The platform has revolutionized how we manage our logistics operations, providing real-time visibility into every aspect of our supply chain. From inventory management to route optimization, every feature is designed with operational efficiency in mind, making our daily workflows seamless and productive.",
+      "Nisha Roadways provides essential tools for scaling our ops. Processes are streamlined and our team is always aligned. Their ability to handle complex ODC movements while maintaining strict schedules is exactly what our industry needs. The real-time tracking gives us complete peace of mind across our entire national distribution network.",
   },
   {
     name: "Ashish Dwivedi",
-    role: "Product Manager, Orbit Systems",
+    role: "Director, Orbit Systems",
     avatar: "/images/review/Ashish Dwivedi.png",
     quote:
-      "The intuitive design integrates easily into our routine. Automated follow‑ups and custom reports are game changers. What impressed me most is how quickly our team adopted the platform without any extensive training. The user interface is so well-designed that even complex features feel simple to use. The automated workflows have saved us countless hours, and the custom reporting capabilities give us insights we never had before, enabling data-driven decisions across all our product initiatives.",
+      "The expert team at Nisha integrates easily into our supply chain routine. Their specialized handling of solar components has reduced our transit damage to near zero. What impressed me most is their proactive approach during peak seasons, ensuring our factory production never stops due to logistics delays.",
   },
   {
     name: "Mozammil Khan",
-    role: "Account Exec, GreenPath",
+    role: "ExIm Manager, GreenPath",
     avatar: "/images/review/Mozammil Khan.png",
     quote:
-      "Insights uncover opportunities and help us refine targeting. I rely on it daily for decisions. The analytics dashboard provides a comprehensive view of our sales pipeline, helping me identify trends and patterns that were previously invisible. The predictive analytics feature has been particularly valuable, allowing us to forecast revenue more accurately and adjust our strategies proactively. It's become an indispensable tool for managing client relationships and closing deals more effectively.",
+      "Their port-to-factory logistics cleared a massive backlog for us during the last quarter. I rely on their multimodal network daily for high-stakes shipments. The transparency they offer in their documentation and safety protocols makes them the most reliable partner we've had in 15 years of operations.",
   },
   {
     name: "Ramachandran R S",
-    role: "Marketing Director, BrightWave",
+    role: "Supply Chain Head, BrightWave",
     avatar: "/images/review/Ramachandran R S.png",
     quote:
-      "Every interaction is stored in one place with clear context. Productivity improved noticeably. The centralized communication hub has transformed how our marketing team collaborates with sales and customer success. Having all customer touchpoints documented in one place means we never miss important context when crafting campaigns or following up on leads. The integration capabilities with our existing marketing stack made implementation smooth, and the productivity gains were evident within the first month of usage.",
-  },
-  {
-    name: "SHUBHAM JAIN",
-    role: "Sales Ops, Apex Solutions",
-    avatar: "/images/review/SHUBHAM JAIN.png",
-    quote:
-      "From tracking to reporting, nothing slips through the cracks anymore. The comprehensive tracking system ensures complete visibility across our entire sales process. Every lead, opportunity, and customer interaction is meticulously recorded and easily accessible. The automated reporting features have eliminated manual data compilation, giving us more time to focus on strategic initiatives. The platform's reliability and accuracy have made it the backbone of our sales operations, ensuring consistent performance and accountability across the team.",
-  },
-  {
-    name: "Siddhant Doshi",
-    role: "Success Lead, CloudSpark",
-    avatar: "/images/review/Siddhant Doshi.png",
-    quote:
-      "Helps the team close deals faster with visibility across the pipeline. The real-time pipeline visibility has been a game-changer for our sales velocity. Team members can instantly see where each deal stands, what actions are needed, and who's responsible for next steps. The collaborative features enable seamless handoffs between team members, and the mobile app ensures we stay connected even when working remotely. Since implementing this solution, our average deal closure time has decreased by 30%, and our team satisfaction has significantly improved.",
+      "Every shipment is tracked with precision. Our logistics efficiency improved noticeably after switching to Nisha. Their pan-India network and specialized carrier fleet provide us with the localized presence we need without capital investment. They are a true strategic partner for our growth.",
   },
 ];
 
 const BOTTOM_ROW: Testimonial[] = [
   {
     name: "Sonia Bhatti",
-    role: "Ops Manager, UrbanNest",
+    role: "Operations Manager, UrbanNest",
     avatar: "/images/review/Sonia Bhatti.png",
     quote:
-      "Collaboration improved. Everyone is aligned and we support customers better. The platform has created a unified workspace where all departments can access the same customer information and work together seamlessly. Cross-functional projects that used to take weeks now get completed in days because everyone has the context they need. The customer support quality has improved dramatically since we can see the complete customer journey and provide more personalized, informed assistance. It's truly transformed our organizational efficiency.",
+      "Logistics coordination improved dramatically. Everyone is aligned and we support our end-customers better. The way they handle high-value goods transport is exceptional, providing a level of security and punctuality that is rare in the Indian road transport sector.",
   },
   {
     name: "Vachan Kudmule",
-    role: "Data Analyst, Horizon",
+    role: "Logistics Analyst, Horizon",
     avatar: "/images/review/Vachan Kudmule.png",
     quote:
-      "Powerful reporting with custom KPIs helps us scale consistently. The advanced analytics capabilities have elevated our data analysis to a whole new level. Creating custom dashboards and KPI tracking has never been easier, and the real-time data updates ensure we're always working with the most current information. The ability to drill down into specific metrics and create automated alerts has helped us identify growth opportunities and potential issues before they become problems. It's an analyst's dream tool.",
+      "Powerful route optimization and a modern fleet help us scale consistently across rural Tier-3 cities. Their fleet management technology ensures our carbon footprint is minimized while delivery performance is maximized. It's a gold standard for sustainable logistics in 2024.",
   },
   {
-    name: "macsen jose",
-    role: "Growth, Northwind Retail",
+    name: "Macsen Jose",
+    role: "Growth Head, Northwind Retail",
     avatar: "/images/review/macsen jose.png",
     quote:
-      "Tracking made easy and our team loves the clean UI. The user experience is exceptional - everything is where you expect it to be, and the learning curve is minimal. Our team was productive from day one, which is rare with new software implementations. The clean, modern interface doesn't overwhelm users with unnecessary complexity, yet all the powerful features are easily accessible when needed. The mobile responsiveness means our field team can update information on the go, keeping everyone synchronized regardless of location.",
+      "Empty container turnaround made easy and our team loves the reliability. Nisha Roadways simplified what used to be a major cost burden for our export business. Their professional attitude and technical competence in ODC movements make them our first choice for every project.",
   },
   {
-    name: "vinit mehta",
-    role: "High School, Intern",
+    name: "Vinit Mehta",
+    role: "Logistics Coordinator, K-Tech",
     avatar: "/images/review/vinit mehta.png",
     quote:
-      "Simple to use and gets the job done—fast. Even as an intern with limited experience, I was able to navigate the platform effortlessly and contribute meaningfully to projects from my first day. The intuitive design and helpful tooltips made learning the system enjoyable rather than overwhelming. The efficiency gains are remarkable - tasks that seemed complex initially become routine with the platform's smart automation and user-friendly workflows. It's the perfect balance of simplicity and functionality.",
+      "Simple to work with and gets the job done—fast. Their 24/7 expert support and dedication to client success were evident from our first interaction. Even for smaller LCL consignments, the attention to detail is the same as they provide for their largest enterprise clients.",
   },
 ];
 
-function Row({ items, direction }: { items: Testimonial[]; direction: "left" | "right" }) {
+function MarqueeRow({ items, direction, speed = 40 }: { items: Testimonial[]; direction: "left" | "right", speed?: number }) {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (marqueeRef.current) {
-      marqueeRef.current.style.animationPlayState = "running";
-    }
-  }, []);
-
-  // Create multiple copies for seamless infinite scroll
-  const duplicatedItems = [...items, ...items, ...items];
+  // Duplicate items for seamless scroll
+  const duplicatedItems = [...items, ...items, ...items, ...items];
 
   return (
-    <div className="relative overflow-hidden">
-      <div 
-        ref={marqueeRef} 
-        className={`flex ${direction === "left" ? "animate-marquee-left" : "animate-marquee-right"}`}
+    <div className="relative overflow-hidden py-4">
+      <div
+        ref={marqueeRef}
+        className={`flex whitespace-nowrap ${direction === "left" ? "animate-marquee-left" : "animate-marquee-right"}`}
         style={{
-          animationDuration: '60s',
+          animationDuration: `${speed}s`,
           animationTimingFunction: 'linear',
           animationIterationCount: 'infinite',
-          display: 'flex',
-          width: 'fit-content',
+          width: 'max-content',
         }}
+        onMouseEnter={() => { if (marqueeRef.current) marqueeRef.current.style.animationPlayState = 'paused' }}
+        onMouseLeave={() => { if (marqueeRef.current) marqueeRef.current.style.animationPlayState = 'running' }}
       >
         {duplicatedItems.map((t, i) => (
-          <figure
+          <div
             key={`${t.name}-${i}`}
-            className="w-[360px] sm:w-[420px] max-w-full mr-4 sm:mr-6 flex-shrink-0 rounded-2xl border border-gray-200 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 shadow-sm p-5 sm:p-6 hover:shadow-md transition-shadow duration-300"
+            className="w-[350px] sm:w-[400px] flex-shrink-0 mx-3 sm:mx-4"
           >
-            <blockquote className="text-gray-700 text-sm sm:text-base leading-relaxed line-clamp-6">&quot;{t.quote}&quot;</blockquote>
-            <figcaption className="mt-4 flex items-center gap-3">
-              <Image
-                src={t.avatar}
-                alt={t.name}
-                width={40}
-                height={40}
-                className="h-10 w-10 rounded-full object-cover"
-              />
+            <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between group">
               <div>
-                <div className="text-sm font-semibold text-gray-900">{t.name}</div>
-                <div className="text-xs text-gray-500">{t.role}</div>
+                <Quote className="w-8 h-8 text-blue-600/20 mb-4 group-hover:text-blue-600/40 transition-colors" />
+                <blockquote className="text-slate-600 text-sm sm:text-base leading-relaxed italic whitespace-normal mb-6">
+                  &quot;{t.quote}&quot;
+                </blockquote>
               </div>
-            </figcaption>
-          </figure>
+              <figcaption className="flex items-center gap-4 border-t border-slate-50 pt-4">
+                <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-slate-100">
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="overflow-hidden">
+                  <div className="text-sm font-bold text-slate-900 truncate">{t.name}</div>
+                  <div className="text-xs font-semibold text-blue-600/70 truncate">{t.role}</div>
+                </div>
+              </figcaption>
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -139,16 +129,53 @@ function Row({ items, direction }: { items: Testimonial[]; direction: "left" | "
 
 export default function Testimonials() {
   return (
-    <section aria-label="Testimonials" className="py-16 sm:py-20">
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-         
-       
-         
+    <section id="testimonials" className="relative py-24 bg-slate-50 overflow-hidden">
+      {/* Decorative orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-100/30 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
+
+      <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto text-center mb-16 px-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full mb-6 shadow-sm">
+            <span className="flex h-2 w-2 rounded-full bg-blue-600 translate-y-[-0.5px]"></span>
+            <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">
+              Client Testimonials
+            </span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
+            Trusted by Leaders <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-black">
+              Across Every Industry Sector.
+            </span>
+          </h2>
+
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Discover why India's most innovative companies choose Nisha Roadways to orchestrate their complex supply chains.
+          </p>
         </div>
 
-        <div className="mt-10">
-          <Row items={BOTTOM_ROW} direction="right" />
+        <div className=" space-y-2">
+          {/* First row moving left */}
+          <MarqueeRow items={TOP_ROW} direction="left" speed={45} />
+
+          {/* Second row moving right */}
+          <MarqueeRow items={BOTTOM_ROW} direction="right" speed={40} />
+        </div>
+
+        {/* Trust Stats below marquee */}
+        <div className="mt-16 flex flex-wrap justify-center items-center gap-8 border-t border-slate-200 pt-12">
+          {[
+            { label: "Client Retention", value: "98%" },
+            { label: "Active Partners", value: "300+" },
+            { label: "Years Experience", value: "43+" },
+            { label: "States Covered", value: "All" }
+          ].map((stat, i) => (
+            <div key={i} className="text-center">
+              <div className="text-2xl font-black text-slate-900">{stat.value}</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

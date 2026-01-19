@@ -20,86 +20,86 @@ interface VideoCard {
 const videos: VideoCard[] = [
   {
     id: 1,
-    title: "INSPIRING TRANSFORMATION",
-    subtitle: "CLIENT TESTIMONIAL",
-    description: "A powerful testimonial showcasing the incredible journey of transformation through dedication, discipline, and the right guidance. This member's story proves that with determination, anything is possible.",
+    title: "SUPPLY CHAIN EXCELLENCE",
+    subtitle: "MANUFACTURING PARTNER",
+    description: "A comprehensive look at how our strategic logistics planning transformed their distribution network, reducing turnaround times by 30% across major industrial hubs.",
     videoUrl: "/images/review-video/video/WhatsApp%20Video%202025-07-09%20at%203.57.12%20PM.mp4",
     thumbnailUrl: "/images/review-video/thumbnail/1.png",
     timestamp: "0:15",
-    transcript: "This experience has been absolutely incredible! The transformation I've seen in myself and others is remarkable. The guidance, support, and community here is unlike anything I've experienced before. I highly recommend this to anyone looking to push their limits and discover their true potential.",
-    reviewerName: "Kanika",
+    transcript: "Working with Nisha Roadways has been a game-changer for our national distribution. Their ability to handle complex ODC movements while maintaining strict schedules is exactly what our industry needs. The level of professionalism and real-time tracking they provide gives us complete peace of mind.",
+    reviewerName: "Amit Sharma",
     rating: 5
   },
   {
     id: 2,
-    title: "LIFE-CHANGING JOURNEY",
-    subtitle: "CLIENT SPOTLIGHT",
-    description: "An amazing story of personal growth and achievement. This member's journey demonstrates how the right environment and support can unlock hidden potential and create lasting positive change.",
+    title: "PORT-TO-FACTORY SUCCESS",
+    subtitle: "IMPORT/EXPORT DIRECTOR",
+    description: "Highlighting our specialized container solutions and ExIm transport expertise that cleared a massive backlog and optimized port-to-factory logistics during peak season.",
     videoUrl: "/images/review-video/video/WhatsApp%20Video%202025-07-09%20at%203.57.37%20PM.mp4",
     thumbnailUrl: "/images/review-video/thumbnail/2.png",
     timestamp: "0:18",
-    transcript: "This has been a life-changing experience for me. The level of support, the quality of training, and the amazing community here has transformed not just my body, but my entire mindset. I've learned so much about myself and what I'm truly capable of achieving.",
-    reviewerName: "Archana",
+    transcript: "The transition to Nisha Roadways for our cargo movements was seamless. Their team's expertise in handling delicate solar panel components and over-dimension cargo is unparalleled. We've seen a significant reduction in transit damage and a much smoother customs clearance process through their network.",
+    reviewerName: "Priya Iyer",
     rating: 5
   },
   {
     id: 3,
-    title: "UNSTOPPABLE DETERMINATION",
-    subtitle: "CLIENT TESTIMONIAL",
-    description: "A story of resilience and determination that will inspire anyone. This member's journey shows that with the right mindset and support, no challenge is too great to overcome.",
+    title: "INTELLIGENT LOGISTICS SOLUTIONS",
+    subtitle: "OPERATIONS MANAGER",
+    description: "A deep dive into how our multimodal transport strategies provided a cost-effective and reliable alternative to traditional road-only transport for long-haul shipments.",
     videoUrl: "/images/review-video/video/WhatsApp%20Video%202025-07-09%20at%203.58.00%20PM.mp4",
     thumbnailUrl: "/images/review-video/thumbnail/3.png",
     timestamp: "0:20",
-    transcript: "I came here with doubts about my abilities, but I'm leaving with complete confidence. The training, the nutrition guidance, and the incredible support system here has shown me that I can achieve things I never thought possible. This experience has been truly transformative.",
-    reviewerName: "Girish",
+    transcript: "What sets Nisha Roadways apart is their proactive approach to problem-solving. When we faced major rail disruptions, they immediately pivoted to a multimodal solution that kept our production line running. Their 24/7 support and dedication to our success make them more than just a vendor; they are a true partner.",
+    reviewerName: "Vikram Mehta",
     rating: 5
   },
   {
     id: 4,
-    title: "EXCEPTIONAL EXPERIENCE",
-    subtitle: "CLIENT TESTIMONIAL",
-    description: "An outstanding testimonial highlighting the exceptional quality of the program. This member's experience showcases the comprehensive approach to fitness, nutrition, and personal development.",
+    title: "RELIABLE EMPTY CONTAINER TECH",
+    subtitle: "LOGISTICS COORDINATOR",
+    description: "Showcasing how our Empty Container Transportation (ECT) optimization helped a major exporter save significant costs on container repositioning through our intelligent network.",
     videoUrl: "/images/review-video/video/WhatsApp%20Video%202025-07-09%20at%204.02.02%20PM.mp4",
     thumbnailUrl: "/images/review-video/thumbnail/4.png",
     timestamp: "0:16",
-    transcript: "The quality of this program is exceptional. Every aspect, from the training to the nutrition to the community support, is designed to help you succeed. I've seen incredible results and I know this is just the beginning of my journey.",
-    reviewerName: "Ravi",
+    transcript: "The efficiency of their ECT service is remarkable. We used to struggle with container availability and high repositioning costs, but Nisha's managed network solved that for us nearly overnight. Their digital tracking system is intuitive and gives us the data we need to make informed decisions.",
+    reviewerName: "Rahul Deshmukh",
     rating: 5
   },
   {
     id: 5,
-    title: "ATUL'S JOURNEY",
-    subtitle: "CLIENT SPOTLIGHT",
-    description: "Atul shares his incredible transformation story, highlighting the physical and mental changes he experienced. His journey is a testament to the power of commitment and the right guidance.",
+    title: "COMPLEX ODC EXECUTION",
+    subtitle: "PROJECT MANAGER",
+    description: "Atul explains the intricate details of moving massive hydroelectric turbines across 1,500km, overcoming geographical and infrastructure challenges with our expert team.",
     videoUrl: "/images/review-video/video/WhatsApp%20Video%202025-07-09%20at%204.03.54%20PM.mp4",
     thumbnailUrl: "/images/review-video/thumbnail/5.png",
     timestamp: "0:25",
-    transcript: "My journey here has been absolutely incredible. I've not only transformed physically but mentally as well. The discipline, the training, and the amazing community here has changed my life. I'm stronger, more confident, and ready to take on any challenge. This experience has been worth every moment.",
-    reviewerName: "Atul",
+    transcript: "Moving 100-ton turbine components requires precision engineering and experience. Nisha Roadways handled every aspect, from route surveys to last-mile delivery, with absolute technical competence. They are the only team we trust with our high-value oversized cargo in this region.",
+    reviewerName: "Atul Kulkarni",
     rating: 5
   },
   {
     id: 6,
-    title: "GAURAV'S TRANSFORMATION",
-    subtitle: "CLIENT TESTIMONIAL",
-    description: "Gaurav's powerful testimonial showcases his remarkable transformation journey. His story demonstrates the comprehensive impact of the program on both physical fitness and personal growth.",
+    title: "NATIONWIDE WAREHOUSING INTEGRATION",
+    subtitle: "SUPPLY CHAIN HEAD",
+    description: "Exploring the seamless integration between our storage solutions and transportation network, creating a highly responsive and localized supply chain for their FMCG products.",
     videoUrl: "/images/review-video/video/WhatsApp%20Video%202025-07-09%20at%204.04.36%20PM.mp4",
     thumbnailUrl: "/images/review-video/thumbnail/6.png",
     timestamp: "0:30",
-    transcript: "This program has completely transformed my life. The level of training, the nutritional guidance, and the incredible support system here is unmatched. I've achieved things I never thought possible and I'm excited to continue this journey. The community here is like family and the results speak for themselves.",
-    reviewerName: "Gaurav",
+    transcript: "Our partnership with Nisha has allowed us to scale our operations into five new states in just under a year. Their integrated warehousing and transport solutions provided us with the local presence we needed without the heavy capital investment. Their commitment to safety and quality is visible in every aspect of their operation.",
+    reviewerName: "Gaurav Singh",
     rating: 5
   },
   {
     id: 7,
-    title: "PRAJAKTA'S SUCCESS",
-    subtitle: "CLIENT SPOTLIGHT",
-    description: "Prajakta shares her inspiring success story, highlighting the transformative power of dedication and the right support system. Her journey is a perfect example of what's possible with commitment.",
+    title: "SUSTAINABLE LOGISTICS PARTNER",
+    subtitle: "ESG DIRECTOR",
+    description: "How our fleet optimization and fuel-efficient practices helped their company achieve its carbon reduction targets while improving delivery performance across the South India network.",
     videoUrl: "/images/review-video/video/WhatsApp%20Video%202025-07-09%20at%204.04.46%20PM.mp4",
     thumbnailUrl: "/images/review-video/thumbnail/7.png",
     timestamp: "0:22",
-    transcript: "This experience has been absolutely life-changing. The training, the nutrition guidance, and the incredible community here has helped me achieve goals I never thought possible. I've grown stronger, more confident, and I've learned so much about myself. This is truly a transformative journey that I would recommend to anyone.",
-    reviewerName: "Prajakta",
+    transcript: "Finding a logistics partner who takes sustainability as seriously as we do was a challenge until we found Nisha Roadways. Their modern fleet and route optimization tech have significantly lowered our carbon footprint. They prove that being efficient and being profitable go hand-in-hand in modern logistics.",
+    reviewerName: "Siddharth Verma",
     rating: 5
   }
 ];
@@ -127,7 +127,7 @@ export default function ReviewVideo() {
       }
     `;
     document.head.appendChild(style);
-    
+
     return () => {
       document.head.removeChild(style);
     };
@@ -136,7 +136,7 @@ export default function ReviewVideo() {
   const [isPaused, setIsPaused] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<VideoCard | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  
+
   const containerRef = useRef<HTMLDivElement>(null);
   const modalVideoRef = useRef<HTMLVideoElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -212,18 +212,18 @@ export default function ReviewVideo() {
   const handleWheel = (e: React.WheelEvent) => {
     // Check if it's a horizontal scroll (deltaX) or vertical scroll (deltaY)
     const isHorizontalScroll = Math.abs(e.deltaX) > Math.abs(e.deltaY);
-    
+
     if (isHorizontalScroll) {
       // Only handle horizontal scroll - prevent default and scroll
       e.preventDefault();
       e.stopPropagation();
-      
+
       const scrollAmount = e.deltaX * 0.5; // Adjust sensitivity
       translateX.current -= scrollAmount;
-      
+
       // Infinite scroll - seamless looping in both directions
       wrapTranslateX();
-      
+
       if (containerRef.current) {
         containerRef.current.style.transform = `translateX(${translateX.current}px)`;
       }
@@ -282,12 +282,12 @@ export default function ReviewVideo() {
   return (
     <>
       <section className="w-full bg-white py-8 sm:py-10 md:py-16 lg:py-20 xl:py-10 xl:pt-20 overflow-hidden md:-mt-25 md:-mb-16 -mt-8 -mb-10 relative">
-        
-        
+
+
         <div className="w-full relative z-10">
           {/* Section Heading */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            
+
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-6">
               Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">India's Leading Companies</span>
             </h2>
@@ -308,14 +308,14 @@ export default function ReviewVideo() {
             onMouseMove={handlePointerMove}
             onMouseUp={handlePointerUp}
             onWheel={handleWheel}
-        >
-            <div 
+          >
+            <div
               ref={containerRef}
               className="flex w-max will-change-transform cursor-grab active:cursor-grabbing gap-6"
             >
               {duplicatedVideos.map((video, index) => {
                 const videoId = `${index}-${video.id}`;
-                
+
                 return (
                   <VideoCard
                     key={videoId}
@@ -341,7 +341,7 @@ export default function ReviewVideo() {
             >
               <X className="w-5 h-5" />
             </button>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
               {/* Video Content */}
               <div className="lg:col-span-2 relative">
@@ -366,7 +366,7 @@ export default function ReviewVideo() {
                   <source src={selectedVideo.videoUrl} type="video/mp4" />
                 </video>
               </div>
-              
+
               {/* Review Details Sidebar */}
               <div className="lg:col-span-1 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-4 overflow-y-auto max-h-[90vh] flex flex-col">
                 <div className="space-y-4 flex-1">
@@ -378,14 +378,14 @@ export default function ReviewVideo() {
                       </svg>
                     ))}
                   </div>
-                  
+
                   {/* Reviewer Info */}
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 mb-1">{selectedVideo.reviewerName}</h3>
                     <p className="text-base text-blue-600 font-semibold">{selectedVideo.title}</p>
                     <p className="text-sm text-gray-600">{selectedVideo.subtitle}</p>
                   </div>
-                  
+
                   {/* Full Transcript */}
                   <div>
                     <h4 className="text-base font-semibold text-gray-900 mb-2">What They Said</h4>
@@ -396,10 +396,10 @@ export default function ReviewVideo() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Fixed Call to Action Button at Bottom */}
                 <div className="mt-4 pt-4 border-t border-gray-200 flex-shrink-0">
-                  <button 
+                  <button
                     onClick={() => {
                       handleCloseModal();
                       // Navigate to contact page
@@ -409,7 +409,7 @@ export default function ReviewVideo() {
                     }}
                     className="w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white py-3 px-6 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                   >
-                    Book Your Journey
+                    Connect with Experts
                   </button>
                 </div>
               </div>
@@ -427,7 +427,7 @@ const VideoCard: React.FC<{
   videoId: string;
   onPlayClick: (video: VideoCard) => void;
 }> = ({ video, onPlayClick }) => {
-  
+
   return (
     <div
       className="flex-shrink-0 relative rounded-xl sm:rounded-2xl overflow-hidden h-[360px] sm:h-[350px] md:h-[450px] lg:h-[520px] xl:h-[450px] w-[250px] sm:w-[350px] md:w-[320px] lg:w-[380px] xl:w-[330px] group mx-2 hover:translate-y-[-10px] mt-[10px] duration-300 transition-all shadow-lg select-none cursor-pointer"
@@ -446,10 +446,10 @@ const VideoCard: React.FC<{
         draggable={false}
         unoptimized
       />
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
-      
+
       {/* Play Button - Clickable */}
       <button
         onClick={(e) => {
@@ -483,7 +483,7 @@ const VideoCard: React.FC<{
           <p className="text-xs sm:text-sm leading-relaxed line-clamp-3 opacity-90 select-none">
             &quot;{video.transcript}&quot;
           </p>
-          
+
           {/* Read More Gradient */}
           <div className="absolute bottom-0 right-0 w-8 h-4 bg-gradient-to-l from-black/80 to-transparent" />
         </div>
