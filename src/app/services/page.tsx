@@ -30,7 +30,7 @@ const ServicesPage = () => {
       title: "Container Logistics Solutions",
       description: "Complete end-to-end containerized cargo management with industry-leading efficiency and reliability.",
       color: "bg-blue-50 border-blue-200",
-      hex: "#317fb9",
+      hex: "linear-gradient(135deg, #1d4ed8, #1e40af)",
       gradient: "from-blue-600 to-indigo-700",
       services: [
         {
@@ -61,7 +61,7 @@ const ServicesPage = () => {
       title: "Specialized Cargo Solutions",
       description: "Custom-engineered logistics for unique, complex, and high-stakes cargo requirements.",
       color: "bg-amber-50 border-amber-200",
-      hex: "#63579b",
+      hex: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
       gradient: "from-amber-500 to-orange-600",
       services: [
         {
@@ -99,7 +99,7 @@ const ServicesPage = () => {
       title: "Multimodal & Coastal Solutions",
       description: "Integrated, cost-effective transportation across rail and sea for sustainable, long-distance logistics.",
       color: "bg-emerald-50 border-emerald-200",
-      hex: "#964f77",
+      hex: "linear-gradient(135deg, #8b5cf6, #f43f5e)",
       gradient: "from-emerald-500 to-teal-700",
       services: [
         {
@@ -123,7 +123,7 @@ const ServicesPage = () => {
       title: "Value-Added Logistics",
       description: "Premium enhancements that provide extra security, flexibility, and end-to-end efficiency to your supply chain.",
       color: "bg-violet-50 border-violet-200",
-      hex: "#cd3f45",
+      hex: "linear-gradient(135deg, #f43f5e, #9f1239)",
       gradient: "from-violet-600 to-purple-800",
       services: [
         {
@@ -200,7 +200,7 @@ const ServicesPage = () => {
                   key={cat.id}
                   href={`#${cat.id}`}
                   className="px-5 py-2.5 rounded-full text-white font-bold transition-all text-sm hover:scale-105 shadow-lg flex items-center gap-2"
-                  style={{ backgroundColor: (cat as any).hex }}
+                  style={{ background: (cat as any).hex }}
                 >
                   {cat.title}
                   <FaArrowRight className="text-[10px]" />
@@ -230,7 +230,7 @@ const ServicesPage = () => {
                 <div className="lg:w-1/3 lg:sticky lg:top-32">
                   <div
                     className="inline-flex items-center justify-center w-16 h-16 rounded-2xl text-white mb-6 shadow-xl"
-                    style={{ backgroundColor: (category as any).hex }}
+                    style={{ background: (category as any).hex }}
                   >
                     <FaProjectDiagram className="text-2xl" />
                   </div>
@@ -263,7 +263,7 @@ const ServicesPage = () => {
                       key={service.slug}
                       service={service}
                       themeColor={getThemeColor(category.gradient)}
-                      gradient={category.gradient}
+                      gradient={category.hex}
                       index={sIdx}
                     />
                   ))}

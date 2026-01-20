@@ -22,7 +22,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ 
+      transition={{
         delay: index * 0.1,
         duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94]
@@ -33,15 +33,16 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
         <div className="relative bg-white/80 backdrop-blur-sm border border-white/20 rounded-2xl p-6 h-full overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-200/50 group-hover:-translate-y-2 group-hover:bg-white/90">
           {/* Gradient overlay on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
+
           {/* Animated background pattern */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/20 to-purple-100/20 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
-          
+
           <div className="relative z-10">
             {/* Icon and Title Section */}
             <div className="flex items-start gap-4 mb-6">
-              <motion.div 
-                className={`flex-shrink-0 w-14 h-14 bg-gradient-to-br ${gradient} rounded-xl flex items-center justify-center text-white text-xl shadow-lg group-hover:shadow-${themeColor}-500/25 group-hover:scale-110 transition-all duration-300`}
+              <motion.div
+                className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-all duration-300 ${!gradient.includes('linear-gradient') ? `bg-gradient-to-br ${gradient}` : ''}`}
+                style={gradient.includes('linear-gradient') ? { background: gradient } : {}}
                 whileHover={{ rotate: 5 }}
               >
                 <div className="text-white">
@@ -52,10 +53,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
                 <h3 className={`text-lg font-bold text-gray-900 group-hover:text-${themeColor}-600 transition-colors duration-300 leading-tight mb-1`}>
                   {service.name}
                 </h3>
-                <div className={`w-12 h-1 bg-gradient-to-r ${gradient} rounded-full group-hover:w-20 transition-all duration-300`}></div>
+                <div
+                  className={`w-12 h-1 rounded-full group-hover:w-20 transition-all duration-300 ${!gradient.includes('linear-gradient') ? `bg-gradient-to-r ${gradient}` : ''}`}
+                  style={gradient.includes('linear-gradient') ? { background: gradient } : {}}
+                ></div>
               </div>
             </div>
-            
+
             {/* Description */}
             <p className="text-gray-600 text-sm mb-6 leading-relaxed line-clamp-3">
               {service.description}
@@ -65,8 +69,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
             {service.features && (
               <div className="space-y-3 mb-6">
                 {service.features.slice(0, 3).map((feature, idx) => (
-                  <motion.div 
-                    key={idx} 
+                  <motion.div
+                    key={idx}
                     className="flex items-center gap-3 text-sm text-gray-700"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}

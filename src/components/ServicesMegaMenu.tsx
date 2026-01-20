@@ -73,8 +73,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Container Logistics Solutions",
       url: "/services#container-logistics",
-      style: { backgroundColor: '#317fb9', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#286a9c' },
+      style: { background: 'linear-gradient(135deg, #1d4ed8, #1e40af)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #1e40af, #1e3a8a)' },
       description: "Complete containerized cargo management",
       items: [
         {
@@ -100,8 +100,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Specialized Cargo Solutions",
       url: "/services#specialized-cargo",
-      style: { backgroundColor: '#63579b', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#524881' },
+      style: { background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #2563eb, #7c3aed)' },
       description: "Custom solutions for unique cargo requirements",
       items: [
         {
@@ -133,8 +133,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Multimodal Transport Solutions",
       url: "/services#multimodal-transport",
-      style: { backgroundColor: '#964f77', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#7d4163' },
+      style: { background: 'linear-gradient(135deg, #8b5cf6, #f43f5e)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #7c3aed, #e11d48)' },
       description: "Integrated transportation across multiple modes",
       items: [
         {
@@ -154,8 +154,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Value-Added Logistics Services",
       url: "/services#value-added-services",
-      style: { backgroundColor: '#cd3f45', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#a63338' },
+      style: { background: 'linear-gradient(135deg, #f43f5e, #9f1239)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #e11d48, #881337)' },
       description: "Enhanced services for optimal supply chain management",
       items: [
         {
@@ -234,15 +234,17 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                         onClick={() => onClose && onClose()}
                         href={category.url}
                         className={`text-base sm:text-lg font-bold group py-2 sm:py-3 px-3 sm:px-4 rounded-lg inline-flex items-center gap-2 sm:gap-3 transition-all duration-300 w-full hover:shadow-md`}
-                        style={category.style}
+                        style={category.style as any}
                         onMouseEnter={(e) => {
                           const target = e.currentTarget;
                           const hoverStyle = (category as any).hoverStyle;
-                          if (hoverStyle) Object.assign(target.style, hoverStyle);
+                          if (hoverStyle) {
+                            target.style.background = hoverStyle.background;
+                          }
                         }}
                         onMouseLeave={(e) => {
                           const target = e.currentTarget;
-                          Object.assign(target.style, category.style);
+                          target.style.background = (category.style as any).background;
                         }}
                       >
                         <span className="truncate">{category.title}</span>

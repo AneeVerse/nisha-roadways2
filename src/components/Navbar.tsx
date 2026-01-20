@@ -216,32 +216,32 @@ export default function Navbar() {
       desc: "Insights and updates",
       href: "/blog",
       image: "/images/use-everywhere/images1.png",
-      style: { backgroundColor: '#317fb9', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#286a9c' }
+      style: { background: 'linear-gradient(135deg, #1d4ed8, #1e40af)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #1e40af, #1e3a8a)' }
     },
     {
       title: "Nisha Academy",
       desc: "Logistics education and training",
       href: "/academy",
       image: "/images/use-everywhere/images2.png",
-      style: { backgroundColor: '#63579b', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#524881' }
+      style: { background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #2563eb, #7c3aed)' }
     },
     {
       title: "FAQ",
       desc: "Answers to common questions",
       href: "/faq",
       image: "/images/use-everywhere/images3.png",
-      style: { backgroundColor: '#964f77', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#7d4163' }
+      style: { background: 'linear-gradient(135deg, #8b5cf6, #f43f5e)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #7c3aed, #e11d48)' }
     },
     {
       title: "Contact",
       desc: "Get in touch with us",
       href: "/contact",
       image: "/images/use-everywhere/images4.png",
-      style: { backgroundColor: '#cd3f45', color: '#ffffff' },
-      hoverStyle: { backgroundColor: '#a63338' }
+      style: { background: 'linear-gradient(135deg, #f43f5e, #9f1239)', color: '#ffffff' },
+      hoverStyle: { background: 'linear-gradient(135deg, #e11d48, #881337)' }
     },
   ];
 
@@ -366,15 +366,17 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         className="group flex flex-col gap-1 px-4 py-3 rounded-xl transition-all duration-300 hover:shadow-md"
-                        style={item.style}
+                        style={item.style as any}
                         onMouseEnter={(e) => {
                           const target = e.currentTarget;
                           const hoverStyle = (item as any).hoverStyle;
-                          if (hoverStyle) Object.assign(target.style, hoverStyle);
+                          if (hoverStyle) {
+                            target.style.background = hoverStyle.background;
+                          }
                         }}
                         onMouseLeave={(e) => {
                           const target = e.currentTarget;
-                          Object.assign(target.style, item.style);
+                          target.style.background = (item.style as any).background;
                         }}
                         onClick={() => setOpenMenu(null)}
                       >
