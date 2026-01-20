@@ -8,21 +8,21 @@ export default function AboutTeam() {
         {
             name: "NK AGARWAL",
             role: "Founder & Chairman",
-            imageSrc: "/images/dream-team/imgi_2_nka.jpg",
+            imageSrc: "/images/dream-team/imgi_2_nka (1).png",
             description: "Born and brought up in Calcutta, Mr. Nandkishor Agarwal moved to Mumbai in 1975. Having completed his education in Calcutta, he got a job in a small transport company as Supervisor as soon as he arrived in Mumbai. He subsequently started out on his own and founded Nisha Roadways Pvt. Ltd. in 1982. The company has grown from strength to strength over the years.",
             accentGradient: "from-blue-600 to-indigo-700"
         },
         {
             name: "NAVIN AGARWAL",
             role: "CEO",
-            imageSrc: "/images/dream-team/imgi_3_navina.jpg",
+            imageSrc: "/images/dream-team/imgi_3_navina (1).png",
             description: "After completing his B.Com from Mumbai University, Navin acquired an MBA from K. J. Somaiya Institute of Management Studies, Mumbai, and subsequently joined the business in the year 2000. Bringing innovative ideas, he worked to boost the business from just four to 30+ branches, thus widening the network pan-India.",
             accentGradient: "from-green-600 to-emerald-700"
         },
         {
             name: "RAJKUMAR AGARWAL",
             role: "Mentor",
-            imageSrc: "/images/dream-team/imgi_4_rajkumara.jpg",
+            imageSrc: "/images/dream-team/imgi_4_rajkumara (1).png",
             description: "Mr. Raj Kumar Agarwal, a practicing lawyer in the field of Income tax, left his practice to pursue his dream in the field of Real estate in the year 1990. Currently the founder & Managing Director of Kolkata's Real Estate company 'AMBEY GROUP'.",
             accentGradient: "from-purple-600 to-violet-700"
         }
@@ -32,14 +32,14 @@ export default function AboutTeam() {
         {
             name: "SUMIT SINGHANIA",
             role: "C.A (Consultant)",
-            imageSrc: "/images/dream-team/imgi_5_sumits.jpg",
+            imageSrc: "/images/dream-team/imgi_5_sumits (1) (1).png",
             description: "He is a chartered accountant with over 18 years of working experience in the field of audit, finance, real-estate and taxation. He has extensive knowledge of the Indian real-estate sector.",
             accentGradient: "from-orange-600 to-red-700"
         },
         {
             name: "ARUN KUMAR PANDEY",
             role: "C.A (Consultant)",
-            imageSrc: "/images/dream-team/imgi_6_arunkumar.jpg",
+            imageSrc: "/images/dream-team/imgi_6_arunkumar (1).png",
             description: "Arun Pandey comes with a rock solid experience of 30 years as a Chartered Accountant. Having worked with 15 companies which are in the big league, today he runs his own company 'A Pandey & Associates'.",
             accentGradient: "from-teal-600 to-cyan-700"
         }
@@ -79,7 +79,7 @@ export default function AboutTeam() {
                 </div>
 
                 {/* Main Leaders */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16 mb-16">
                     {leaders.map((leader, index) => (
                         <motion.div
                             key={index}
@@ -94,7 +94,7 @@ export default function AboutTeam() {
                 </div>
 
                 {/* Consultants */}
-                <div className="flex flex-wrap justify-center gap-8">
+                <div className="flex flex-wrap justify-center gap-16">
                     {consultants.map((leader, index) => (
                         <motion.div
                             key={index}
