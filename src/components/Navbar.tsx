@@ -23,8 +23,10 @@ import {
   Train,
   Ship,
   Sun,
-  Box
+  Box,
+  ArrowRight
 } from "lucide-react";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -209,10 +211,38 @@ export default function Navbar() {
   ];
 
   const resources = [
-    { title: "Blogs", desc: "Insights and updates", href: "/blog", image: "/images/use-everywhere/images1.png" },
-    { title: "Nisha Academy", desc: "Logistics education and training", href: "/academy", image: "/images/use-everywhere/images2.png" },
-    { title: "FAQ", desc: "Answers to common questions", href: "/faq", image: "/images/use-everywhere/images3.png" },
-    { title: "Contact", desc: "Get in touch with us", href: "/contact", image: "/images/use-everywhere/images4.png" },
+    {
+      title: "Blogs",
+      desc: "Insights and updates",
+      href: "/blog",
+      image: "/images/use-everywhere/images1.png",
+      style: { backgroundColor: '#317fb915', color: '#317fb9' },
+      hoverStyle: { backgroundColor: '#317fb925' }
+    },
+    {
+      title: "Nisha Academy",
+      desc: "Logistics education and training",
+      href: "/academy",
+      image: "/images/use-everywhere/images2.png",
+      style: { backgroundColor: '#63579b15', color: '#63579b' },
+      hoverStyle: { backgroundColor: '#63579b25' }
+    },
+    {
+      title: "FAQ",
+      desc: "Answers to common questions",
+      href: "/faq",
+      image: "/images/use-everywhere/images3.png",
+      style: { backgroundColor: '#964f7715', color: '#964f77' },
+      hoverStyle: { backgroundColor: '#964f7725' }
+    },
+    {
+      title: "Contact",
+      desc: "Get in touch with us",
+      href: "/contact",
+      image: "/images/use-everywhere/images4.png",
+      style: { backgroundColor: '#cd3f4515', color: '#cd3f45' },
+      hoverStyle: { backgroundColor: '#cd3f4525' }
+    },
   ];
 
   // Sample data for latest blogs and programs
@@ -232,7 +262,7 @@ export default function Navbar() {
 
     const panel = (
       <div className="fixed left-0 right-0 top-full bg-white/100  shadow-2xl border-t border-gray-100/50 z-[110]">
-        <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 2xl:px-24 py-10">
+        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 py-10 sm:py-12">
           {/* Services - 3 Column Layout */}
           {section === "services" && (
             <div>
@@ -330,49 +360,32 @@ export default function Navbar() {
             <div className="flex gap-12">
               {/* Left Side - Expanded Navigation */}
               <div className="w-80 flex-shrink-0">
-                <div className="space-y-1">
+                <div className="space-y-4">
                   {resources.map((item, index) => (
                     <div key={item.title}>
                       <Link
                         href={item.href}
-                        className="group flex items-center gap-4 px-0 py-4 hover:text-blue-600 transition-colors duration-200"
+                        className="group flex flex-col gap-1 px-4 py-3 rounded-xl transition-all duration-300 hover:shadow-md"
+                        style={item.style}
+                        onMouseEnter={(e) => {
+                          const target = e.currentTarget;
+                          const hoverStyle = (item as any).hoverStyle;
+                          if (hoverStyle) Object.assign(target.style, hoverStyle);
+                        }}
+                        onMouseLeave={(e) => {
+                          const target = e.currentTarget;
+                          Object.assign(target.style, item.style);
+                        }}
+                        onClick={() => setOpenMenu(null)}
                       >
-                        <div className="w-6 h-6 flex items-center justify-center">
-                          {item.title === "Blogs" && (
-                            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                          )}
-                          {item.title === "Nisha Academy" && (
-                            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
-                          )}
-                          {item.title === "FAQ" && (
-                            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                          )}
-                          {item.title === "Contact" && (
-                            <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                          )}
+                        <div className="flex items-center justify-between font-bold text-base sm:text-lg">
+                          <span>{item.title}</span>
+                          <FaArrowRight className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform duration-300" />
                         </div>
-                        <div>
-                          <div className="font-medium text-gray-700 group-hover:text-blue-600 transition-colors duration-200">
-                            {item.title}
-                          </div>
-                          <div className="text-sm text-gray-500 mt-0.5">
-                            {item.desc}
-                          </div>
+                        <div className="text-sm opacity-80 font-medium">
+                          {item.desc}
                         </div>
                       </Link>
-
-                      {/* Simple divider line */}
-                      {index < resources.length - 1 && (
-                        <div className="h-px bg-gray-100 my-2"></div>
-                      )}
                     </div>
                   ))}
                 </div>
@@ -443,23 +456,23 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Why Us - Keep existing layout */}
+          {/* Why Us - Updated to 4 columns in a row */}
           {section === "whyus" && (
-            <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center max-w-3xl mx-auto gap-0 -space-x-2">
+            <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center w-full gap-8">
               {whyUs.map((item) => (
-                <Link key={item.title} href={item.href} className="group block w-full max-w-[360px] mx-auto">
-                  <div className="aspect-[5/2] bg-gray-100 rounded-lg overflow-hidden mb-4 mt-3">
+                <Link key={item.title} href={item.href} className="group block w-full">
+                  <div className="aspect-[16/9] bg-gray-100 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-100">
                     <Image
                       src={item.image}
                       alt={item.title}
                       width={400}
-                      height={300}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      height={225}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <div className="font-medium text-gray-900 group-hover:text-gray-700">{item.title}</div>
-                    <div className="text-sm text-gray-500">{item.desc}</div>
+                  <div className="space-y-1 px-1">
+                    <div className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200 text-lg">{item.title}</div>
+                    <div className="text-sm text-gray-500 leading-relaxed font-normal">{item.desc}</div>
                   </div>
                 </Link>
               ))}

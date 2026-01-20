@@ -3,7 +3,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { 
+import {
   FaShippingFast, FaIndustry, FaTrain, FaWarehouse,
   FaSolarPanel, FaTruck, FaShip, FaBoxes,
   FaFlask, FaShieldAlt, FaMapMarkedAlt, FaArrowRight
@@ -20,7 +20,7 @@ interface ServicesMegaMenuProps {
   onClose?: () => void;
 }
 
-const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({ 
+const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
   color = { text: "#171717" },
   isOpen = false,
   onMouseEnter,
@@ -73,25 +73,26 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Container Logistics Solutions",
       url: "/services#container-logistics",
-      color: "bg-blue-50 hover:bg-blue-100 text-blue-900",
+      style: { backgroundColor: '#317fb920', color: '#317fb9' },
+      hoverStyle: { backgroundColor: '#317fb930' },
       description: "Complete containerized cargo management",
       items: [
         {
           name: "Empty Container Transportation (ECT)",
           description: "Exim and domestic empty container services",
-          icon: <FaBoxes className="text-[#374151]" />,
+          icon: <FaBoxes className="text-[#317fb9]" />,
           slug: "empty-container-transportation"
         },
         {
           name: "Export Import Containers",
           description: "ExIm transport services for international trade",
-          icon: <FaShippingFast className="text-[#374151]" />,
+          icon: <FaShippingFast className="text-[#317fb9]" />,
           slug: "export-import-containers"
         },
         {
           name: "Domestic Cargo In Our Containers",
           description: "Secured cargo in owned ISO containers",
-          icon: <FaTruck className="text-[#374151]" />,
+          icon: <FaTruck className="text-[#317fb9]" />,
           slug: "domestic-cargo-containers"
         }
       ]
@@ -99,31 +100,32 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Specialized Cargo Solutions",
       url: "/services#specialized-cargo",
-      color: "bg-amber-50 hover:bg-amber-100 text-amber-900",
+      style: { backgroundColor: '#63579b20', color: '#63579b' },
+      hoverStyle: { backgroundColor: '#63579b30' },
       description: "Custom solutions for unique cargo requirements",
       items: [
         {
           name: "Solar Panel & Parts Transportation",
           description: "Renewable energy components logistics",
-          icon: <FaSolarPanel className="text-[#374151]" />,
+          icon: <FaSolarPanel className="text-[#63579b]" />,
           slug: "solar-panel-transportation"
         },
         {
           name: "Over Dimension Cargo (ODC)",
           description: "Oversized machinery and project cargo",
-          icon: <FaIndustry className="text-[#374151]" />,
+          icon: <FaIndustry className="text-[#63579b]" />,
           slug: "over-dimension-cargo"
         },
         {
           name: "Bulk Cargo Transportation",
           description: "Steel coils, grains, construction materials",
-          icon: <FaWarehouse className="text-[#374151]" />,
+          icon: <FaWarehouse className="text-[#63579b]" />,
           slug: "bulk-cargo-solutions"
         },
         {
           name: "Chemical Transportation",
           description: "Tank container logistics for chemicals",
-          icon: <FaFlask className="text-[#374151]" />,
+          icon: <FaFlask className="text-[#63579b]" />,
           slug: "chemical-transportation"
         }
       ]
@@ -131,19 +133,20 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Multimodal Transport Solutions",
       url: "/services#multimodal-transport",
-      color: "bg-emerald-50 hover:bg-emerald-100 text-emerald-900",
+      style: { backgroundColor: '#964f7720', color: '#964f77' },
+      hoverStyle: { backgroundColor: '#964f7730' },
       description: "Integrated transportation across multiple modes",
       items: [
         {
           name: "Rail Services",
           description: "Container and bulk cargo by rail",
-          icon: <FaTrain className="text-[#374151]" />,
+          icon: <FaTrain className="text-[#964f77]" />,
           slug: "rail-services"
         },
         {
           name: "Coastal Services",
           description: "Maritime shipping across major Indian ports",
-          icon: <FaShip className="text-[#374151]" />,
+          icon: <FaShip className="text-[#964f77]" />,
           slug: "coastal-services"
         }
       ]
@@ -151,25 +154,26 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Value-Added Logistics Services",
       url: "/services#value-added-services",
-      color: "bg-violet-50 hover:bg-violet-100 text-violet-900",
+      style: { backgroundColor: '#cd3f4520', color: '#cd3f45' },
+      hoverStyle: { backgroundColor: '#cd3f4530' },
       description: "Enhanced services for optimal supply chain management",
       items: [
         {
           name: "LCL Consolidation",
           description: "Less-than-Container-Load optimization",
-          icon: <FaBoxes className="text-[#374151]" />,
+          icon: <FaBoxes className="text-[#cd3f45]" />,
           slug: "lcl-consolidation"
         },
         {
           name: "High Value Goods Transportation",
           description: "GPS-tracked premium cargo with security",
-          icon: <FaShieldAlt className="text-[#374151]" />,
+          icon: <FaShieldAlt className="text-[#cd3f45]" />,
           slug: "high-value-goods"
         },
         {
           name: "Storage and Warehousing",
           description: "Comprehensive storage solutions",
-          icon: <FaWarehouse className="text-[#374151]" />,
+          icon: <FaWarehouse className="text-[#cd3f45]" />,
           slug: "storage-warehousing"
         }
       ]
@@ -184,8 +188,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     >
       {/* Invisible bridge area */}
       <div className="absolute top-full left-0 right-0 h-2 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
-      <Link 
-        href="/services" 
+      <Link
+        href="/services"
         className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative hover:text-blue-600`}
         style={{ color: color.text }}
       >
@@ -194,18 +198,17 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
           {/* Animated underline - same as Navbar */}
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300 ease-out"></span>
         </span>
-        <ChevronDown className={`w-4 h-4 transition-all duration-300 ${
-          isOpen 
-            ? "rotate-180 text-blue-400" 
-            : "group-hover:text-blue-400"
-        }`} />
+        <ChevronDown className={`w-4 h-4 transition-all duration-300 ${isOpen
+          ? "rotate-180 text-blue-400"
+          : "group-hover:text-blue-400"
+          }`} />
       </Link>
-      
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
             className="fixed left-0 right-0 top-full w-screen z-[110]"
-            style={{ 
+            style={{
               marginLeft: "calc(-50vw + 50%)",
               width: "100vw"
             }}
@@ -220,17 +223,27 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
               <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
                   {menuCategories.map((category, index) => (
-                    <motion.div 
+                    <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                       className="space-y-3 sm:space-y-4"
                     >
-                      <Link 
-                        onClick={() => onClose && onClose()} 
-                        href={category.url} 
-                        className={`text-base sm:text-lg font-bold group py-2 sm:py-3 px-3 sm:px-4 rounded-lg inline-flex items-center gap-2 sm:gap-3 transition-all duration-300 ${category.color} w-full`}
+                      <Link
+                        onClick={() => onClose && onClose()}
+                        href={category.url}
+                        className={`text-base sm:text-lg font-bold group py-2 sm:py-3 px-3 sm:px-4 rounded-lg inline-flex items-center gap-2 sm:gap-3 transition-all duration-300 w-full hover:shadow-md`}
+                        style={category.style}
+                        onMouseEnter={(e) => {
+                          const target = e.currentTarget;
+                          const hoverStyle = (category as any).hoverStyle;
+                          if (hoverStyle) Object.assign(target.style, hoverStyle);
+                        }}
+                        onMouseLeave={(e) => {
+                          const target = e.currentTarget;
+                          Object.assign(target.style, category.style);
+                        }}
                       >
                         <span className="truncate">{category.title}</span>
                         <FaArrowRight className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
@@ -238,10 +251,10 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                       <p className="text-xs sm:text-sm text-gray-600 px-3 sm:px-4 line-clamp-2">{category.description}</p>
                       <div className="space-y-1 sm:space-y-2">
                         {category.items.map((item, idx) => (
-                          <Link 
-                            onClick={() => onClose && onClose()} 
-                            href={`/services/${item.slug}`} 
-                            key={idx} 
+                          <Link
+                            onClick={() => onClose && onClose()}
+                            href={`/services/${item.slug}`}
+                            key={idx}
                             className="flex group px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-gray-50 items-center gap-3 sm:gap-4 transition-all duration-300"
                           >
                             <div className="flex-shrink-0 text-lg sm:text-xl">
@@ -249,7 +262,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                             </div>
                             <div className="flex-1 min-w-0">
                               <h4 className="text-sm sm:text-sm -ml-1 font-semibold text-[#374151] group-hover:text-blue-600 transition-colors duration-300 flex items-center truncate">
-                                <span className="h-[4px] w-[4px] bg-blue-600 inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-2 flex-shrink-0" />  
+                                <span className="h-[4px] w-[4px] bg-blue-600 inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-2 flex-shrink-0" />
                                 <span className="truncate">{item.name}</span>
                               </h4>
                               <p className="text-xs text-[#374151] mt-1 line-clamp-1 sm:line-clamp-2">{item.description}</p>
