@@ -30,6 +30,7 @@ const ServicesPage = () => {
       title: "Container Logistics Solutions",
       description: "Complete end-to-end containerized cargo management with industry-leading efficiency and reliability.",
       color: "bg-blue-50 border-blue-200",
+      hex: "#317fb9",
       gradient: "from-blue-600 to-indigo-700",
       services: [
         {
@@ -60,6 +61,7 @@ const ServicesPage = () => {
       title: "Specialized Cargo Solutions",
       description: "Custom-engineered logistics for unique, complex, and high-stakes cargo requirements.",
       color: "bg-amber-50 border-amber-200",
+      hex: "#63579b",
       gradient: "from-amber-500 to-orange-600",
       services: [
         {
@@ -97,6 +99,7 @@ const ServicesPage = () => {
       title: "Multimodal & Coastal Solutions",
       description: "Integrated, cost-effective transportation across rail and sea for sustainable, long-distance logistics.",
       color: "bg-emerald-50 border-emerald-200",
+      hex: "#964f77",
       gradient: "from-emerald-500 to-teal-700",
       services: [
         {
@@ -120,6 +123,7 @@ const ServicesPage = () => {
       title: "Value-Added Logistics",
       description: "Premium enhancements that provide extra security, flexibility, and end-to-end efficiency to your supply chain.",
       color: "bg-violet-50 border-violet-200",
+      hex: "#cd3f45",
       gradient: "from-violet-600 to-purple-800",
       services: [
         {
@@ -195,9 +199,11 @@ const ServicesPage = () => {
                 <a
                   key={cat.id}
                   href={`#${cat.id}`}
-                  className="px-5 py-2.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white font-medium hover:bg-white hover:text-blue-900 transition-all text-sm"
+                  className="px-5 py-2.5 rounded-full text-white font-bold transition-all text-sm hover:scale-105 shadow-lg flex items-center gap-2"
+                  style={{ backgroundColor: (cat as any).hex }}
                 >
                   {cat.title}
+                  <FaArrowRight className="text-[10px]" />
                 </a>
               ))}
             </motion.div>

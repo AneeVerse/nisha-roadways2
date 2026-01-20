@@ -216,32 +216,32 @@ export default function Navbar() {
       desc: "Insights and updates",
       href: "/blog",
       image: "/images/use-everywhere/images1.png",
-      style: { backgroundColor: '#317fb915', color: '#317fb9' },
-      hoverStyle: { backgroundColor: '#317fb925' }
+      style: { backgroundColor: '#317fb9', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#286a9c' }
     },
     {
       title: "Nisha Academy",
       desc: "Logistics education and training",
       href: "/academy",
       image: "/images/use-everywhere/images2.png",
-      style: { backgroundColor: '#63579b15', color: '#63579b' },
-      hoverStyle: { backgroundColor: '#63579b25' }
+      style: { backgroundColor: '#63579b', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#524881' }
     },
     {
       title: "FAQ",
       desc: "Answers to common questions",
       href: "/faq",
       image: "/images/use-everywhere/images3.png",
-      style: { backgroundColor: '#964f7715', color: '#964f77' },
-      hoverStyle: { backgroundColor: '#964f7725' }
+      style: { backgroundColor: '#964f77', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#7d4163' }
     },
     {
       title: "Contact",
       desc: "Get in touch with us",
       href: "/contact",
       image: "/images/use-everywhere/images4.png",
-      style: { backgroundColor: '#cd3f4515', color: '#cd3f45' },
-      hoverStyle: { backgroundColor: '#cd3f4525' }
+      style: { backgroundColor: '#cd3f45', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#a63338' }
     },
   ];
 

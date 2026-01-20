@@ -73,8 +73,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Container Logistics Solutions",
       url: "/services#container-logistics",
-      style: { backgroundColor: '#317fb920', color: '#317fb9' },
-      hoverStyle: { backgroundColor: '#317fb930' },
+      style: { backgroundColor: '#317fb9', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#286a9c' },
       description: "Complete containerized cargo management",
       items: [
         {
@@ -100,8 +100,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Specialized Cargo Solutions",
       url: "/services#specialized-cargo",
-      style: { backgroundColor: '#63579b20', color: '#63579b' },
-      hoverStyle: { backgroundColor: '#63579b30' },
+      style: { backgroundColor: '#63579b', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#524881' },
       description: "Custom solutions for unique cargo requirements",
       items: [
         {
@@ -133,8 +133,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Multimodal Transport Solutions",
       url: "/services#multimodal-transport",
-      style: { backgroundColor: '#964f7720', color: '#964f77' },
-      hoverStyle: { backgroundColor: '#964f7730' },
+      style: { backgroundColor: '#964f77', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#7d4163' },
       description: "Integrated transportation across multiple modes",
       items: [
         {
@@ -154,8 +154,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Value-Added Logistics Services",
       url: "/services#value-added-services",
-      style: { backgroundColor: '#cd3f4520', color: '#cd3f45' },
-      hoverStyle: { backgroundColor: '#cd3f4530' },
+      style: { backgroundColor: '#cd3f45', color: '#ffffff' },
+      hoverStyle: { backgroundColor: '#a63338' },
       description: "Enhanced services for optimal supply chain management",
       items: [
         {
