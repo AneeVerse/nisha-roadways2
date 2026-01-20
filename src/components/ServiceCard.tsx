@@ -41,21 +41,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
             {/* Icon and Title Section */}
             <div className="flex items-start gap-4 mb-6">
               <motion.div
-                className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center text-white text-xl shadow-lg group-hover:scale-110 transition-all duration-300 ${!gradient.includes('linear-gradient') ? `bg-gradient-to-br ${gradient}` : ''}`}
-                style={gradient.includes('linear-gradient') ? { background: gradient } : {}}
+                className="flex-shrink-0 w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-xl text-gray-400 shadow-sm border border-gray-100 group-hover:scale-110 transition-all duration-300"
                 whileHover={{ rotate: 5 }}
               >
-                <div className="text-white">
+                <div>
                   {service.icon}
                 </div>
               </motion.div>
               <div className="flex-1 min-w-0">
-                <h3 className={`text-lg font-bold text-gray-900 group-hover:text-${themeColor}-600 transition-colors duration-300 leading-tight mb-1`}>
+                <h3 className="text-lg font-bold text-gray-900 transition-colors duration-300 leading-tight mb-1">
                   {service.name}
                 </h3>
                 <div
-                  className={`w-12 h-1 rounded-full group-hover:w-20 transition-all duration-300 ${!gradient.includes('linear-gradient') ? `bg-gradient-to-r ${gradient}` : ''}`}
-                  style={gradient.includes('linear-gradient') ? { background: gradient } : {}}
+                  className="w-12 h-1 rounded-full group-hover:w-20 transition-all duration-300"
+                  style={{ background: gradient }}
                 ></div>
               </div>
             </div>
@@ -71,13 +70,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
                 {service.features.slice(0, 3).map((feature, idx) => (
                   <motion.div
                     key={idx}
-                    className="flex items-center gap-3 text-sm text-gray-700"
+                    className="flex items-center gap-3 text-sm text-gray-600"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: (index * 0.1) + (idx * 0.1) }}
                   >
-                    <div className="flex-shrink-0 w-5 h-5 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center">
-                      <FaCheckCircle className="text-white text-xs" />
+                    <div className="flex-shrink-0 w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+                      <FaCheckCircle className="text-gray-400 text-[10px]" />
                     </div>
                     <span className="flex-1">{feature}</span>
                   </motion.div>

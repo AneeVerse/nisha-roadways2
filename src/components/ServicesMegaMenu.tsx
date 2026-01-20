@@ -73,6 +73,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Container Logistics Solutions",
       url: "/services#container-logistics",
+      baseColor: "#1d4ed8",
       style: { background: 'linear-gradient(135deg, #1d4ed8, #1e40af)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #1e40af, #1e3a8a)' },
       description: "Complete containerized cargo management",
@@ -80,19 +81,19 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "Empty Container Transportation (ECT)",
           description: "Exim and domestic empty container services",
-          icon: <FaBoxes className="text-[#317fb9]" />,
+          icon: <FaBoxes />,
           slug: "empty-container-transportation"
         },
         {
           name: "Export Import Containers",
           description: "ExIm transport services for international trade",
-          icon: <FaShippingFast className="text-[#317fb9]" />,
+          icon: <FaShippingFast />,
           slug: "export-import-containers"
         },
         {
           name: "Domestic Cargo In Our Containers",
           description: "Secured cargo in owned ISO containers",
-          icon: <FaTruck className="text-[#317fb9]" />,
+          icon: <FaTruck />,
           slug: "domestic-cargo-containers"
         }
       ]
@@ -100,6 +101,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Specialized Cargo Solutions",
       url: "/services#specialized-cargo",
+      baseColor: "#63579b",
       style: { background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #2563eb, #7c3aed)' },
       description: "Custom solutions for unique cargo requirements",
@@ -107,25 +109,25 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "Solar Panel & Parts Transportation",
           description: "Renewable energy components logistics",
-          icon: <FaSolarPanel className="text-[#63579b]" />,
+          icon: <FaSolarPanel />,
           slug: "solar-panel-transportation"
         },
         {
           name: "Over Dimension Cargo (ODC)",
           description: "Oversized machinery and project cargo",
-          icon: <FaIndustry className="text-[#63579b]" />,
+          icon: <FaIndustry />,
           slug: "over-dimension-cargo"
         },
         {
           name: "Bulk Cargo Transportation",
           description: "Steel coils, grains, construction materials",
-          icon: <FaWarehouse className="text-[#63579b]" />,
+          icon: <FaWarehouse />,
           slug: "bulk-cargo-solutions"
         },
         {
           name: "Chemical Transportation",
           description: "Tank container logistics for chemicals",
-          icon: <FaFlask className="text-[#63579b]" />,
+          icon: <FaFlask />,
           slug: "chemical-transportation"
         }
       ]
@@ -133,6 +135,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Multimodal Transport Solutions",
       url: "/services#multimodal-transport",
+      baseColor: "#964f77",
       style: { background: 'linear-gradient(135deg, #8b5cf6, #f43f5e)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #7c3aed, #e11d48)' },
       description: "Integrated transportation across multiple modes",
@@ -140,13 +143,13 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "Rail Services",
           description: "Container and bulk cargo by rail",
-          icon: <FaTrain className="text-[#964f77]" />,
+          icon: <FaTrain />,
           slug: "rail-services"
         },
         {
           name: "Coastal Services",
           description: "Maritime shipping across major Indian ports",
-          icon: <FaShip className="text-[#964f77]" />,
+          icon: <FaShip />,
           slug: "coastal-services"
         }
       ]
@@ -154,6 +157,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
     {
       title: "Value-Added Logistics Services",
       url: "/services#value-added-services",
+      baseColor: "#cd3f45",
       style: { background: 'linear-gradient(135deg, #f43f5e, #9f1239)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #e11d48, #881337)' },
       description: "Enhanced services for optimal supply chain management",
@@ -161,19 +165,19 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
         {
           name: "LCL Consolidation",
           description: "Less-than-Container-Load optimization",
-          icon: <FaBoxes className="text-[#cd3f45]" />,
+          icon: <FaBoxes />,
           slug: "lcl-consolidation"
         },
         {
           name: "High Value Goods Transportation",
           description: "GPS-tracked premium cargo with security",
-          icon: <FaShieldAlt className="text-[#cd3f45]" />,
+          icon: <FaShieldAlt />,
           slug: "high-value-goods"
         },
         {
           name: "Storage and Warehousing",
           description: "Comprehensive storage solutions",
-          icon: <FaWarehouse className="text-[#cd3f45]" />,
+          icon: <FaWarehouse />,
           slug: "storage-warehousing"
         }
       ]
@@ -258,18 +262,27 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                             href={`/services/${item.slug}`}
                             key={idx}
                             className="flex group px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-gray-50 items-center gap-3 sm:gap-4 transition-all duration-300"
+                            style={{ '--hover-color': (category as any).baseColor } as React.CSSProperties}
                           >
-                            <div className="flex-shrink-0 text-lg sm:text-xl">
+                            <div
+                              className="flex-shrink-0 text-lg sm:text-xl text-gray-400 group-hover:text-[var(--hover-color)] transition-colors duration-300"
+                            >
                               {item.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h4 className="text-sm sm:text-sm -ml-1 font-semibold text-[#374151] group-hover:text-blue-600 transition-colors duration-300 flex items-center truncate">
-                                <span className="h-[4px] w-[4px] bg-blue-600 inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-2 flex-shrink-0" />
+                              <h4 className="text-sm sm:text-sm -ml-1 font-semibold text-[#374151] group-hover:text-[var(--hover-color)] transition-colors duration-300 flex items-center truncate">
+                                <span
+                                  className="h-[4px] w-[4px] inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-2 flex-shrink-0"
+                                  style={{ backgroundColor: (category as any).baseColor }}
+                                />
                                 <span className="truncate">{item.name}</span>
                               </h4>
                               <p className="text-xs text-[#374151] mt-1 line-clamp-1 sm:line-clamp-2">{item.description}</p>
                             </div>
-                            <FaArrowRight className="text-[#374151] text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
+                            <FaArrowRight
+                              className="text-white group-hover:text-[var(--hover-color)] text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
+                              style={{ color: (category as any).baseColor }}
+                            />
                           </Link>
                         ))}
                       </div>

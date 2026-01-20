@@ -124,48 +124,57 @@ export default function BlogSection() {
       {/* Decorative elements */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-50/50 rounded-full blur-[100px] -z-10 -translate-x-1/2 -translate-y-1/2"></div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-        {/* Heading */}
-        <div className="mb-16 text-center lg:text-left flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full mb-6 text-slate-500">
-              <Tag className="w-4 h-4" />
-              <span className="text-xs font-bold uppercase tracking-widest">Knowledge Center</span>
+      <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
+        {/* Centered Heading */}
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center gap-6"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full w-fit">
+              <Tag className="w-4 h-4 text-blue-600" />
+              <span className="text-xs font-black text-blue-700 uppercase tracking-widest">Industry Insights</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
-              Industry Insights & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                Logistics Trends.
-              </span>
-            </h2>
-          </div>
 
-          <div className="hidden lg:block pb-1">
-            <Link
-              href="/blog"
-              className="px-8 py-3 border-2 border-slate-200 rounded-full text-sm font-bold text-slate-600 hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
-            >
-              VIEW KNOWLEDGE HUB
-            </Link>
-          </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
+              Knowledge & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Logistics Trends.</span>
+            </h2>
+
+            {/* Gradient underline */}
+            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full"></div>
+
+            <p className="max-w-3xl text-lg sm:text-xl text-slate-600 font-medium leading-relaxed">
+              Stay ahead with expert perspectives on global trade, technological breakthroughs,
+              and the future of supply chain management.
+            </p>
+          </motion.div>
         </div>
 
         {/* Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {BLOGS.map((post, idx) => (
             <BlogCard key={post.id} post={post} index={idx} />
           ))}
         </div>
 
-        {/* Mobile View Hub Link */}
-        <div className="mt-12 text-center lg:hidden">
-          <Link
-            href="/blog"
-            className="inline-flex px-8 py-3 border-2 border-slate-200 rounded-full text-sm font-bold text-slate-600"
-          >
-            VIEW KNOWLEDGE HUB
+        {/* Centered CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        >
+          <Link href="/blog">
+            <button className="group relative px-10 py-5 bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 text-slate-600 font-black text-sm uppercase tracking-widest rounded-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 overflow-hidden">
+              <span className="relative z-10 flex items-center gap-3 group-hover:text-blue-600">
+                Explore Knowledge Hub
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

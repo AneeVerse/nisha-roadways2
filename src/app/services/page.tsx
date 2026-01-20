@@ -36,21 +36,21 @@ const ServicesPage = () => {
         {
           name: "EMPTY CONTAINER TRANSPORTATION",
           description: "Pioneers in empty container movement across all major ports and ICDs. Cost-effective solutions with industry-leading turnaround times.",
-          icon: <FaBoxes />,
+          icon: <FaBoxes className="text-[#1d4ed8]" />,
           slug: "empty-container-transportation",
           features: ["40% cost savings", "24/7 availability", "Pan-India coverage"]
         },
         {
           name: "EXPORT & IMPORT CONTAINERS",
           description: "Full-service container logistics for 20ft, 40ft, and 45ft units. Seamless port-to-door connectivity with real-time tracking.",
-          icon: <FaShippingFast />,
+          icon: <FaShippingFast className="text-[#1d4ed8]" />,
           slug: "export-import-containers",
           features: ["Zero documentation delays", "Customs clearance support", "Damage-free delivery"]
         },
         {
           name: "DOMESTIC CARGO SOLUTIONS",
           description: "Move your domestic cargo in our 20-foot or 40-foot ISO containers. Secure transportation without owning the container.",
-          icon: <FaTruck />,
+          icon: <FaTruck className="text-[#1d4ed8]" />,
           slug: "domestic-cargo-containers",
           features: ["Your own seals", "GPS tracking", "No container rental"]
         }
@@ -67,28 +67,28 @@ const ServicesPage = () => {
         {
           name: "PROJECT CARGO MANAGEMENT (ODC)",
           description: "Oversized and heavy machinery transportation with route surveys, permits, and specialized vehicles. No cargo too complex.",
-          icon: <FaIndustry />,
+          icon: <FaIndustry className="text-[#8b5cf6]" />,
           slug: "over-dimension-cargo",
           features: ["Custom engineering", "Permit management", "Dedicated project managers"]
         },
         {
           name: "CHEMICAL TRANSPORTATION",
           description: "Certified hazardous and non-hazardous chemical transport with safety-trained drivers and compliant vehicles.",
-          icon: <FaFlask />,
+          icon: <FaFlask className="text-[#8b5cf6]" />,
           slug: "chemical-transportation",
           features: ["ADR-certified drivers", "Emergency response protocols", "Comprehensive insurance"]
         },
         {
           name: "SOLAR PANEL & PARTS TRANSPORTATION",
           description: "Precision-engineered solar transportation with trained drivers and specialized equipment for fragile renewable energy components.",
-          icon: <FaSolarPanel />,
+          icon: <FaSolarPanel className="text-[#8b5cf6]" />,
           slug: "solar-panel-transportation",
           features: ["Precision stacking", "Last-mile focus", "Renewable energy expertise"]
         },
         {
           name: "BULK CARGO TRANSPORTATION",
           description: "Steel coils, grains, construction materials, and industrial goods with optimized vehicle configurations for maximum volume.",
-          icon: <FaWarehouse />,
+          icon: <FaWarehouse className="text-[#8b5cf6]" />,
           slug: "bulk-cargo-solutions",
           features: ["Load optimization", "Reduced handling damage", "Flexible scheduling"]
         }
@@ -105,14 +105,14 @@ const ServicesPage = () => {
         {
           name: "RAIL SERVICES",
           description: "Cost-effective rail transportation for high-volume, low-value products. Seamlessly integrated Rail + Road hub solutions.",
-          icon: <FaTrain />,
+          icon: <FaTrain className="text-[#f43f5e]" />,
           slug: "rail-services",
           features: ["40% cost savings", "Station-to-station visibility", "Bulk capacity"]
         },
         {
           name: "COASTAL SERVICES",
           description: "Strategic coastal shipping services connecting 10 major Indian ports. Significant cost savings for long-distance movements.",
-          icon: <FaShip />,
+          icon: <FaShip className="text-[#f43f5e]" />,
           slug: "coastal-services",
           features: ["10 major ports", "Eco-friendly mode", "High-volume efficiency"]
         }
@@ -129,21 +129,21 @@ const ServicesPage = () => {
         {
           name: "HIGH-VALUE GOODS ESCORT",
           description: "Armed security escort services with GPS tracking for valuable, sensitive, or high-risk cargo shipments nationwide.",
-          icon: <FaLock />,
+          icon: <FaLock className="text-[#9f1239]" />,
           slug: "high-value-goods",
           features: ["Armed security", "24/7 GPS tracking", "Dedicated escorts"]
         },
         {
           name: "LCL CONSOLIDATION",
           description: "Small package delivery across India with consolidated shipping. Pay only for the space you use.",
-          icon: <FaCubes />,
+          icon: <FaCubes className="text-[#9f1239]" />,
           slug: "lcl-consolidation",
           features: ["Pay per volume", "Weekly sailing/trucking", "Cost-effective"]
         },
         {
           name: "STORAGE & WAREHOUSING",
           description: "Climate-controlled facilities and open yard storage near major ports with advanced inventory management.",
-          icon: <FaWarehouse />,
+          icon: <FaWarehouse className="text-[#9f1239]" />,
           slug: "storage-warehousing",
           features: ["Port proximity", "Security protocols", "Flexible capacity"]
         }
@@ -229,10 +229,9 @@ const ServicesPage = () => {
                 {/* Left side: Category info */}
                 <div className="lg:w-1/3 lg:sticky lg:top-32">
                   <div
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl text-white mb-6 shadow-xl"
-                    style={{ background: (category as any).hex }}
+                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 mb-6 shadow-sm border border-gray-100"
                   >
-                    <FaProjectDiagram className="text-2xl" />
+                    <FaProjectDiagram className="text-2xl text-gray-400" />
                   </div>
                   <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
                     {category.title}

@@ -1,344 +1,185 @@
 "use client"
 
 import Image from "next/image"
-import { useState, useRef, useEffect } from "react"
-import { type LucideIcon, Truck, Container, Shield, Package, Warehouse, Zap, CheckCircle } from "lucide-react"
+import { motion } from "framer-motion"
+import { Truck, Container, Shield, Package, Warehouse, Zap, CheckCircle2, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
 
-type ServiceKey =
-  | "container-logistics"
-  | "specialized-cargo"
-  | "multimodal-transport"
-  | "value-added-services"
-
-type ServiceConfig = {
-  key: ServiceKey
-  label: string
-  imageSrc: string
-  imageAlt: string
-  heading: string
-  description: string
-  benefits: string[]
-  link: string
-}
-
-const SERVICES: ServiceConfig[] = [
+const SERVICES = [
   {
     key: "container-logistics",
-    label: "Container Solutions",
-    imageSrc: "/images/our-solution/road.avif",
-    imageAlt: "Container solutions",
-    heading: "Container Solutions",
-    description:
-      "Complete container logistics including Empty Container Transportation (ECT), Export Import Containers (ExIm Transport Service), and Domestic Cargo In Our Containers across all major ports and ICDs.",
-    benefits: ["Empty Container Transportation (ECT)", "Export Import Containers", "Domestic Cargo In Our Containers"],
+    title: "Container Solutions",
+    description: "End-to-end container management from ports to your doorstep with real-time tracking.",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Empty Container Transportation (ECT)", "Export Import Containers", "Domestic Cargo Services"],
+    icon: Container,
     link: "/services#container-logistics",
+    className: "lg:col-span-2 lg:row-span-1"
   },
   {
     key: "specialized-cargo",
-    label: "Specialized Transport",
-    imageSrc: "/images/our-solution/ship.avif",
-    imageAlt: "Specialized transport",
-    heading: "Specialized Transport",
-    description:
-      "Custom solutions for unique cargo requirements including Solar Panel & Parts Transportation (SolarTransport), Over Dimension Cargo (ODC), and Bulk Cargo Transportation with specialized handling.",
-    benefits: ["Solar Panel & Parts Transportation", "Over Dimension Cargo (ODC)", "Bulk Cargo Transportation"],
+    title: "Specialized Transport",
+    description: "Expert handling for ODC and delicate solar components across challenging terrains.",
+    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop",
+    benefits: ["Solar Panel Transport", "Over Dimension Cargo (ODC)", "Bulk Cargo Handling"],
+    icon: Zap,
     link: "/services#specialized-cargo",
+    className: "lg:col-span-1 lg:row-span-2"
   },
   {
     key: "multimodal-transport",
-    label: "Alternative Logistics",
-    imageSrc: "/images/our-solution/railway.avif",
-    imageAlt: "Alternative logistics",
-    heading: "Alternative Logistics",
-    description:
-      "Integrated transportation solutions including Rail Services, Coastal Services, and LCL Consolidation, providing seamless connectivity and cost-effective alternatives.",
-    benefits: ["Rail Services", "Coastal Services", "LCL Consolidation"],
+    title: "Integrated Logistics",
+    description: "Seamless multimodal connectivity via rail and coastal routes for cost-effective shipping.",
+    image: "https://images.unsplash.com/photo-1574241604938-db89ce47df3b?q=80&w=1914&auto=format&fit=crop",
+    benefits: ["Rail Freight Services", "Coastal Transport", "LCL Consolidation"],
+    icon: Truck,
     link: "/services#multimodal-transport",
+    className: "lg:col-span-1 lg:row-span-1"
   },
   {
     key: "value-added-services",
-    label: "Value-Added Services",
-    imageSrc: "/images/our-solution/airway.avif",
-    imageAlt: "Value-added services",
-    heading: "Value-Added Services",
-    description:
-      "Enhanced services for optimal supply chain management including Transportation Of High Value Goods, Storage and Warehousing, and Chemical Transportation in Tank Containers.",
-    benefits: ["Transportation Of High Value Goods", "Storage and Warehousing", "Chemical Transportation"],
+    title: "Value-Added Care",
+    description: "Beyond transportation – warehousing and high-value cargo protection systems.",
+    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?q=80&w=2072&auto=format&fit=crop",
+    benefits: ["Storage & Warehousing", "High Value Goods", "Chemical Transport"],
+    icon: Shield,
     link: "/services#value-added-services",
-  },
+    className: "lg:col-span-1 lg:row-span-1"
+  }
 ]
 
 export default function OurSolution() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const serviceRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  const [activeServiceIndex, setActiveServiceIndex] = useState(0)
-  const [isScrolling, setIsScrolling] = useState(false)
-
-  // Preload all service images when component mounts
-  useEffect(() => {
-    const preloadImages = () => {
-      SERVICES.forEach((service) => {
-        if (typeof window !== 'undefined') {
-          const img = new window.Image()
-          img.src = service.imageSrc
-        }
-      })
-    }
-
-    preloadImages()
-  }, [])
-
-  // Intersection Observer to detect which service is in view
-  useEffect(() => {
-    const observers: IntersectionObserver[] = []
-
-    serviceRefs.current.forEach((ref, index) => {
-      if (ref) {
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              setActiveServiceIndex(index)
-            }
-          },
-          {
-            threshold: 0.1,
-            rootMargin: "-45% 0px -45% 0px",
-          },
-        )
-
-        observer.observe(ref)
-        observers.push(observer)
-      }
-    })
-
-    return () => {
-      observers.forEach((observer) => observer.disconnect())
-    }
-  }, [])
-
-  // Handle scroll events for smooth transitions and sticky behavior
-  useEffect(() => {
-    let timer: number | undefined
-
-    const handleScroll = () => {
-      setIsScrolling(true)
-      if (timer) window.clearTimeout(timer)
-      timer = window.setTimeout(() => setIsScrolling(false), 150)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-      if (timer) window.clearTimeout(timer)
-    }
-  }, [])
-
-  const activeService = SERVICES[activeServiceIndex]
-
-  // Icon mappings for category and benefits (lucide-react)
-  const categoryIcons: Record<ServiceKey, LucideIcon> = {
-    "container-logistics": Container,
-    "specialized-cargo": Zap,
-    "multimodal-transport": Truck,
-    "value-added-services": Shield,
-  }
-
-  const getBenefitIcon = (name: string): LucideIcon => {
-    switch (name) {
-      case "Empty Container Transportation (ECT)":
-        return Container
-      case "Export Import Containers":
-        return Package
-      case "Domestic Cargo In Our Containers":
-        return Warehouse
-      case "Solar Panel & Parts Transportation":
-        return Zap
-      case "Over Dimension Cargo (ODC)":
-        return Package
-      case "Bulk Cargo Transportation":
-        return Truck
-      case "Rail Services":
-        return Truck
-      case "Coastal Services":
-        return Container
-      case "LCL Consolidation":
-        return Package
-      case "Transportation Of High Value Goods":
-        return Shield
-      case "Storage and Warehousing":
-        return Warehouse
-      case "Chemical Transportation":
-        return Container
-      default:
-        return CheckCircle
-    }
-  }
-
   return (
-    <section
-      id="our-solution"
-      ref={sectionRef}
-      className="relative min-h-screen bg-blue-50 pb-12 lg:pb-10"
-    >
-      {/* Background decorations */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-200/40 via-cyan-200/30 to-indigo-200/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-indigo-200/40 via-blue-200/30 to-cyan-200/40 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-100/20 via-cyan-100/20 to-indigo-100/20 rounded-full blur-3xl"></div>
-      </div>
+    <section className="relative pt-24 pb-32 bg-white overflow-hidden">
+      {/* Background patterns */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02] -z-10"></div>
 
-      {/* Extended blue background that goes further down */}
-      <div className="absolute inset-x-0 top-0 bottom-0 -z-10 bg-blue-50"></div>
-
-      {/* Header Section */}
-      <div className="relative z-10 pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          {/* Badge */}
-
-          {/* Title */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-6">
-            Integrated Intelligence. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Seamless Connectivity.</span>
-
-          </h2>
-
-          {/* Gradient underline */}
-          <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>
-
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-10 lg:-mb-30">
-            Trade flows better when every connection works intelligently. We orchestrate comprehensive supply chain solutions that anticipate challenges, optimize resources, and change what's possible for businesses across India.
-          </p>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pb-32 lg:pb-40">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
-          {/* Fixed Left Image Card (hidden on mobile) */}
-          <div className="hidden lg:block lg:w-[54%] order-2 lg:order-1 lg:self-start lg:sticky lg:top-0 lg:h-screen lg:flex lg:items-center">
-            <div className="relative group w-full pr-4">
-              {/* Card Container - Slightly more balanced aspect ratio */}
-              <div className="relative rounded-3xl bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] border border-blue-100/50 backdrop-blur-sm overflow-hidden aspect-[16/11] w-full mx-auto">
-                {/* Image Container */}
-                <div className="absolute inset-0 bg-slate-100">
-                  {SERVICES.map((service, index) => (
-                    <motion.div
-                      key={service.key}
-                      initial={false}
-                      animate={{
-                        opacity: activeServiceIndex === index ? 1 : 0,
-                        scale: activeServiceIndex === index ? 1 : 1.05
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        ease: "easeInOut"
-                      }}
-                      className="absolute inset-0"
-                      style={{ zIndex: activeServiceIndex === index ? 10 : 0 }}
-                    >
-                      <Image
-                        src={service.imageSrc || "/placeholder.svg"}
-                        alt={service.imageAlt}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="object-cover"
-                        priority
-                      />
-                      {/* Gradient overlay for depth */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent z-20"></div>
-                    </motion.div>
-                  ))}
-
-                  {/* Glass highlight overlay */}
-                  <div className="absolute inset-0 rounded-3xl border border-white/20 pointer-events-none z-30"></div>
-                </div>
-              </div>
-
-              {/* Refined side-glow effect */}
-              <div className="absolute -inset-10 bg-blue-400/5 blur-3xl -z-10 rounded-full"></div>
+      <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24">
+        {/* Centered Header */}
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center gap-6"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full w-fit">
+              <Package className="w-4 h-4 text-blue-600" />
+              <span className="text-xs font-black text-blue-700 uppercase tracking-widest">Our Integrated Solutions</span>
             </div>
-          </div>
 
-          {/* Right Side - Scrollable Services */}
-          <div className="order-1 lg:order-2 lg:w-[46%] lg:flex-shrink-0 lg:pt-[22vh] lg:pb-[35vh]">
-            {SERVICES.map((service, index) => (
-              <div
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
+              Smarter Logistics. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Infinite Possibilities.</span>
+            </h2>
+
+            {/* Gradient underline */}
+            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full"></div>
+
+            <p className="max-w-3xl text-lg sm:text-xl text-slate-600 font-medium leading-relaxed">
+              We orchestrate comprehensive supply chain solutions that anticipate challenges,
+              optimize resources, and change what's possible for businesses across India.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[350px] lg:auto-rows-[400px]">
+          {SERVICES.map((service, index) => {
+            const Icon = service.icon
+            return (
+              <motion.div
                 key={service.key}
-                ref={(el) => {
-                  serviceRefs.current[index] = el
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: [0.21, 0.45, 0.32, 0.9]
                 }}
-                className="relative transition-all duration-500 mb-6 last:mb-0"
+                className={`group relative rounded-[3rem] overflow-hidden bg-slate-900 shadow-2xl border border-white/5 ${service.className}`}
               >
-                {/* Service Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  whileHover={{ scale: 1.01, translateX: 5 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative group cursor-pointer"
-                >
-                  {/* Background card - simplified to match reference style */}
-                  <div className={`relative rounded-2xl p-6 sm:p-8 lg:p-10 bg-white border transition-all duration-500 min-h-[260px] ${activeServiceIndex === index
-                    ? "shadow-2xl shadow-blue-900/20 border-blue-400 ring-2 ring-blue-50/50"
-                    : "shadow-sm border-blue-100 hover:border-blue-200"
-                    }`}>
-                    <div className="relative z-10">
-                      {/* Icon + Category title */}
-                      {(() => {
-                        const Icon = categoryIcons[service.key]
-                        return (
-                          <div className="flex items-center gap-4 mb-4">
-                            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-sm">
-                              <Icon className="w-6 h-6" />
-                            </div>
-                            <h3 className="text-lg sm:text-xl font-semibold leading-tight text-gray-900">
-                              {service.heading}
-                            </h3>
-                          </div>
-                        )
-                      })()}
+                {/* Background Image with Parallax Hint */}
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover opacity-50 group-hover:opacity-70 group-hover:scale-110 transition-all duration-1000 ease-out"
+                />
 
-                      {/* Bullet list of services */}
-                      <ul className="mt-2 space-y-2">
-                        {service.benefits.map((benefit, benefitIndex) => {
-                          const Icon = getBenefitIcon(benefit)
-                          return (
-                            <li key={benefitIndex} className="flex items-center gap-3">
-                              <Icon className="w-4 h-4 text-blue-600 flex-shrink-0" />
-                              <span className="text-sm sm:text-base leading-tight text-gray-700">
-                                {benefit}
-                              </span>
-                            </li>
-                          )
-                        })}
-                      </ul>
+                {/* Dynamic Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent group-hover:via-slate-950/40 transition-all duration-700"></div>
 
-                      {/* CTA Button - untouched functionality */}
-                      <div className="mt-6">
-                        <Link
-                          href={service.link}
-                          className="group relative inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
-                          <span className="relative flex items-center gap-2">
-                            EXPLORE ALL SERVICES
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-300">
-                              <path d="M5 12h14" />
-                              <path d="m12 5 7 7-7 7" />
-                            </svg>
-                          </span>
-                        </Link>
+                {/* Content Container */}
+                <div className="absolute inset-0 p-10 flex flex-col justify-end">
+                  <div className="relative z-10 space-y-5">
+                    {/* Icon Box with Glow */}
+                    <div className="relative w-14 h-14">
+                      <div className="absolute inset-0 bg-blue-600 blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                      <div className="relative w-14 h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl flex items-center justify-center shadow-2xl group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-500">
+                        <Icon className="w-7 h-7 text-white" />
                       </div>
                     </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-3xl font-bold text-white tracking-tight">{service.title}</h3>
+                      <p className="text-slate-300 text-base font-medium leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    {/* Benefit Pills */}
+                    <div className="flex flex-wrap gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                      {service.benefits.map((benefit, i) => (
+                        <span key={i} className="text-[11px] font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-white/90">
+                          {benefit}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="pt-4">
+                      <Link
+                        href={service.link}
+                        className="inline-flex items-center gap-3 text-sm font-black text-blue-400 group/link hover:text-white transition-all duration-300"
+                      >
+                        <span className="relative">
+                          EXPLORE SOLUTIONS
+                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover/link:w-full transition-all duration-300"></span>
+                        </span>
+                        <ArrowRight className="w-5 h-5 group-hover/link:translate-x-2 transition-transform duration-300" />
+                      </Link>
+                    </div>
                   </div>
-                </motion.div>
-              </div>
-            ))}
-          </div>
+                </div>
+
+                {/* Premium Shine Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
+
+                {/* Border Glow */}
+                <div className="absolute inset-0 rounded-[3rem] border border-white/10 pointer-events-none group-hover:border-blue-500/30 transition-colors duration-500"></div>
+              </motion.div>
+            )
+          })}
         </div>
+
+        {/* Bottom CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-20 text-center"
+        >
+          <Link href="/services">
+            <button className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-black text-sm uppercase tracking-widest rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-95 overflow-hidden">
+              <span className="relative z-10 flex items-center gap-3">
+                Discover Comprehensive Solutions
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+              <div className="absolute inset-0 bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

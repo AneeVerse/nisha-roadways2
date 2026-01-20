@@ -216,6 +216,8 @@ export default function Navbar() {
       desc: "Insights and updates",
       href: "/blog",
       image: "/images/use-everywhere/images1.png",
+      baseColor: "#1d4ed8",
+      icon: <FileText />,
       style: { background: 'linear-gradient(135deg, #1d4ed8, #1e40af)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #1e40af, #1e3a8a)' }
     },
@@ -224,6 +226,8 @@ export default function Navbar() {
       desc: "Logistics education and training",
       href: "/academy",
       image: "/images/use-everywhere/images2.png",
+      baseColor: "#3b82f6",
+      icon: <Warehouse />,
       style: { background: 'linear-gradient(135deg, #3b82f6, #8b5cf6)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #2563eb, #7c3aed)' }
     },
@@ -232,6 +236,8 @@ export default function Navbar() {
       desc: "Answers to common questions",
       href: "/faq",
       image: "/images/use-everywhere/images3.png",
+      baseColor: "#8b5cf6",
+      icon: <Zap />,
       style: { background: 'linear-gradient(135deg, #8b5cf6, #f43f5e)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #7c3aed, #e11d48)' }
     },
@@ -240,6 +246,8 @@ export default function Navbar() {
       desc: "Get in touch with us",
       href: "/contact",
       image: "/images/use-everywhere/images4.png",
+      baseColor: "#f43f5e",
+      icon: <ArrowRight />,
       style: { background: 'linear-gradient(135deg, #f43f5e, #9f1239)', color: '#ffffff' },
       hoverStyle: { background: 'linear-gradient(135deg, #e11d48, #881337)' }
     },
@@ -366,7 +374,7 @@ export default function Navbar() {
                       <Link
                         href={item.href}
                         className="group flex flex-col gap-1 px-4 py-3 rounded-xl transition-all duration-300 hover:shadow-md"
-                        style={item.style as any}
+                        style={{ ...item.style, '--hover-color': item.baseColor } as any}
                         onMouseEnter={(e) => {
                           const target = e.currentTarget;
                           const hoverStyle = (item as any).hoverStyle;
@@ -381,10 +389,15 @@ export default function Navbar() {
                         onClick={() => setOpenMenu(null)}
                       >
                         <div className="flex items-center justify-between font-bold text-base sm:text-lg">
-                          <span>{item.title}</span>
+                          <div className="flex items-center gap-3">
+                            <div className="text-gray-300 group-hover:text-white transition-colors duration-300">
+                              {item.icon}
+                            </div>
+                            <span>{item.title}</span>
+                          </div>
                           <FaArrowRight className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform duration-300" />
                         </div>
-                        <div className="text-sm opacity-80 font-medium">
+                        <div className="text-sm opacity-80 font-medium pl-9">
                           {item.desc}
                         </div>
                       </Link>
