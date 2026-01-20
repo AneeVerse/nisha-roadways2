@@ -228,7 +228,10 @@ const ServicesPage = () => {
               <div className="flex flex-col lg:flex-row gap-16 items-start">
                 {/* Left side: Category info */}
                 <div className="lg:w-1/3 lg:sticky lg:top-32">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${category.gradient} text-white mb-6 shadow-xl`}>
+                  <div
+                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl text-white mb-6 shadow-xl"
+                    style={{ backgroundColor: (category as any).hex }}
+                  >
                     <FaProjectDiagram className="text-2xl" />
                   </div>
                   <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
