@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   description:
     "Connect ship owners with qualified inspectors to simplify compliance and maintenance processes.",
   icons: {
-    icon: "/images/FAVICON.png",
-    shortcut: "/images/FAVICON.png",
-    apple: "/images/FAVICON.png",
+    icon: "/images/FAVICON.png?v=5",
+    shortcut: "/images/FAVICON.png?v=5",
+    apple: "/images/FAVICON.png?v=5",
   },
 };
 

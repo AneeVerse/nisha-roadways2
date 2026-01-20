@@ -204,7 +204,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed left-0 right-0 top-full w-screen z-50"
+            className="fixed left-0 right-0 top-full w-screen z-[110]"
             style={{ 
               marginLeft: "calc(-50vw + 50%)",
               width: "100vw"
