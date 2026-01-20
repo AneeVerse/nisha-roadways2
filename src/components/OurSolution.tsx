@@ -207,7 +207,7 @@ export default function OurSolution() {
           {/* Gradient underline */}
           <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-10 lg:-mb-30">
             Trade flows better when every connection works intelligently. We orchestrate comprehensive supply chain solutions that anticipate challenges, optimize resources, and change what's possible for businesses across India.
           </p>
         </div>
