@@ -14,7 +14,7 @@ const SERVICES = [
     benefits: ["Empty Container Transportation (ECT)", "Export Import Containers", "Domestic Cargo Services"],
     icon: Container,
     link: "/services#container-logistics",
-    className: "lg:col-span-2 lg:row-span-1"
+    className: "col-span-1 lg:col-span-2 lg:row-span-1"
   },
   {
     key: "specialized-cargo",
@@ -24,7 +24,7 @@ const SERVICES = [
     benefits: ["Solar Panel Transport", "Over Dimension Cargo (ODC)", "Bulk Cargo Handling"],
     icon: Zap,
     link: "/services#specialized-cargo",
-    className: "lg:col-span-1 lg:row-span-2"
+    className: "col-span-1 lg:col-span-1 lg:row-span-2"
   },
   {
     key: "multimodal-transport",
@@ -34,7 +34,7 @@ const SERVICES = [
     benefits: ["Rail Freight Services", "Coastal Transport", "LCL Consolidation"],
     icon: Truck,
     link: "/services#multimodal-transport",
-    className: "lg:col-span-1 lg:row-span-1"
+    className: "col-span-1 lg:col-span-1 lg:row-span-1"
   },
   {
     key: "value-added-services",
@@ -44,7 +44,7 @@ const SERVICES = [
     benefits: ["Storage & Warehousing", "High Value Goods", "Chemical Transport"],
     icon: Shield,
     link: "/services#value-added-services",
-    className: "lg:col-span-1 lg:row-span-1"
+    className: "col-span-1 lg:col-span-1 lg:row-span-1"
   }
 ]
 
@@ -83,7 +83,7 @@ export default function OurSolution() {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[350px] lg:auto-rows-[400px]">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 auto-rows-[250px] md:auto-rows-[350px] lg:auto-rows-[400px]">
           {SERVICES.map((service, index) => {
             const Icon = service.icon
             return (
@@ -97,47 +97,60 @@ export default function OurSolution() {
                   delay: index * 0.1,
                   ease: [0.21, 0.45, 0.32, 0.9]
                 }}
-                className={`group relative rounded-[3rem] overflow-hidden bg-slate-900 shadow-2xl border border-white/5 ${service.className}`}
+                className={`group relative rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-slate-900 shadow-xl border border-white/5 ${service.className}`}
               >
-                {/* Background Image with Parallax Hint */}
+                {/* Background Image */}
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover opacity-50 group-hover:opacity-70 group-hover:scale-110 transition-all duration-1000 ease-out"
+                  className="object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-1000 ease-out"
                 />
 
                 {/* Dynamic Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent group-hover:via-slate-950/40 transition-all duration-700"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent group-hover:via-slate-950/20 transition-all duration-700"></div>
 
                 {/* Content Container */}
-                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                  <div className="relative z-10 space-y-5">
-                    {/* Icon Box with Glow */}
-                    <div className="relative w-14 h-14">
-                      <div className="absolute inset-0 bg-blue-600 blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-                      <div className="relative w-14 h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl flex items-center justify-center shadow-2xl group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-500">
-                        <Icon className="w-7 h-7 text-white" />
+                <div className="absolute inset-0 p-4 md:p-10 flex flex-col justify-between">
+                  {/* Top Bar - Title & Icon */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-center justify-between lg:justify-start lg:gap-5">
+                      {/* Icon Box */}
+                      <div className="relative w-8 h-8 md:w-14 md:h-14">
+                        <div className="absolute inset-0 bg-blue-600 blur-lg opacity-40 md:opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+                        <div className="relative w-8 h-8 md:w-14 md:h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg md:rounded-2xl flex items-center justify-center shadow-2xl group-hover:bg-blue-600 group-hover:border-blue-500 transition-all duration-500">
+                          <Icon className="w-4 h-4 md:w-7 md:h-7 text-white" />
+                        </div>
                       </div>
+
+                      {/* Floating Arrow (Mobile Only) */}
+                      <Link href={service.link} className="lg:hidden w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white active:bg-blue-600 transition-colors">
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
                     </div>
 
-                    <div className="space-y-2">
-                      <h3 className="text-3xl font-bold text-white tracking-tight">{service.title}</h3>
-                      <p className="text-slate-300 text-base font-medium leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
-                        {service.description}
-                      </p>
-                    </div>
+                    <h3 className="text-sm md:text-3xl font-bold text-white tracking-tight leading-tight group-hover:text-blue-400 transition-colors">
+                      {service.title}
+                    </h3>
+                  </div>
 
-                    {/* Benefit Pills */}
-                    <div className="flex flex-wrap gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  {/* Bottom Area - Desktop Description & Link */}
+                  <div className="space-y-5">
+                    <p className="hidden md:block text-slate-300 text-sm md:text-base font-medium leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                      {service.description}
+                    </p>
+
+                    {/* Benefit Pills (Desktop) */}
+                    <div className="hidden lg:flex flex-wrap gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
                       {service.benefits.map((benefit, i) => (
-                        <span key={i} className="text-[11px] font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-white/90">
+                        <span key={i} className="text-[10px] font-bold uppercase tracking-wider bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 text-white/90">
                           {benefit}
                         </span>
                       ))}
                     </div>
 
-                    <div className="pt-4">
+                    {/* Desktop Link */}
+                    <div className="hidden lg:block pt-2">
                       <Link
                         href={service.link}
                         className="inline-flex items-center gap-3 text-sm font-black text-blue-400 group/link hover:text-white transition-all duration-300"
@@ -152,11 +165,9 @@ export default function OurSolution() {
                   </div>
                 </div>
 
-                {/* Premium Shine Overlay */}
+                {/* Premium Effects */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
-
-                {/* Border Glow */}
-                <div className="absolute inset-0 rounded-[3rem] border border-white/10 pointer-events-none group-hover:border-blue-500/30 transition-colors duration-500"></div>
+                <div className="absolute inset-0 rounded-[2rem] md:rounded-[3rem] border border-white/10 pointer-events-none group-hover:border-blue-500/40 transition-colors duration-500"></div>
               </motion.div>
             )
           })}

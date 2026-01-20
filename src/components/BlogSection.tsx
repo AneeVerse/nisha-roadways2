@@ -64,43 +64,43 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group bg-white rounded-[2rem] overflow-hidden border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
+      className="group bg-white rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full min-w-[260px] w-[75vw] sm:w-full sm:min-w-0 flex-shrink-0 snap-start"
     >
       {/* Image Container */}
-      <div className="relative h-[240px] overflow-hidden">
+      <div className="relative h-[180px] sm:h-[240px] overflow-hidden">
         <Image
           src={post.img}
           alt={post.title}
           fill
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
-        <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 shadow-lg text-center min-w-[60px]">
-          <div className="text-xl font-black text-blue-600 leading-none">{post.date}</div>
+        <div className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-white/90 backdrop-blur-md px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl border border-white/20 shadow-lg text-center min-w-[50px] sm:min-w-[60px]">
+          <div className="text-lg sm:text-xl font-black text-blue-600 leading-none">{post.date}</div>
           <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">{post.month}</div>
         </div>
 
         {/* Category Overlay */}
-        <div className="absolute bottom-6 right-6">
-          <span className="px-4 py-1.5 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">
+        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6">
+          <span className="px-3 py-1 sm:px-4 sm:py-1.5 bg-blue-600 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">
             {post.category}
           </span>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-8 flex-1 flex flex-col">
-        <div className="flex items-center gap-6 text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+      <div className="p-5 sm:p-8 flex-1 flex flex-col">
+        <div className="flex items-center gap-6 text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 sm:mb-4">
           <div className="flex items-center gap-2">
             <User className="w-3.5 h-3.5 text-blue-500" />
             {post.author}
           </div>
         </div>
 
-        <h3 className="text-xl font-bold text-slate-900 leading-tight mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">
+        <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">
           {post.title}
         </h3>
 
-        <p className="text-sm text-slate-500 leading-relaxed line-clamp-3 mb-8">
+        <p className="text-xs sm:text-sm text-slate-500 leading-relaxed line-clamp-2 sm:line-clamp-3 mb-6 sm:mb-8">
           {post.excerpt}
         </p>
 
@@ -152,8 +152,8 @@ export default function BlogSection() {
           </motion.div>
         </div>
 
-        {/* Grid */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        {/* Grid / Horizontal Scroll on Mobile */}
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 snap-x snap-mandatory pb-8 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
           {BLOGS.map((post, idx) => (
             <BlogCard key={post.id} post={post} index={idx} />
           ))}

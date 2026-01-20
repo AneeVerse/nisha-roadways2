@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useAnimationControls } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const logos = [
   { src: "/images/company/images1.svg", alt: "Company logo 1" },
@@ -12,8 +14,14 @@ const logos = [
 ];
 
 export default function CompanyLogos() {
+  const [isHovered, setIsHovered] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Create a triple set of logos for infinite feel
+  const allLogos = [...logos, ...logos, ...logos, ...logos];
+
   return (
-    <section aria-label="Companies using our services" className="bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 mt-10">
+    <section aria-label="Companies using our services" className="bg-gradient-to-br from-gray-50 to-white py-12 sm:py-16 mt-10 overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
         {/* Section Header */}
         <div className="mb-12 text-center">
@@ -25,37 +33,67 @@ export default function CompanyLogos() {
           </h2>
         </div>
 
-
-        {/* Company Logos Marquee */}
+        {/* Company Logos Container */}
         <div className="relative">
-          {/* Gradient masks for smooth fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10"></div>
+          {/* Gradient masks for smooth fade effect - Subtle on mobile to allow viewing cards */}
+          <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-24 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-24 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none"></div>
 
-          {/* Scrolling logos */}
-          <div className="overflow-hidden">
-            <ul
-              className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-[logos-marquee_10s_linear_infinite] md:animate-[logos-marquee_40s_linear_infinite] hover:[animation-play-state:paused]"
-              aria-label="Scrolling company logos"
+          {/* Marquee Track */}
+          <div
+            ref={containerRef}
+            className="flex overflow-x-auto scrollbar-hide active:cursor-grabbing cursor-grab"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
+            <motion.div
+              className="flex items-center gap-6 sm:gap-10 md:gap-16 py-4"
+              animate={!isHovered ? {
+                x: [0, -1035], // Approximate half of the duplicated list
+              } : {}}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
+              onHoverStart={() => setIsHovered(true)}
+              onHoverEnd={() => setIsHovered(false)}
+              // Dragging support
+              drag="x"
+              dragConstraints={containerRef}
+              dragElastic={0.1}
             >
-              {[...logos, ...logos, ...logos].map((logo, idx) => (
-                <li key={`${logo.src}-${idx}`} className="flex items-center justify-center flex-shrink-0">
-                  <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 rounded-lg p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:scale-105">
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={120}
-                      height={40}
-                      className="h-8  w-auto object-contain select-none filter grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all duration-300"
-                      sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 120px"
-                    />
+              {allLogos.map((logo, idx) => (
+                <div key={`${logo.src}-${idx}`} className="flex-shrink-0">
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-blue-100 transition-all duration-500 hover:-translate-y-1">
+                    <div className="relative w-20 sm:w-28 h-8 sm:h-10">
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        fill
+                        className="object-contain select-none filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-500"
+                        sizes="(max-width: 640px) 80px, 120px"
+                      />
+                    </div>
                   </div>
-                </li>
+                </div>
               ))}
-            </ul>
+            </motion.div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }
