@@ -6,7 +6,7 @@ import Link from "next/link";
 import {
   FaShippingFast, FaIndustry, FaTrain, FaWarehouse,
   FaSolarPanel, FaTruck, FaShip, FaBoxes,
-  FaFlask, FaShieldAlt, FaMapMarkedAlt, FaArrowRight
+  FaFlask, FaShieldAlt, FaArrowRight
 } from "react-icons/fa";
 
 interface ServicesMegaMenuProps {
@@ -29,7 +29,6 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
 }) => {
   // Hover delay management - same as Navbar
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-  const [pendingClose, setPendingClose] = React.useState(false);
 
   // Cleanup timeout on unmount
   React.useEffect(() => {
@@ -45,19 +44,16 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
     }
-    setPendingClose(false);
     if (onMouseEnter) {
       onMouseEnter();
     }
   };
 
   const handleMouseLeave = () => {
-    setPendingClose(true);
     hoverTimeoutRef.current = setTimeout(() => {
       if (onMouseLeave) {
         onMouseLeave();
       }
-      setPendingClose(false);
     }, 300); // 300ms delay before closing - same as Navbar
   };
 
@@ -66,7 +62,6 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
     }
-    setPendingClose(false);
   };
 
   const menuCategories = [
@@ -238,17 +233,17 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                         onClick={() => onClose && onClose()}
                         href={category.url}
                         className={`text-base sm:text-lg font-bold group py-2 sm:py-3 px-3 sm:px-4 rounded-lg inline-flex items-center gap-2 sm:gap-3 transition-all duration-300 w-full hover:shadow-md`}
-                        style={category.style as any}
+                        style={category.style}
                         onMouseEnter={(e) => {
                           const target = e.currentTarget;
-                          const hoverStyle = (category as any).hoverStyle;
+                          const hoverStyle = category.hoverStyle;
                           if (hoverStyle) {
-                            target.style.background = hoverStyle.background;
+                            target.style.background = hoverStyle.background as string;
                           }
                         }}
                         onMouseLeave={(e) => {
                           const target = e.currentTarget;
-                          target.style.background = (category.style as any).background;
+                          target.style.background = category.style.background as string;
                         }}
                       >
                         <span className="truncate">{category.title}</span>
@@ -262,7 +257,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                             href={`/services/${item.slug}`}
                             key={idx}
                             className="flex group px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-gray-50 items-center gap-3 sm:gap-4 transition-all duration-300"
-                            style={{ '--hover-color': (category as any).baseColor } as React.CSSProperties}
+                            style={{ '--hover-color': category.baseColor } as React.CSSProperties}
                           >
                             <div
                               className="flex-shrink-0 text-lg sm:text-xl text-gray-400 group-hover:text-[var(--hover-color)] transition-colors duration-300"
@@ -273,7 +268,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                               <h4 className="text-sm sm:text-sm -ml-1 font-semibold text-[#374151] group-hover:text-[var(--hover-color)] transition-colors duration-300 flex items-center truncate">
                                 <span
                                   className="h-[4px] w-[4px] inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-2 flex-shrink-0"
-                                  style={{ backgroundColor: (category as any).baseColor }}
+                                  style={{ backgroundColor: category.baseColor }}
                                 />
                                 <span className="truncate">{item.name}</span>
                               </h4>
@@ -281,7 +276,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                             </div>
                             <FaArrowRight
                               className="text-white group-hover:text-[var(--hover-color)] text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
-                              style={{ color: (category as any).baseColor }}
+                              style={{ color: category.baseColor }}
                             />
                           </Link>
                         ))}

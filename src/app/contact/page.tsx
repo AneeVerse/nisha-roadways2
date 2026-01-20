@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Building2, Send, CheckCircle, ArrowRight, MessageSquare, ShieldCheck, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Building2, Send, CheckCircle, MessageSquare, Globe } from 'lucide-react';
 import Footer from '@/components/Footer';
 import CtaBanner from '@/components/CtaBanner';
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building2, Users2, ShieldCheck, Zap, ArrowUpRight } from 'lucide-react';
+import { Building2, ShieldCheck, Zap, ArrowUpRight } from 'lucide-react';
 
 export default function AcademyCorporate() {
     const corporateBenefits = [

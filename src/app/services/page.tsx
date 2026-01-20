@@ -1,15 +1,14 @@
 "use client";
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Link from 'next/link';
 import ServiceCard from '@/components/ServiceCard';
 import CtaBanner from '@/components/CtaBanner';
 import Footer from '@/components/Footer';
 import {
   FaShippingFast, FaIndustry, FaTrain, FaWarehouse,
   FaSolarPanel, FaTruck, FaShip, FaBoxes,
-  FaFlask, FaShieldAlt, FaProjectDiagram, FaGlobe,
-  FaLock, FaCubes, FaTrailer, FaWind, FaArrowRight
+  FaFlask, FaProjectDiagram,
+  FaLock, FaCubes, FaArrowRight
 } from "react-icons/fa";
 
 const ServicesPage = () => {
@@ -200,7 +199,7 @@ const ServicesPage = () => {
                   key={cat.id}
                   href={`#${cat.id}`}
                   className="px-5 py-2.5 rounded-full text-white font-bold transition-all text-sm hover:scale-105 shadow-lg flex items-center gap-2"
-                  style={{ background: (cat as any).hex }}
+                  style={{ background: cat.hex }}
                 >
                   {cat.title}
                   <FaArrowRight className="text-[10px]" />
@@ -215,7 +214,7 @@ const ServicesPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         {/* Category Sections */}
         <div className="space-y-40">
-          {serviceCategories.map((category, idx) => (
+          {serviceCategories.map((category) => (
             <motion.section
               key={category.id}
               id={category.id}

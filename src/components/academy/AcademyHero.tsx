@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen, GraduationCap, Users, Award, Play } from 'lucide-react';
+import { ArrowRight, BookOpen, GraduationCap, Play } from 'lucide-react';
 import Image from 'next/image';
 
 export default function AcademyHero() {

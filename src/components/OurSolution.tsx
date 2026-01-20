@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Truck, Container, Shield, Package, Warehouse, Zap, CheckCircle2, ArrowRight } from "lucide-react"
+import { Truck, Container, Shield, Package, Zap, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 const SERVICES = [

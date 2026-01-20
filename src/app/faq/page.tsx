@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ChevronDown, Building, Truck, DollarSign, Shield, Headphones, Users, MapPin, Zap, MessageCircle, HelpCircle, ArrowRight } from 'lucide-react';
+import { Search, ChevronDown, Building, Truck, DollarSign, Shield, Headphones, MessageCircle, HelpCircle, ArrowRight } from 'lucide-react';
 import Footer from '@/components/Footer';
 
 interface FAQ {

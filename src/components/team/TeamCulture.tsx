@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Heart, Zap, Shield, Target } from "lucide-react";
+import Image from "next/image";
 
 export default function TeamCulture() {
     return (
@@ -59,9 +60,10 @@ export default function TeamCulture() {
                                 transition={{ duration: 0.8 }}
                                 className="relative z-10 aspect-square lg:aspect-auto lg:h-[450px] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl"
                             >
-                                <img
+                                <Image
                                     src="/images/use-everywhere/images2.png"
                                     alt="Nisha Roadways Team Spirit"
+                                    fill
                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>

@@ -60,13 +60,13 @@ export default function VCardPopupForm({ show, onClose }: VCardPopupFormProps) {
       });
       if (response.ok) {
         setSubmitted(true);
-        setFormData({ 
-          name: "", 
-          company: "", 
-          email: "", 
-          phone: "", 
-          service: "", 
-          fromVCard: true 
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          service: "",
+          fromVCard: true
         });
         setTimeout(() => {
           onClose();
@@ -75,7 +75,7 @@ export default function VCardPopupForm({ show, onClose }: VCardPopupFormProps) {
       } else {
         alert("Failed to send message. Please try again.");
       }
-    } catch (error) {
+    } catch {
       alert("An error occurred. Please try again.");
     } finally {
       setLoading(false);

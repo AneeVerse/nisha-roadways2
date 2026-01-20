@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Shield, Clock, Award, Users, Truck, MapPin, Navigation, CheckCircle } from "lucide-react";
+import { Shield, Award, Users, MapPin, Navigation, CheckCircle } from "lucide-react";
 
 const items = [
   {
@@ -47,7 +47,7 @@ export default function TrustedByBusiness() {
             Why 500+ Companies Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab]">Nisha Roadways</span>
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
-            We don't just move cargo – we move your business forward. With 35+ years of expertise, cutting-edge technology, 
+            We don't just move cargo – we move your business forward. With 35+ years of expertise, cutting-edge technology,
             and an uncompromising commitment to safety, we've earned the trust of India's biggest brands.
           </p>
         </div>
@@ -64,11 +64,10 @@ export default function TrustedByBusiness() {
                     <div className="p-4 sm:p-6">
                       <div className="flex items-start justify-between">
                         <div className="flex items-start gap-4">
-                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                            isOpen 
-                              ? 'bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab] text-white' 
+                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${isOpen
+                              ? 'bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab] text-white'
                               : 'bg-gray-100 text-gray-600'
-                          }`}>
+                            }`}>
                             <IconComponent className="w-6 h-6" />
                           </div>
                           <button
@@ -83,11 +82,10 @@ export default function TrustedByBusiness() {
                         <button
                           onClick={() => setOpenIndex(isOpen ? null : idx)}
                           aria-label={isOpen ? "Collapse" : "Expand"}
-                          className={`ml-4 h-10 w-10 shrink-0 rounded-full flex items-center justify-center text-xl font-bold leading-none transition-all duration-300 ${
-                            isOpen 
-                              ? 'bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab] text-white rotate-45' 
+                          className={`ml-4 h-10 w-10 shrink-0 rounded-full flex items-center justify-center text-xl font-bold leading-none transition-all duration-300 ${isOpen
+                              ? 'bg-gradient-to-r from-[#6a31eb] via-[#9a45d1] to-[#d560ab] text-white rotate-45'
                               : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                          }`}
+                            }`}
                         >
                           +
                         </button>
@@ -155,7 +153,7 @@ export default function TrustedByBusiness() {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">1,500+ Projects</h3>
               <p className="text-gray-600 text-sm">Successfully delivered with zero damage guarantee and complete customer satisfaction.</p>
             </div>
-            
+
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-4">
                 <Users className="w-6 h-6" />
@@ -163,7 +161,7 @@ export default function TrustedByBusiness() {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">500+ Happy Clients</h3>
               <p className="text-gray-600 text-sm">Corporate clients trust us for their critical logistics and transportation needs.</p>
             </div>
-            
+
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300">
               <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-4">
                 <Award className="w-6 h-6" />
