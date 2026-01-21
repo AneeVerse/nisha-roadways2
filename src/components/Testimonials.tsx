@@ -96,12 +96,12 @@ function MarqueeRow({ items, direction, speed = 40 }: { items: Testimonial[]; di
         {duplicatedItems.map((t, i) => (
           <div
             key={`${t.name}-${i}`}
-            className="w-[350px] sm:w-[400px] flex-shrink-0 mx-3 sm:mx-4"
+            className="w-[260px] sm:w-[400px] flex-shrink-0 mx-2 sm:mx-4"
           >
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between group">
+            <div className="bg-white border border-slate-100 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between group">
               <div>
-                <Quote className="w-8 h-8 text-blue-600/20 mb-4 group-hover:text-blue-600/40 transition-colors" />
-                <blockquote className="text-slate-600 text-sm sm:text-base leading-relaxed italic whitespace-normal mb-6">
+                <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600/20 mb-3 sm:mb-4 group-hover:text-blue-600/40 transition-colors" />
+                <blockquote className="text-slate-600 text-xs sm:text-base leading-relaxed italic whitespace-normal mb-4 sm:mb-6">
                   &quot;{t.quote}&quot;
                 </blockquote>
               </div>
@@ -129,29 +129,29 @@ function MarqueeRow({ items, direction, speed = 40 }: { items: Testimonial[]; di
 
 export default function Testimonials({ hideHeader = false, hideStats = false, singleRow = false }: { hideHeader?: boolean; hideStats?: boolean; singleRow?: boolean }) {
   return (
-    <section id="testimonials" className="relative py-24 bg-slate-50 overflow-hidden">
+    <section id="testimonials" className="relative py-12 sm:py-24 bg-slate-50 overflow-hidden">
       {/* Decorative orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-100/30 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
       <div className="w-full px-4 sm:px-6 lg:px-8 relative z-10">
         {!hideHeader && (
-          <div className="max-w-7xl mx-auto text-center mb-16 px-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full mb-6 shadow-sm">
+          <div className="max-w-7xl mx-auto text-center mb-10 sm:mb-16 px-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white border border-slate-200 rounded-full mb-4 sm:mb-6 shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-blue-600 translate-y-[-0.5px]"></span>
-              <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">
+              <span className="text-[10px] sm:text-xs font-bold text-slate-600 uppercase tracking-widest">
                 Client Testimonials
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight tracking-tight">
+            <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight tracking-tight">
               Trusted by Leaders <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-black">
                 Across Every Industry Sector.
               </span>
             </h2>
 
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-base lg:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Discover why India's most innovative companies choose Nisha Roadways to orchestrate their complex supply chains.
             </p>
           </div>

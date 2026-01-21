@@ -281,18 +281,18 @@ export default function ReviewVideo({ hideHeader = false }: { hideHeader?: boole
 
   return (
     <>
-      <section className="w-full bg-white py-8 sm:py-10 md:py-16 lg:py-20 xl:py-10 xl:pt-20 overflow-hidden md:-mt-25 md:-mb-16 -mt-8 -mb-10 relative">
+      <section className="w-full bg-white py-6 sm:py-10 md:py-16 lg:py-20 xl:py-10 xl:pt-20 overflow-hidden md:-mt-25 md:-mb-16 -mt-4 -mb-6 relative">
 
 
         <div className="w-full relative z-10">
           {/* Section Heading */}
           {!hideHeader && (
-            <div className="text-center mb-8 sm:mb-12 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-6">
+            <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
+              <h2 className="text-sm sm:text-3xl md:text-4xl lg:text-[48px] font-bold text-gray-900 tracking-tight mb-4 sm:mb-6">
                 Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">India's Leading Companies</span>
               </h2>
-              <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-6"></div>
-              <p className="text-lg  text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <div className="w-16 sm:w-32 h-1 sm:h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mb-4 sm:mb-6"></div>
+              <p className="text-xs sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Here's what industry leaders say about working with us.
               </p>
             </div>
@@ -431,7 +431,7 @@ const VideoCard: React.FC<{
 
   return (
     <div
-      className="flex-shrink-0 relative rounded-xl sm:rounded-2xl overflow-hidden h-[360px] sm:h-[350px] md:h-[450px] lg:h-[520px] xl:h-[450px] w-[250px] sm:w-[350px] md:w-[320px] lg:w-[380px] xl:w-[330px] group mx-2 hover:translate-y-[-10px] mt-[10px] duration-300 transition-all shadow-lg select-none cursor-pointer"
+      className="flex-shrink-0 relative rounded-xl sm:rounded-2xl overflow-hidden h-[280px] sm:h-[350px] md:h-[450px] lg:h-[520px] xl:h-[450px] w-[180px] sm:w-[350px] md:w-[320px] lg:w-[380px] xl:w-[330px] group mx-1 sm:mx-2 hover:translate-y-[-10px] mt-[10px] duration-300 transition-all shadow-lg select-none cursor-pointer"
       data-card="true"
       draggable={false}
       onClick={() => onPlayClick(video)}

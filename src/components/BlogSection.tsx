@@ -64,10 +64,10 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group bg-white rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full min-w-[260px] w-[75vw] sm:w-full sm:min-w-0 flex-shrink-0 snap-start"
+      className="group bg-white rounded-[1.25rem] sm:rounded-[2rem] overflow-hidden border border-slate-100 hover:border-blue-100 shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full min-w-[200px] w-[65vw] sm:w-full sm:min-w-0 flex-shrink-0 snap-start"
     >
       {/* Image Container */}
-      <div className="relative h-[180px] sm:h-[240px] overflow-hidden">
+      <div className="relative h-[120px] sm:h-[240px] overflow-hidden">
         <Image
           src={post.img}
           alt={post.title}
@@ -83,19 +83,19 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
       </div>
 
       {/* Content */}
-      <div className="p-5 sm:p-8 flex-1 flex flex-col">
-        <div className="flex items-center gap-6 text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3 sm:mb-4">
-          <div className="flex items-center gap-2">
-            <User className="w-3.5 h-3.5 text-blue-500" />
+      <div className="p-4 sm:p-8 flex-1 flex flex-col">
+        <div className="flex items-center gap-4 sm:gap-6 text-[8px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 sm:mb-4">
+          <div className="flex items-center gap-1 sm:gap-2">
+            <User className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-500" />
             {post.author}
           </div>
         </div>
 
-        <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">
+        <h3 className="text-sm sm:text-xl font-bold text-slate-900 leading-tight mb-2 sm:mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">
           {post.title}
         </h3>
 
-        <p className="text-xs sm:text-sm text-slate-500 leading-relaxed line-clamp-2 sm:line-clamp-3 mb-6 sm:mb-8">
+        <p className="text-[10px] sm:text-sm text-slate-500 leading-relaxed line-clamp-2 mb-4 sm:mb-8">
           {post.excerpt}
         </p>
 
@@ -115,42 +115,42 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
 
 export default function BlogSection() {
   return (
-    <section className="relative bg-white py-24">
+    <section className="relative bg-white py-12 sm:py-24">
       {/* Decorative elements */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-50/50 rounded-full blur-[100px] -z-10 -translate-x-1/2 -translate-y-1/2"></div>
 
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
         {/* Centered Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center gap-6"
+            className="flex flex-col items-center gap-4 sm:gap-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 border border-blue-600/20 rounded-full w-fit">
-              <Tag className="w-4 h-4 text-blue-600" />
-              <span className="text-xs font-black text-blue-700 uppercase tracking-widest">Industry Insights</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-600/10 border border-blue-600/20 rounded-full w-fit">
+              <Tag className="w-3 h-3 sm:w-4 sm:h-4 text-blue-600" />
+              <span className="text-[10px] sm:text-xs font-black text-blue-700 uppercase tracking-widest">Industry Insights</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
+            <h2 className="text-sm sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
               Knowledge & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Logistics Trends.</span>
             </h2>
 
             {/* Gradient underline */}
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mt-2"></div>
+            <div className="w-16 sm:w-24 h-1 sm:h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full"></div>
 
-            <p className="max-w-2xl text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
+            <p className="max-w-2xl text-xs sm:text-base lg:text-lg text-slate-600 font-medium leading-relaxed">
               Stay ahead with expert perspectives on global trade, technological breakthroughs,
               and the future of supply chain management.
             </p>
           </motion.div>
         </div>
 
-        {/* Grid / Horizontal Scroll on Mobile - Added padding for shadows */}
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 snap-x snap-mandatory pb-24 pt-4 px-4 sm:px-6 md:px-8 -mx-4 sm:-mx-6 md:-mx-8">
+        {/* Grid / Horizontal Scroll on Mobile */}
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 snap-x snap-mandatory pb-4 sm:pb-24 pt-2 sm:pt-4 px-2 sm:px-6 md:px-8 -mx-2 sm:-mx-6 md:-mx-8">
           {BLOGS.map((post, idx) => (
-            <div key={post.id} className="p-4">
+            <div key={post.id} className="p-1 sm:p-4">
               <BlogCard post={post} index={idx} />
             </div>
           ))}
@@ -161,14 +161,15 @@ export default function BlogSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="mt-4 sm:mt-12 text-center"
         >
           <Link href="/blog">
-            <button className="group relative px-8 py-4 bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 text-slate-600 font-black text-xs uppercase tracking-widest rounded-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 overflow-hidden">
-              <span className="relative z-10 flex items-center gap-3 group-hover:text-blue-600">
+            <button className="group relative px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-black text-[10px] sm:text-xs uppercase tracking-widest rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-95 overflow-hidden">
+              <span className="relative z-10 flex items-center gap-2 sm:gap-3">
                 Explore Knowledge Hub
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
+              <div className="absolute inset-0 bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
             </button>
           </Link>
         </motion.div>
