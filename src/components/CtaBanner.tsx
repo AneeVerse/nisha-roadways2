@@ -5,7 +5,7 @@ import React from 'react';
 
 const CtaBanner: React.FC = () => {
   return (
-    <section className="py-4 sm:py-6 flex justify-center mt-6 sm:mt-10">
+    <section className="py-4 sm:py-6 flex justify-center mt-4 sm:mt-4">
       <div className="relative bg-gradient-to-r from-slate-800 via-blue-900 to-indigo-900 text-white overflow-hidden rounded-xl sm:rounded-2xl max-w-7xl w-full mx-2 sm:mx-4 mb-6 sm:mb-10">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">

@@ -115,7 +115,7 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
 
 export default function BlogSection() {
   return (
-    <section className="relative bg-white py-12 sm:py-24">
+    <section className="relative bg-white py-12 sm:py-16">
       {/* Decorative elements */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-50/50 rounded-full blur-[100px] -z-10 -translate-x-1/2 -translate-y-1/2"></div>
 
@@ -148,9 +148,9 @@ export default function BlogSection() {
         </div>
 
         {/* Grid / Horizontal Scroll on Mobile */}
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-10 snap-x snap-mandatory pb-4 sm:pb-24 pt-2 sm:pt-4 px-2 sm:px-6 md:px-8 -mx-2 sm:-mx-6 md:-mx-8">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 snap-x snap-mandatory pb-4 sm:pb-8 pt-2 sm:pt-4 px-2 sm:px-6 md:px-8 -mx-2 sm:-mx-6 md:-mx-8">
           {BLOGS.map((post, idx) => (
-            <div key={post.id} className="p-1 sm:p-4">
+            <div key={post.id} className="p-1 sm:p-3">
               <BlogCard post={post} index={idx} />
             </div>
           ))}
@@ -161,7 +161,7 @@ export default function BlogSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-4 sm:mt-12 text-center"
+          className="mt-4 sm:mt-6 text-center"
         >
           <Link href="/blog">
             <button className="group relative px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white font-black text-[10px] sm:text-xs uppercase tracking-widest rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-95 overflow-hidden">
