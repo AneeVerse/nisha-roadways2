@@ -8,6 +8,7 @@ import CtaBanner from '@/components/CtaBanner';
 import PartnerNetwork from '@/components/partners/PartnerNetwork';
 import PartnerValue from '@/components/partners/PartnerValue';
 import CompanyLogos from '@/components/CompanyLogos';
+import PartnerLogosGrid from '@/components/partners/PartnerLogosGrid';
 
 export default function PartnersPage() {
   return (
@@ -56,6 +57,9 @@ export default function PartnersPage() {
 
       {/* Trust Bar */}
       <CompanyLogos />
+
+      {/* Full Partner Logos Grid */}
+      <PartnerLogosGrid />
 
       {/* Partner Network Grid */}
       <div id="partners">

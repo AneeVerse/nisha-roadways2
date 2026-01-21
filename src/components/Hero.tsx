@@ -13,7 +13,8 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="https://www.datocms-assets.com/105899/1695210411-ep-1.mp4" type="video/mp4" />
+          <source src="/video/Timeline 3.mov" type="video/quicktime" />
+          <source src="/video/Timeline 3.mov" type="video/mp4" />
           {/* Fallback background image */}
           <div
             className="w-full h-full bg-cover bg-center bg-no-repeat"
@@ -23,7 +24,7 @@ export default function Hero() {
           ></div>
         </video>
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/0"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       <div className="relative z-10 flex items-center justify-start min-h-screen pt-20">
