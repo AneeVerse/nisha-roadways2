@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Cpu, GraduationCap, Trophy, ArrowUpRight } from "lucide-react";
-import Image from "next/image";
 
 export default function AboutExperience() {
     const experiences = [

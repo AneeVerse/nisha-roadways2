@@ -36,7 +36,6 @@ export default function Navbar() {
 
   // Hover delay management
   const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-  const [pendingClose, setPendingClose] = React.useState(false);
 
   // Handle scroll effect
   React.useEffect(() => {
@@ -96,15 +95,12 @@ export default function Navbar() {
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
     }
-    setPendingClose(false);
     setOpenMenu(menuType);
   };
 
   const handleMenuLeave = () => {
-    setPendingClose(true);
     hoverTimeoutRef.current = setTimeout(() => {
       setOpenMenu(null);
-      setPendingClose(false);
     }, 300); // 300ms delay before closing
   };
 
@@ -113,7 +109,6 @@ export default function Navbar() {
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
     }
-    setPendingClose(false);
   };
 
   const services = [
@@ -266,7 +261,6 @@ export default function Navbar() {
 
   function MegaPanel({ section }: { section: "services" | "whyus" | "resources" }) {
     const isOpen = openMenu === section;
-    const items = section === "services" ? services : section === "whyus" ? whyUs : resources;
 
     const panel = (
       <div className="fixed left-0 right-0 top-full bg-white/100 shadow-2xl border-t border-gray-100/50 z-[110]">
@@ -369,22 +363,22 @@ export default function Navbar() {
               {/* Left Side - Expanded Navigation */}
               <div className="w-72 flex-shrink-0">
                 <div className="space-y-4">
-                  {resources.map((item, index) => (
+                  {resources.map((item) => (
                     <div key={item.title}>
                       <Link
                         href={item.href}
-                        className="group flex flex-col gap-1 px-4 py-2.5 rounded-xl transition-all duration-300 hover:shadow-md"
-                        style={{ ...item.style, '--hover-color': item.baseColor } as any}
+                        className="group flex flex-col gap-1 px-4 py-3 rounded-xl transition-all duration-300 hover:shadow-md"
+                        style={{ ...item.style, '--hover-color': item.baseColor } as React.CSSProperties}
                         onMouseEnter={(e) => {
                           const target = e.currentTarget;
-                          const hoverStyle = (item as any).hoverStyle;
+                          const hoverStyle = item.hoverStyle;
                           if (hoverStyle) {
                             target.style.background = hoverStyle.background;
                           }
                         }}
                         onMouseLeave={(e) => {
                           const target = e.currentTarget;
-                          target.style.background = (item.style as any).background;
+                          target.style.background = item.style.background || '';
                         }}
                         onClick={() => setOpenMenu(null)}
                       >

@@ -1,14 +1,10 @@
 "use client";
 
-import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { History, Globe, Play, Sparkles, CheckCircle2, Package, Headset } from 'lucide-react';
+import { History, Globe, Sparkles, Headset } from 'lucide-react';
 
 const FeaturesSection = () => {
-  const handlePlayVideo = () => {
-    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
-  };
 
   const features = [
     {

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Clock, BookOpen, CheckCircle, ArrowRight, Tag, Star } from 'lucide-react';
+import { Clock, ArrowRight, Tag, Star } from 'lucide-react';
 import Image from 'next/image';
 
 const CATEGORIES = ["Foundation", "Specialized", "Advanced"];

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Quote } from "lucide-react";
 
 type Testimonial = {

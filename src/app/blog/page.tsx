@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Search, User, ArrowRight, TrendingUp, Sparkles } from 'lucide-react'
+import { Search } from 'lucide-react'
 import type { BlogPost } from '@/data/blogData'
 import { blogPosts } from '@/data/blogData'
 import Image from 'next/image'
@@ -18,17 +18,13 @@ export default function BlogPage() {
   const filteredBlogs = useMemo(() => {
     return blogPosts.filter(blog => {
       const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+        blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
       const matchesCategory = selectedCategory === 'All' || blog.category === selectedCategory
       return matchesSearch && matchesCategory
     })
   }, [searchTerm, selectedCategory])
 
-  // Show only 2 featured posts
-  const featuredPosts = filteredBlogs.filter(post => post.featured).slice(0, 2)
-  const regularPosts = filteredBlogs.filter(post => !post.featured)
-
-  const ArticleCard = ({ post, featured = false }: { post: BlogPost, featured?: boolean }) => (
+  const ArticleCard = ({ post }: { post: BlogPost }) => (
     <article className="group relative bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
       {/* Image with internal padding and curved corners */}
       <div className="relative h-[200px] mb-6 overflow-hidden rounded-2xl">
@@ -92,11 +88,10 @@ export default function BlogPage() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                selectedCategory === category
+              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${selectedCategory === category
                   ? 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white shadow-lg'
                   : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-              }`}
+                }`}
             >
               {category}
             </button>
@@ -105,7 +100,7 @@ export default function BlogPage() {
 
         {/* Blog Grid */}
         <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredBlogs.map((post, idx) => (
+          {filteredBlogs.map((post) => (
             <ArticleCard key={post.id} post={post} />
           ))}
         </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useAnimationControls } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 const logos = [
   { src: "/images/company/images1.svg", alt: "Company logo 1" },

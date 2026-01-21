@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, User, Tag } from 'lucide-react';
+import { ArrowRight, User, Tag } from 'lucide-react';
 import Link from 'next/link';
 
 type BlogItem = {
