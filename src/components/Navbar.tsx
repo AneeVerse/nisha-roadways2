@@ -263,7 +263,7 @@ export default function Navbar() {
     const isOpen = openMenu === section;
 
     const panel = (
-      <div className="fixed left-0 right-0 top-full bg-white/100 shadow-2xl border-t border-gray-100/50 z-[110]">
+      <div className="fixed left-0 right-0 top-20 bg-white/100 shadow-2xl border-t border-gray-100/50 z-[110]">
         <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 sm:py-10">
           {/* Services - 3 Column Layout */}
           {section === "services" && (
@@ -497,8 +497,12 @@ export default function Navbar() {
         onMouseEnter={handleMenuEnterArea}
         onMouseLeave={handleMenuLeave}
       >
-        {/* Extra invisible bridge inside the panel wrapper */}
-        <div className="absolute -top-10 left-0 right-0 h-10 bg-transparent"></div>
+        {/* Extra invisible bridge inside the panel wrapper - minimal size to just bridge the gap */}
+        <div
+          className="absolute -top-4 left-0 right-0 h-4 bg-transparent pointer-events-auto"
+          onMouseEnter={handleMenuEnterArea}
+          style={{ zIndex: 120 }}
+        ></div>
         {panel}
       </div>
     );
@@ -534,9 +538,9 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-10">
+            <nav className="hidden lg:flex items-stretch gap-8 h-full">
               {/* Services Mega menu */}
-              <div className="relative" onMouseEnter={() => handleMenuEnter("services")} onMouseLeave={handleMenuLeave} onClick={(e) => e.stopPropagation()}>
+              <div className="relative flex items-center" onMouseEnter={() => handleMenuEnter("services")} onMouseLeave={handleMenuLeave} onClick={(e) => e.stopPropagation()}>
                 <ServicesMegaMenu
                   color={{
                     text: isScrolled || openMenu || pathname !== '/'
@@ -550,9 +554,18 @@ export default function Navbar() {
                 />
               </div>
 
-              <div className="relative" onMouseEnter={() => handleMenuEnter("whyus")} onMouseLeave={handleMenuLeave} onClick={(e) => e.stopPropagation()}>
-                {/* Invisible bridge area */}
-                <div className="absolute top-full left-0 right-0 h-10 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
+              <div
+                className="relative flex items-center"
+                onMouseEnter={() => handleMenuEnter("whyus")}
+                onMouseLeave={handleMenuLeave}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Invisible bridge area - minimal to just bridge the gap, not extending into hero */}
+                <div
+                  className="absolute top-full left-[-10px] right-[-10px] h-4 bg-transparent pointer-events-auto"
+                  onMouseEnter={handleMenuEnterArea}
+                  style={{ zIndex: 120 }}
+                ></div>
                 <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${isScrolled || openMenu || pathname !== '/'
                   ? 'text-gray-900 hover:text-blue-600'
                   : 'text-white hover:text-blue-400'
@@ -562,19 +575,26 @@ export default function Navbar() {
                     {/* Animated underline */}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300 ease-out"></span>
                   </span>
-                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "whyus"
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 group-hover:rotate-180 group-hover:text-blue-400 ${openMenu === "whyus"
                     ? "rotate-180 text-blue-400"
-                    : isScrolled || openMenu || pathname !== '/'
-                      ? "group-hover:text-blue-600"
-                      : "group-hover:text-blue-400"
+                    : ""
                     }`} />
                 </button>
                 <MegaPanel section="whyus" />
               </div>
 
-              <div className="relative" onMouseEnter={() => handleMenuEnter("resources")} onMouseLeave={handleMenuLeave} onClick={(e) => e.stopPropagation()}>
-                {/* Invisible bridge area */}
-                <div className="absolute top-full left-0 right-0 h-10 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
+              <div
+                className="relative flex items-center"
+                onMouseEnter={() => handleMenuEnter("resources")}
+                onMouseLeave={handleMenuLeave}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Invisible bridge area - minimal to just bridge the gap, not extending into hero */}
+                <div
+                  className="absolute top-full left-[-10px] right-[-10px] h-4 bg-transparent pointer-events-auto"
+                  onMouseEnter={handleMenuEnterArea}
+                  style={{ zIndex: 120 }}
+                ></div>
                 <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${isScrolled || openMenu || pathname !== '/'
                   ? 'text-gray-900 hover:text-blue-600'
                   : 'text-white hover:text-blue-400'
@@ -584,11 +604,9 @@ export default function Navbar() {
                     {/* Animated underline */}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300 ease-out"></span>
                   </span>
-                  <ChevronDown className={`w-4 h-4 transition-all duration-300 ${openMenu === "resources"
+                  <ChevronDown className={`w-4 h-4 transition-all duration-300 group-hover:rotate-180 group-hover:text-blue-400 ${openMenu === "resources"
                     ? "rotate-180 text-blue-400"
-                    : isScrolled || openMenu || pathname !== '/'
-                      ? "group-hover:text-blue-600"
-                      : "group-hover:text-blue-400"
+                    : ""
                     }`} />
                 </button>
                 <MegaPanel section="resources" />
@@ -632,134 +650,138 @@ export default function Navbar() {
                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
             </div>
-          </div>
+          </div >
 
           {/* Mobile Navigation - Full-screen overlay */}
-          {isMobileMenuOpen && (
-            <div className="fixed inset-0 z-[120] lg:hidden w-screen h-[100dvh] bg-gray-900 overflow-hidden">
-              <div className="flex flex-col h-full">
-                {/* Top bar with logo and close button */}
-                <div className="flex items-center justify-between px-4 py-4 border-b border-gray-700/40">
-                  <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex-shrink-0">
-                    <Image src="/images/nav-logo.png" alt="Nisha" width={120} height={36} className="h-9 w-auto" />
-                  </Link>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    aria-label="Close menu"
-                    className="rounded-xl w-10 h-10 text-white hover:text-blue-400 hover:bg-gray-800/50"
-                  >
-                    <X className="h-6 w-6" />
-                  </Button>
-                </div>
-                <div className="flex-1 overflow-y-auto">
-                  <div className="divide-y divide-gray-700/50 px-2 pb-10 pt-2">
-                    {/* Services */}
-                    <details className="group">
-                      <summary className="list-none flex items-center justify-between px-3 py-4 cursor-pointer text-lg font-semibold text-white hover:text-blue-400 transition-colors">
-                        <span>Services</span>
-                        <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400 flex-shrink-0" />
-                      </summary>
-                      <div className="px-3 pb-4 space-y-2">
-                        {/* View All Services Link */}
-                        <Link
-                          href="/services"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl text-center shadow-lg transition-all duration-300 mb-4"
-                        >
-                          View All Services
-                        </Link>
+          {
+            isMobileMenuOpen && (
+              <div className="fixed inset-0 z-[120] lg:hidden w-screen h-[100dvh] bg-gray-900 overflow-hidden">
+                <div className="flex flex-col h-full">
+                  {/* Top bar with logo and close button */}
+                  <div className="flex items-center justify-between px-4 py-4 border-b border-gray-700/40">
+                    <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex-shrink-0">
+                      <Image src="/images/nav-logo.png" alt="Nisha" width={120} height={36} className="h-9 w-auto" />
+                    </Link>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      aria-label="Close menu"
+                      className="rounded-xl w-10 h-10 text-white hover:text-blue-400 hover:bg-gray-800/50"
+                    >
+                      <X className="h-6 w-6" />
+                    </Button>
+                  </div>
+                  <div className="flex-1 overflow-y-auto">
+                    <div className="divide-y divide-gray-700/50 px-2 pb-10 pt-2">
+                      {/* Services */}
+                      <details className="group">
+                        <summary className="list-none flex items-center justify-between px-3 py-4 cursor-pointer text-lg font-semibold text-white hover:text-blue-400 transition-colors">
+                          <span>Services</span>
+                          <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400 flex-shrink-0" />
+                        </summary>
+                        <div className="px-3 pb-4 space-y-2">
+                          {/* View All Services Link */}
+                          <Link
+                            href="/services"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl text-center shadow-lg transition-all duration-300 mb-4"
+                          >
+                            View All Services
+                          </Link>
 
-                        {/* Services List - Compact Design */}
-                        <div className="space-y-2">
-                          {services.map((i) => (
-                            <Link
-                              key={i.title}
-                              href={i.href}
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="group flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-gray-800/60 border border-transparent hover:border-gray-700/50 transition-all duration-200 active:bg-gray-800/70"
-                            >
-                              <div className="flex-shrink-0 w-8 h-8 bg-blue-500/20 group-hover:bg-blue-500/30 rounded-lg flex items-center justify-center mt-0.5 transition-colors text-blue-400 group-hover:text-blue-300">
-                                {i.icon}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="font-semibold text-sm text-white group-hover:text-blue-400 transition-colors duration-200 leading-tight mb-1">
-                                  {i.title}
+                          {/* Services List - Compact Design */}
+                          <div className="space-y-2">
+                            {services.map((i) => (
+                              <Link
+                                key={i.title}
+                                href={i.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="group flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-gray-800/60 border border-transparent hover:border-gray-700/50 transition-all duration-200 active:bg-gray-800/70"
+                              >
+                                <div className="flex-shrink-0 w-8 h-8 bg-blue-500/20 group-hover:bg-blue-500/30 rounded-lg flex items-center justify-center mt-0.5 transition-colors text-blue-400 group-hover:text-blue-300">
+                                  {i.icon}
                                 </div>
-                                <div className="text-xs text-gray-400 truncate">
-                                  {i.desc}
+                                <div className="flex-1 min-w-0">
+                                  <div className="font-semibold text-sm text-white group-hover:text-blue-400 transition-colors duration-200 leading-tight mb-1">
+                                    {i.title}
+                                  </div>
+                                  <div className="text-xs text-gray-400 truncate">
+                                    {i.desc}
+                                  </div>
                                 </div>
-                              </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </details>
+
+                      {/* Why us */}
+                      <details className="group">
+                        <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
+                          Why Us
+                          <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
+                        </summary>
+                        <div className="grid grid-cols-1 gap-3 px-2 pb-6">
+                          {whyUs.map((i) => (
+                            <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                              <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
+                              <div className="text-sm text-gray-300">{i.desc}</div>
                             </Link>
                           ))}
                         </div>
-                      </div>
-                    </details>
+                      </details>
 
-                    {/* Why us */}
-                    <details className="group">
-                      <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
-                        Why Us
-                        <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
-                      </summary>
-                      <div className="grid grid-cols-1 gap-3 px-2 pb-6">
-                        {whyUs.map((i) => (
-                          <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
-                            <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
-                            <div className="text-sm text-gray-300">{i.desc}</div>
-                          </Link>
-                        ))}
-                      </div>
-                    </details>
+                      {/* Resources */}
+                      <details className="group">
+                        <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
+                          Resources
+                          <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
+                        </summary>
+                        <div className="grid grid-cols-1 gap-3 px-2 pb-6">
+                          {resources.map((i) => (
+                            <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
+                              <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
+                              <div className="text-sm text-gray-300">{i.desc}</div>
+                            </Link>
+                          ))}
+                        </div>
+                      </details>
 
-                    {/* Resources */}
-                    <details className="group">
-                      <summary className="list-none flex items-center justify-between px-2 py-4 cursor-pointer text-lg font-medium text-white">
-                        Resources
-                        <ChevronDown className="w-5 h-5 group-open:rotate-180 transition-transform duration-300 text-blue-400" />
-                      </summary>
-                      <div className="grid grid-cols-1 gap-3 px-2 pb-6">
-                        {resources.map((i) => (
-                          <Link key={i.title} href={i.href} onClick={() => setIsMobileMenuOpen(false)} className="group rounded-xl px-4 py-3 hover:bg-gray-800/50 border border-transparent hover:border-gray-700/50 transition-all duration-300">
-                            <div className="font-semibold text-base text-white group-hover:text-blue-400 transition-colors duration-200">{i.title}</div>
-                            <div className="text-sm text-gray-300">{i.desc}</div>
-                          </Link>
-                        ))}
+                      <div className="pt-6 px-2">
+                        <Link
+                          href="/contact"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="w-full py-4 text-base font-medium bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center"
+                        >
+                          Contact
+                        </Link>
                       </div>
-                    </details>
-
-                    <div className="pt-6 px-2">
-                      <Link
-                        href="/contact"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="w-full py-4 text-base font-medium bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center"
-                      >
-                        Contact
-                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
-      </header>
+            )
+          }
+        </div >
+      </header >
 
       {/* Mega Menu Background Blur Overlay - Outside header to avoid stacking context issues */}
       <AnimatePresence>
-        {openMenu && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/40 backdrop-blur-md z-[90]"
-            style={{ height: '100vh', width: '100vw' }}
-            onClick={() => setOpenMenu(null)}
-          />
-        )}
-      </AnimatePresence>
+        {
+          openMenu && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-md z-[90]"
+              style={{ height: '100vh', width: '100vw' }}
+              onClick={() => setOpenMenu(null)}
+            />
+          )
+        }
+      </AnimatePresence >
     </>
   );
 }

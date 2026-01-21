@@ -201,12 +201,16 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
 
   return (
     <div
-      className="relative"
+      className="relative h-full flex items-center"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Invisible bridge area - larger for smoother transition */}
-      <div className="absolute top-full left-0 right-0 h-10 bg-transparent pointer-events-auto z-[-1]" onMouseEnter={handleMenuEnterArea}></div>
+      {/* Invisible bridge area - minimal size to just bridge the gap */}
+      <div
+        className="absolute top-full left-[-10px] right-[-10px] h-4 bg-transparent pointer-events-auto"
+        onMouseEnter={handleMenuEnterArea}
+        style={{ zIndex: 120 }}
+      ></div>
       <Link
         href="/services"
         className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative hover:text-blue-600`}
@@ -226,7 +230,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed left-0 right-0 top-full w-screen z-[110]"
+            className="fixed left-0 right-0 top-20 w-screen z-[110]"
             style={{
               marginLeft: "calc(-50vw + 50%)",
               width: "100vw"
