@@ -28,11 +28,11 @@ export default function Hero() {
 
       <div className="relative z-10 flex items-center justify-start min-h-screen pt-20">
         <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white leading-[0.9] tracking-tight mb-8">
-              Intelligent Solutions for Every Supply Chain Challenge
+          <div className="max-w-[1600px]">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-[85px] font-normal text-white leading-[1.05] tracking-tight mb-10 max-w-none">
+              Intelligent Solutions for Every <br className="hidden lg:block" /> Supply Chain Challenge
             </h1>
-            <p className="text-xl sm:text-2xl lg:text-3xl text-white/90 max-w-[800px]  mb-8 font-ligh lg:mt-10">
+            <p className="text-lg sm:text-xl lg:text-2xl text-white/90 max-w-[845px] mb-8 font-light lg:mt-12 leading-relaxed">
               From empty container optimization to complex ODC movements, we transform logistics challenges into competitive advantages. Twelve integrated solutions. One intelligent network. Infinite possibilities for your business.
             </p>
 
@@ -62,16 +62,7 @@ export default function Hero() {
 
 
 
-            {/* Explore Text - Simple text with arrow side by side */}
-            <div className="absolute bottom-8 right-8 sm:right-12 lg:right-16 xl:right-20 2xl:right-24">
-              <div className="group flex items-center gap-2 text-white/80 hover:text-white transition-all duration-300 cursor-pointer">
-                <span className="text-sm font-medium">Explore</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-y-1 transition-transform duration-300">
-                  <path d="M12 5v14" />
-                  <path d="m5 12 7 7 7-7" />
-                </svg>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

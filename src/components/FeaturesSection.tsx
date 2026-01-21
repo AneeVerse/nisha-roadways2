@@ -83,41 +83,28 @@ const FeaturesSection = () => {
 
           </motion.div>
 
-          {/* Right Side - Visuals Integrated from Second Image */}
+          {/* Right Side - Premium Logistics Visual */}
           <div className="lg:col-span-6 relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-slate-900 rounded-[3rem] p-8 sm:p-12 text-white relative overflow-hidden group shadow-2xl"
+              className="relative rounded-[3rem] overflow-hidden group shadow-2xl aspect-[4/3] lg:aspect-square"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+              <Image
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80"
+                alt="Integrated Logistics Partnership"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              {/* Gradient Overlay for Depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
 
-              <div className="relative z-10 space-y-8">
-                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                  <Package className="w-8 h-8 text-white" />
-                </div>
-
-                <h3 className="text-3xl font-black leading-tight">
-                  Integrated Partnership <br />Approach
-                </h3>
-
-                <p className="text-slate-400 text-lg leading-relaxed font-medium">
-                  When you work with Nisha Roadways, you gain an entire network.
-                  We handle the coordination, so you can focus on your business growth.
-                </p>
-
-                <div className="pt-8 border-t border-white/10 flex items-center gap-6">
-                  <div className="flex -space-x-3">
-                    {[1, 2, 3, 4].map(i => (
-                      <div key={i} className="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-900 flex items-center justify-center text-[10px] font-black">
-                        P{i}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="text-blue-400 font-bold text-sm">
-                    Joined by 50+ Trusted Providers
-                  </div>
+              {/* Overlay Content */}
+              <div className="absolute bottom-10 left-10 right-10 z-10">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
+                  <h3 className="text-xl font-bold text-white mb-2 italic">Partnership Approach</h3>
+                  <p className="text-slate-200 text-sm font-medium">Powering global supply chains with strategic coordination and trust.</p>
                 </div>
               </div>
             </motion.div>

@@ -269,8 +269,8 @@ export default function Navbar() {
     const items = section === "services" ? services : section === "whyus" ? whyUs : resources;
 
     const panel = (
-      <div className="fixed left-0 right-0 top-full bg-white/100  shadow-2xl border-t border-gray-100/50 z-[110]">
-        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 py-10 sm:py-12">
+      <div className="fixed left-0 right-0 top-full bg-white/100 shadow-2xl border-t border-gray-100/50 z-[110]">
+        <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 sm:py-10">
           {/* Services - 3 Column Layout */}
           {section === "services" && (
             <div>
@@ -365,15 +365,15 @@ export default function Navbar() {
 
           {/* Resources - Updated Layout */}
           {section === "resources" && (
-            <div className="flex gap-12">
+            <div className="flex gap-8">
               {/* Left Side - Expanded Navigation */}
-              <div className="w-80 flex-shrink-0">
+              <div className="w-72 flex-shrink-0">
                 <div className="space-y-4">
                   {resources.map((item, index) => (
                     <div key={item.title}>
                       <Link
                         href={item.href}
-                        className="group flex flex-col gap-1 px-4 py-3 rounded-xl transition-all duration-300 hover:shadow-md"
+                        className="group flex flex-col gap-1 px-4 py-2.5 rounded-xl transition-all duration-300 hover:shadow-md"
                         style={{ ...item.style, '--hover-color': item.baseColor } as any}
                         onMouseEnter={(e) => {
                           const target = e.currentTarget;
@@ -407,7 +407,7 @@ export default function Navbar() {
               </div>
 
               {/* Right Side - Expanded Content Cards */}
-              <div className="flex-1 grid grid-cols-2 gap-8">
+              <div className="flex-1 grid grid-cols-2 gap-6">
                 {/* Blog Section */}
                 <div>
                   <Link href="/blog" className="block mb-4 group">
@@ -473,7 +473,7 @@ export default function Navbar() {
 
           {/* Why Us - Updated to 4 columns in a row */}
           {section === "whyus" && (
-            <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center w-full gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center w-full gap-6">
               {whyUs.map((item) => (
                 <Link key={item.title} href={item.href} className="group block w-full">
                   <div className="aspect-[16/9] bg-gray-100 rounded-xl overflow-hidden mb-4 shadow-sm border border-gray-100">
@@ -498,7 +498,13 @@ export default function Navbar() {
     );
 
     return (
-      <div className={`absolute left-0 right-0 top-full z-[110] ${isOpen ? "block" : "hidden"}`} onMouseEnter={handleMenuEnterArea} onMouseLeave={handleMenuLeave}>
+      <div
+        className={`absolute left-0 right-0 top-full z-[110] ${isOpen ? "block" : "hidden"}`}
+        onMouseEnter={handleMenuEnterArea}
+        onMouseLeave={handleMenuLeave}
+      >
+        {/* Extra invisible bridge inside the panel wrapper */}
+        <div className="absolute -top-10 left-0 right-0 h-10 bg-transparent"></div>
         {panel}
       </div>
     );
@@ -552,7 +558,7 @@ export default function Navbar() {
 
               <div className="relative" onMouseEnter={() => handleMenuEnter("whyus")} onMouseLeave={handleMenuLeave} onClick={(e) => e.stopPropagation()}>
                 {/* Invisible bridge area */}
-                <div className="absolute top-full left-0 right-0 h-2 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
+                <div className="absolute top-full left-0 right-0 h-10 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
                 <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${isScrolled || openMenu || pathname !== '/'
                   ? 'text-gray-900 hover:text-blue-600'
                   : 'text-white hover:text-blue-400'
@@ -574,7 +580,7 @@ export default function Navbar() {
 
               <div className="relative" onMouseEnter={() => handleMenuEnter("resources")} onMouseLeave={handleMenuLeave} onClick={(e) => e.stopPropagation()}>
                 {/* Invisible bridge area */}
-                <div className="absolute top-full left-0 right-0 h-2 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
+                <div className="absolute top-full left-0 right-0 h-10 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
                 <button className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative ${isScrolled || openMenu || pathname !== '/'
                   ? 'text-gray-900 hover:text-blue-600'
                   : 'text-white hover:text-blue-400'

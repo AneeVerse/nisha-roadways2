@@ -67,6 +67,9 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
       hoverTimeoutRef.current = null;
     }
     setPendingClose(false);
+    if (onMouseEnter) {
+      onMouseEnter();
+    }
   };
 
   const menuCategories = [
@@ -190,8 +193,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Invisible bridge area */}
-      <div className="absolute top-full left-0 right-0 h-2 bg-transparent pointer-events-auto" onMouseEnter={handleMenuEnterArea}></div>
+      {/* Invisible bridge area - larger for smoother transition */}
+      <div className="absolute top-full left-0 right-0 h-10 bg-transparent pointer-events-auto z-[-1]" onMouseEnter={handleMenuEnterArea}></div>
       <Link
         href="/services"
         className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative hover:text-blue-600`}
@@ -223,66 +226,64 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
             onMouseEnter={handleMenuEnterArea}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="bg-white shadow-2xl border border-gray-100 w-full">
-              <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 lg:py-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
+            <div className="bg-white shadow-2xl border border-gray-100 w-full overflow-hidden">
+              <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10 sm:gap-12 lg:gap-14">
                   {menuCategories.map((category, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="space-y-3 sm:space-y-4"
+                      className="space-y-8 sm:space-y-10"
                     >
-                      <Link
-                        onClick={() => onClose && onClose()}
-                        href={category.url}
-                        className={`text-base sm:text-lg font-bold group py-2 sm:py-3 px-3 sm:px-4 rounded-lg inline-flex items-center gap-2 sm:gap-3 transition-all duration-300 w-full hover:shadow-md`}
-                        style={category.style as any}
-                        onMouseEnter={(e) => {
-                          const target = e.currentTarget;
-                          const hoverStyle = (category as any).hoverStyle;
-                          if (hoverStyle) {
-                            target.style.background = hoverStyle.background;
-                          }
-                        }}
-                        onMouseLeave={(e) => {
-                          const target = e.currentTarget;
-                          target.style.background = (category.style as any).background;
-                        }}
-                      >
-                        <span className="truncate">{category.title}</span>
-                        <FaArrowRight className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
-                      </Link>
-                      <p className="text-xs sm:text-sm text-gray-600 px-3 sm:px-4 line-clamp-2">{category.description}</p>
-                      <div className="space-y-1 sm:space-y-2">
+                      <div className="space-y-5">
+                        <Link
+                          onClick={() => onClose && onClose()}
+                          href={category.url}
+                          className={`text-base sm:text-lg font-extrabold group py-4 sm:py-5 px-5 sm:px-6 rounded-xl inline-flex items-center gap-4 sm:gap-5 transition-all duration-300 w-full hover:shadow-lg hover:-translate-y-0.5`}
+                          style={category.style as any}
+                          onMouseEnter={(e) => {
+                            const target = e.currentTarget;
+                            const hoverStyle = (category as any).hoverStyle;
+                            if (hoverStyle) {
+                              target.style.background = hoverStyle.background;
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            const target = e.currentTarget;
+                            target.style.background = (category.style as any).background;
+                          }}
+                        >
+                          <span className="whitespace-normal leading-tight uppercase tracking-wide">{category.title}</span>
+                          <FaArrowRight className="text-xs group-hover:translate-x-1.5 transition-transform duration-300 flex-shrink-0" />
+                        </Link>
+                        <p className="text-xs sm:text-sm text-gray-500 px-5 sm:px-6 font-medium leading-relaxed border-l-2 border-gray-100 ml-2">{category.description}</p>
+                      </div>
+                      <div className="space-y-4 sm:space-y-6">
                         {category.items.map((item, idx) => (
                           <Link
                             onClick={() => onClose && onClose()}
                             href={`/services/${item.slug}`}
                             key={idx}
-                            className="flex group px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-gray-50 items-center gap-3 sm:gap-4 transition-all duration-300"
+                            className="flex group px-5 sm:px-6 py-4 sm:py-5 rounded-xl hover:bg-gray-50/80 items-center gap-5 sm:gap-6 transition-all duration-300 border border-transparent hover:border-gray-100"
                             style={{ '--hover-color': (category as any).baseColor } as React.CSSProperties}
                           >
                             <div
-                              className="flex-shrink-0 text-lg sm:text-xl text-gray-400 group-hover:text-[var(--hover-color)] transition-colors duration-300"
+                              className="flex-shrink-0 text-xl sm:text-2xl text-gray-400 group-hover:text-[var(--hover-color)] transition-all duration-300 transform group-hover:translate-x-1"
                             >
                               {item.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <h4 className="text-sm sm:text-sm -ml-1 font-semibold text-[#374151] group-hover:text-[var(--hover-color)] transition-colors duration-300 flex items-center truncate">
+                              <h4 className="text-sm sm:text-sm font-bold text-[#111827] group-hover:text-[var(--hover-color)] transition-colors duration-300 flex items-center">
                                 <span
-                                  className="h-[4px] w-[4px] inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-2 flex-shrink-0"
+                                  className="h-[6px] w-[6px] inline-block transition-all duration-300 scale-0 group-hover:scale-100 rounded-full mr-0 group-hover:mr-3 flex-shrink-0"
                                   style={{ backgroundColor: (category as any).baseColor }}
                                 />
-                                <span className="truncate">{item.name}</span>
+                                <span className="whitespace-normal leading-tight tracking-tight">{item.name}</span>
                               </h4>
-                              <p className="text-xs text-[#374151] mt-1 line-clamp-1 sm:line-clamp-2">{item.description}</p>
+                              <p className="text-[11px] sm:text-[12px] text-gray-500 mt-1 line-clamp-2 leading-relaxed font-medium">{item.description}</p>
                             </div>
-                            <FaArrowRight
-                              className="text-white group-hover:text-[var(--hover-color)] text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0"
-                              style={{ color: (category as any).baseColor }}
-                            />
                           </Link>
                         ))}
                       </div>

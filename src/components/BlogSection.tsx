@@ -79,12 +79,7 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
           <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">{post.month}</div>
         </div>
 
-        {/* Category Overlay */}
-        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6">
-          <span className="px-3 py-1 sm:px-4 sm:py-1.5 bg-blue-600 text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">
-            {post.category}
-          </span>
-        </div>
+
       </div>
 
       {/* Content */}
@@ -120,13 +115,13 @@ function BlogCard({ post, index }: { post: BlogItem; index: number }) {
 
 export default function BlogSection() {
   return (
-    <section className="relative bg-white py-24 overflow-hidden">
+    <section className="relative bg-white py-24">
       {/* Decorative elements */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-50/50 rounded-full blur-[100px] -z-10 -translate-x-1/2 -translate-y-1/2"></div>
 
-      <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
         {/* Centered Heading */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -138,24 +133,26 @@ export default function BlogSection() {
               <span className="text-xs font-black text-blue-700 uppercase tracking-widest">Industry Insights</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
               Knowledge & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">Logistics Trends.</span>
             </h2>
 
             {/* Gradient underline */}
-            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full"></div>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 mx-auto rounded-full mt-2"></div>
 
-            <p className="max-w-3xl text-lg sm:text-xl text-slate-600 font-medium leading-relaxed">
+            <p className="max-w-2xl text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
               Stay ahead with expert perspectives on global trade, technological breakthroughs,
               and the future of supply chain management.
             </p>
           </motion.div>
         </div>
 
-        {/* Grid / Horizontal Scroll on Mobile */}
-        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 snap-x snap-mandatory pb-8 md:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* Grid / Horizontal Scroll on Mobile - Added padding for shadows */}
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 snap-x snap-mandatory pb-24 pt-4 px-4 sm:px-6 md:px-8 -mx-4 sm:-mx-6 md:-mx-8">
           {BLOGS.map((post, idx) => (
-            <BlogCard key={post.id} post={post} index={idx} />
+            <div key={post.id} className="p-4">
+              <BlogCard post={post} index={idx} />
+            </div>
           ))}
         </div>
 
@@ -164,10 +161,10 @@ export default function BlogSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-12 text-center"
         >
           <Link href="/blog">
-            <button className="group relative px-10 py-5 bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 text-slate-600 font-black text-sm uppercase tracking-widest rounded-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 overflow-hidden">
+            <button className="group relative px-8 py-4 bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 text-slate-600 font-black text-xs uppercase tracking-widest rounded-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 overflow-hidden">
               <span className="relative z-10 flex items-center gap-3 group-hover:text-blue-600">
                 Explore Knowledge Hub
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
