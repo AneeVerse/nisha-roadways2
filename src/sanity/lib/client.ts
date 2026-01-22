@@ -46,6 +46,7 @@ export async function getPostBySlug(slug: string) {
       faqs,
       "author": author->name,
       "authorImage": author->image,
+      "authorRole": author->role,
       "categories": categories[]->title
     }
   `, { slug })

@@ -1,5 +1,6 @@
-import { defineType, defineArrayMember } from 'sanity'
+import { defineType, defineArrayMember, defineField } from 'sanity'
 import { ImageIcon } from '@sanity/icons'
+import { MarkdownTableInput } from '../components/MarkdownTableInput'
 
 export const blockContentType = defineType({
     title: 'Block Content',
@@ -49,6 +50,37 @@ export const blockContentType = defineType({
                     title: 'Alternative Text',
                 }
             ]
+        }),
+        // Markdown Table block - stores as markdown string (Paste Supported)
+        defineArrayMember({
+            type: 'object',
+            name: 'markdownTable',
+            title: 'Table (Paste Supported)',
+            icon: () => '📊',
+            fields: [
+                defineField({
+                    name: 'tableContent',
+                    title: 'Table Content',
+                    type: 'markdown',
+                    components: {
+                        input: MarkdownTableInput,
+                    },
+                }),
+            ],
+            preview: {
+                select: {
+                    content: 'tableContent',
+                },
+                prepare({ content }) {
+                    // Count rows from markdown
+                    const lines = (content || '').split('\n').filter((l: string) => l.trim() && !l.includes('---'));
+                    const rowCount = lines.length;
+                    return {
+                        title: `Table (${rowCount} rows)`,
+                        subtitle: lines[0]?.substring(0, 50) || 'Empty table',
+                    };
+                },
+            },
         }),
     ],
 })

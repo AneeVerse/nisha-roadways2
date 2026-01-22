@@ -5,6 +5,7 @@ import { ChevronDown, FileText, Warehouse, Zap, ArrowRight } from "lucide-react"
 import Link from "next/link";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
+import { client, urlFor } from "@/sanity/lib/client";
 
 interface ResourcesMegaMenuProps {
     color?: {
@@ -19,6 +20,37 @@ const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({
     onOpenChange
 }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [latestBlogs, setLatestBlogs] = useState<any[]>([]);
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const query = `*[_type == "post"] | order(publishedAt desc)[0...2] {
+                    title,
+                    "slug": slug.current,
+                    mainImage
+                }`;
+                const posts = await client.fetch(query);
+                const formattedPosts = posts.map((post: any) => ({
+                    title: post.title,
+                    href: `/blog/${post.slug}`,
+                    image: post.mainImage ? urlFor(post.mainImage).url() : "/images/use-everywhere/images1.png"
+                }));
+                setLatestBlogs(formattedPosts.length > 0 ? formattedPosts : [
+                    { title: "5 Reasons Why In-House Creative Teams Often Miss the ROI...", href: "/blog", image: "/images/use-everywhere/images1.png" },
+                    { title: "Agency vs Freelancer vs In-House: 5 Reasons Agencies Win For...", href: "/blog", image: "/images/use-everywhere/images2.png" }
+                ]);
+            } catch (error) {
+                console.error("Error fetching blogs in mega menu:", error);
+                setLatestBlogs([
+                    { title: "5 Reasons Why In-House Creative Teams Often Miss the ROI...", href: "/blog", image: "/images/use-everywhere/images1.png" },
+                    { title: "Agency vs Freelancer vs In-House: 5 Reasons Agencies Win For...", href: "/blog", image: "/images/use-everywhere/images2.png" }
+                ]);
+            }
+        };
+
+        fetchBlogs();
+    }, []);
 
     // Notify parent when open state changes
     useEffect(() => {
@@ -66,11 +98,6 @@ const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({
             style: { background: 'linear-gradient(135deg, #f43f5e, #9f1239)', color: '#ffffff' },
             hoverStyle: { background: 'linear-gradient(135deg, #e11d48, #881337)' }
         },
-    ];
-
-    const latestBlogs = [
-        { title: "5 Reasons Why In-House Creative Teams Often Miss the ROI...", href: "/blog", image: "/images/use-everywhere/images1.png" },
-        { title: "Agency vs Freelancer vs In-House: 5 Reasons Agencies Win For...", href: "/blog", image: "/images/use-everywhere/images2.png" }
     ];
 
     const latestPrograms = [

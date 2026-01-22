@@ -27,6 +27,12 @@ export const authorType = defineType({
             },
         }),
         defineField({
+            name: 'role',
+            title: 'Role/Position',
+            type: 'string',
+            description: 'e.g. Founder, Logistics Expert, Content Strategist',
+        }),
+        defineField({
             name: 'bio',
             type: 'array',
             of: [
