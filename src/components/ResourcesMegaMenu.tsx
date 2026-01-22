@@ -15,12 +15,24 @@ interface ResourcesMegaMenuProps {
     onOpenChange?: (isOpen: boolean) => void;
 }
 
+interface BlogItem {
+    title: string;
+    href: string;
+    image: string;
+}
+
+interface SanityPost {
+    title: string;
+    slug: string;
+    mainImage?: unknown;
+}
+
 const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({
     color = { text: "#171717" },
     onOpenChange
 }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [latestBlogs, setLatestBlogs] = useState<any[]>([]);
+    const [latestBlogs, setLatestBlogs] = useState<BlogItem[]>([]);
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -30,8 +42,8 @@ const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({
                     "slug": slug.current,
                     mainImage
                 }`;
-                const posts = await client.fetch(query);
-                const formattedPosts = posts.map((post: any) => ({
+                const posts: SanityPost[] = await client.fetch(query);
+                const formattedPosts = posts.map((post: SanityPost) => ({
                     title: post.title,
                     href: `/blog/${post.slug}`,
                     image: post.mainImage ? urlFor(post.mainImage).url() : "/images/use-everywhere/images1.png"

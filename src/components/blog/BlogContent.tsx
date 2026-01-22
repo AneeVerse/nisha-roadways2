@@ -9,8 +9,6 @@ import { urlFor } from "@/sanity/lib/client";
 import {
     Clock,
     Linkedin,
-    Facebook,
-    Mail,
     Link2,
     ChevronRight,
     ArrowUp,
@@ -19,8 +17,7 @@ import {
     ShieldCheck,
     TrendingUp,
     Layout,
-    MessageSquare,
-    Share2
+    MessageSquare
 } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -212,7 +209,7 @@ export default function BlogContent({ blog, relatedBlogs }: { blog: BlogPost, re
         },
     };
 
-    const readingTime = estimateReadingTime(blog.body);
+    const _readingTime = estimateReadingTime(blog.body);
 
     return (
         <div className="bg-white min-h-screen">
@@ -344,13 +341,13 @@ export default function BlogContent({ blog, relatedBlogs }: { blog: BlogPost, re
                                         <h3 className="text-xs font-black text-slate-900 uppercase tracking-[0.2em]">In this Guide</h3>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        {tocItems.map((item, idx) => (
+                                        {tocItems.map((item) => (
                                             <button
                                                 key={item.id}
                                                 onClick={() => scrollToSection(item.id)}
                                                 className={`text-left group flex items-start gap-4 py-3 transition-all duration-300 ${activeSection === item.id
-                                                        ? 'text-blue-600 translate-x-3'
-                                                        : 'text-slate-500 hover:text-slate-900'
+                                                    ? 'text-blue-600 translate-x-3'
+                                                    : 'text-slate-500 hover:text-slate-900'
                                                     }`}
                                             >
                                                 <div className={`mt-1.5 w-6 h-[2px] rounded-full transition-all duration-300 ${activeSection === item.id ? 'bg-blue-600 w-10' : 'bg-slate-200 group-hover:bg-slate-400'}`}></div>

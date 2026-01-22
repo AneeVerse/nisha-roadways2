@@ -7,8 +7,7 @@ import Footer from '@/components/Footer';
 import {
   FaShippingFast, FaIndustry, FaTrain, FaWarehouse,
   FaSolarPanel, FaTruck, FaShip, FaBoxes,
-  FaFlask, FaProjectDiagram,
-  FaLock, FaCubes, FaArrowRight
+  FaFlask, FaLock, FaCubes, FaArrowRight
 } from "react-icons/fa";
 
 const ServicesPage = () => {

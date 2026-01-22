@@ -13,7 +13,7 @@ Object.getOwnPropertyNames(React).forEach(key => {
   if (key !== 'default') {
     try {
       ReactWithEffectEvent[key] = React[key];
-    } catch (e) {
+    } catch (_e) {
       // Ignore errors for non-configurable properties
     }
   }
