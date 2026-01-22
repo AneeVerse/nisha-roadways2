@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import {
@@ -14,10 +14,7 @@ interface ServicesMegaMenuProps {
     text: string;
     background?: string;
   };
-  isOpen?: boolean;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  onClose?: () => void;
+  onOpenChange?: (isOpen: boolean) => void;
 }
 
 interface MenuItem {
@@ -39,50 +36,14 @@ interface MenuCategory {
 
 const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
   color = { text: "#171717" },
-  isOpen = false,
-  onMouseEnter,
-  onMouseLeave,
-  onClose
+  onOpenChange
 }) => {
-  // Hover delay management - same as Navbar
-  const hoverTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Cleanup timeout on unmount
-  React.useEffect(() => {
-    return () => {
-      if (hoverTimeoutRef.current) {
-        clearTimeout(hoverTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  const handleMouseEnter = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
-    }
-    if (onMouseEnter) {
-      onMouseEnter();
-    }
-  };
-
-  const handleMouseLeave = () => {
-    hoverTimeoutRef.current = setTimeout(() => {
-      if (onMouseLeave) {
-        onMouseLeave();
-      }
-    }, 300); // 300ms delay before closing - same as Navbar
-  };
-
-  const handleMenuEnterArea = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
-    }
-    if (onMouseEnter) {
-      onMouseEnter();
-    }
-  };
+  // Notify parent when open state changes
+  useEffect(() => {
+    onOpenChange?.(isOpen);
+  }, [isOpen, onOpenChange]);
 
   const menuCategories: MenuCategory[] = [
     {
@@ -200,51 +161,56 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
   ];
 
   return (
+    // ⚠️ CRITICAL: Parent container handles ALL hover events
     <div
-      className="relative h-full flex items-center"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className=""
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
-      {/* Invisible bridge area - minimal size to just bridge the gap */}
-      <div
-        className="absolute top-full left-[-10px] right-[-10px] h-4 bg-transparent pointer-events-auto"
-        onMouseEnter={handleMenuEnterArea}
-        style={{ zIndex: 120 }}
-      ></div>
+      {/* Trigger Link */}
       <Link
         href="/services"
-        className={`group inline-flex items-center gap-2 text-base font-medium transition-all duration-300 py-3 px-3 relative hover:text-blue-600`}
         style={{ color: color.text }}
+        className="p-2 cursor-pointer flex items-center group"
       >
-        <span className="relative">
+        {/* Animated dot indicator */}
+        <span
+          style={{ backgroundColor: color.text }}
+          className={`${isOpen ? "mr-[6px] scale-100" : ""} 
+            h-[5px] w-[5px] inline-block transition-all 
+            group-hover:mr-[6px] duration-300 scale-0 
+            group-hover:scale-100 rounded-full`}
+        />
+        <span className="flex items-center gap-2">
           Services
-          {/* Animated underline - same as Navbar */}
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 group-hover:w-full transition-all duration-300 ease-out"></span>
+          <ChevronDown
+            className={`${isOpen ? "-rotate-180" : ""} 
+              group-hover:-rotate-180 duration-300 
+              transition-all self-center w-4 h-4`}
+          />
         </span>
-        <ChevronDown className={`w-4 h-4 transition-all duration-300 ${isOpen
-          ? "rotate-180 text-blue-400"
-          : "group-hover:text-blue-400"
-          }`} />
       </Link>
 
-      <AnimatePresence>
-        {isOpen && (
+      {/* Mega Menu Dropdown */}
+      {isOpen && (
+        <>
+          {/* Backdrop for click-away - starts below navbar */}
+          <div
+            className="fixed inset-0 top-[80px] bg-black/20 backdrop-blur-sm z-[89]"
+            onClick={() => setIsOpen(false)}
+          />
+
+          {/* Dropdown content - positioned right below navbar with NO gap */}
           <motion.div
-            className="fixed left-0 right-0 top-20 w-screen z-[110]"
-            style={{
-              marginLeft: "calc(-50vw + 50%)",
-              width: "100vw"
-            }}
+            className="fixed left-0 top-[80px] w-full z-[90]"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            onMouseEnter={handleMenuEnterArea}
-            onMouseLeave={handleMouseLeave}
+            transition={{ duration: 0.2 }}
           >
-            <div className="bg-white shadow-2xl border border-gray-100 w-full overflow-hidden">
-              <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 lg:py-20">
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10 sm:gap-12 lg:gap-14">
+            <div className="bg-white shadow-2xl border-t border-gray-100 w-full overflow-hidden">
+              <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 py-6 sm:py-8 lg:py-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
                   {menuCategories.map((category, index) => (
                     <motion.div
                       key={index}
@@ -255,7 +221,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                     >
                       <div className="space-y-5">
                         <Link
-                          onClick={() => onClose && onClose()}
+                          onClick={() => setIsOpen(false)}
                           href={category.url}
                           className={`text-base sm:text-lg font-extrabold group py-4 sm:py-5 px-5 sm:px-6 rounded-xl inline-flex items-center gap-4 sm:gap-5 transition-all duration-300 w-full hover:shadow-lg hover:-translate-y-0.5`}
                           style={category.style}
@@ -279,7 +245,7 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
                       <div className="space-y-4 sm:space-y-6">
                         {category.items.map((item, idx) => (
                           <Link
-                            onClick={() => onClose && onClose()}
+                            onClick={() => setIsOpen(false)}
                             href={`/services/${item.slug}`}
                             key={idx}
                             className="flex group px-5 sm:px-6 py-4 sm:py-5 rounded-xl hover:bg-gray-50/80 items-center gap-5 sm:gap-6 transition-all duration-300 border border-transparent hover:border-gray-100"
@@ -313,8 +279,8 @@ const ServicesMegaMenu: React.FC<ServicesMegaMenuProps> = ({
               </div>
             </div>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </>
+      )}
     </div>
   );
 };
