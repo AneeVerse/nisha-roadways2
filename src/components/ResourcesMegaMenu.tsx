@@ -81,14 +81,14 @@ const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({
     return (
         // ⚠️ CRITICAL: Parent container handles ALL hover events
         <div
-            className=""
+            className="flex items-stretch h-full"
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
         >
             {/* Trigger Button */}
             <button
                 style={{ color: color.text }}
-                className="p-2 cursor-pointer flex items-center group"
+                className="px-4 cursor-pointer flex items-center group h-full"
             >
                 {/* Animated dot indicator */}
                 <span
@@ -111,13 +111,7 @@ const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({
             {/* Mega Menu Dropdown */}
             {isOpen && (
                 <>
-                    {/* Backdrop for click-away - starts below navbar */}
-                    <div
-                        className="fixed inset-0 top-[80px] bg-black/20 backdrop-blur-sm z-[89]"
-                        onClick={() => setIsOpen(false)}
-                    />
-
-                    {/* Dropdown content - positioned right below navbar */}
+                    {/* Dropdown content - positioned right below navbar with NO gap */}
                     <motion.div
                         className="fixed left-0 top-[80px] w-full z-[90]"
                         initial={{ opacity: 0, y: -10 }}
@@ -126,7 +120,7 @@ const ResourcesMegaMenu: React.FC<ResourcesMegaMenuProps> = ({
                         transition={{ duration: 0.2 }}
                     >
                         <div className="bg-white shadow-2xl border-t border-gray-100 w-full">
-                            <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-8 sm:py-10">
+                            <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 pt-6 pb-10 sm:pt-8 sm:pb-12">
                                 <div className="flex gap-8">
                                     {/* Left Side - Expanded Navigation */}
                                     <div className="w-72 flex-shrink-0">

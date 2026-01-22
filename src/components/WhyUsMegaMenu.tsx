@@ -34,14 +34,14 @@ const WhyUsMegaMenu: React.FC<WhyUsMegaMenuProps> = ({
     return (
         // ⚠️ CRITICAL: Parent container handles ALL hover events
         <div
-            className=""
+            className="flex items-stretch h-full"
             onMouseEnter={() => setIsOpen(true)}
             onMouseLeave={() => setIsOpen(false)}
         >
             {/* Trigger Button */}
             <button
                 style={{ color: color.text }}
-                className="p-2 cursor-pointer flex items-center group"
+                className="px-4 cursor-pointer flex items-center group h-full"
             >
                 {/* Animated dot indicator */}
                 <span
@@ -64,13 +64,7 @@ const WhyUsMegaMenu: React.FC<WhyUsMegaMenuProps> = ({
             {/* Mega Menu Dropdown */}
             {isOpen && (
                 <>
-                    {/* Backdrop for click-away - starts below navbar */}
-                    <div
-                        className="fixed inset-0 top-[80px] bg-black/20 backdrop-blur-sm z-[89]"
-                        onClick={() => setIsOpen(false)}
-                    />
-
-                    {/* Dropdown content - positioned right below navbar */}
+                    {/* Dropdown content - positioned right below navbar with NO gap */}
                     <motion.div
                         className="fixed left-0 top-[80px] w-full z-[90]"
                         initial={{ opacity: 0, y: -10 }}

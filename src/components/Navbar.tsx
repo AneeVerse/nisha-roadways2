@@ -164,6 +164,18 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Centralized Backdrop Blur for all Mega Menus */}
+      {isAnyMenuOpen && (
+        <div
+          className="fixed inset-0 top-[80px] bg-black/40 backdrop-blur-2xl z-[80] transition-all duration-500"
+          onClick={() => {
+            setServicesOpen(false);
+            setWhyUsOpen(false);
+            setResourcesOpen(false);
+          }}
+        />
+      )}
+
       <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled || isAnyMenuOpen
         ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-lg'
         : pathname === '/' && !isScrolled && !isAnyMenuOpen
@@ -192,7 +204,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation - Each mega menu manages its own state */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-stretch h-full gap-2">
               <ServicesMegaMenu
                 color={getNavColor()}
                 onOpenChange={setServicesOpen}
