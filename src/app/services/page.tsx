@@ -211,63 +211,64 @@ const ServicesPage = () => {
       </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 max-w-[1600px] mx-auto py-24 relative overflow-hidden">
         {/* Category Sections */}
-        <div className="space-y-40">
-          {serviceCategories.map((category) => (
+        <div className="space-y-48">
+          {serviceCategories.map((category, catIdx) => (
             <motion.section
               key={category.id}
               id={category.id}
-              className="scroll-mt-32"
+              className="relative scroll-mt-32"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <div className="flex flex-col lg:flex-row gap-16 items-start">
-                {/* Left side: Category info */}
-                <div className="lg:w-1/3 lg:sticky lg:top-32">
-                  <div
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-50 mb-6 shadow-sm border border-gray-100"
-                  >
-                    <FaProjectDiagram className="text-2xl text-gray-400" />
+              {/* Massive Watermark for each section */}
+              <div className="absolute -top-12 left-0 w-full flex justify-center -z-10 pointer-events-none select-none opacity-[0.03]">
+                <span className="text-[12rem] md:text-[20rem] font-black text-slate-900 whitespace-nowrap">
+                  {catIdx % 2 === 0 ? "NISHA" : "LOGISTICS"}
+                </span>
+              </div>
+
+              {/* Category Header */}
+              <div className="flex flex-col lg:flex-row gap-8 lg:items-end justify-between mb-16 relative">
+                <div className="max-w-4xl space-y-6">
+                  {/* Category Accent */}
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-sm border border-gray-100 text-sm font-black text-gray-900">
+                      {catIdx + 1}
+                    </div>
+                    <span className="text-sm font-bold tracking-[0.2em] text-blue-600 uppercase">
+                      {category.id.replace(/-/g, ' ')}
+                    </span>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+
+                  <h2 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight">
                     {category.title}
                   </h2>
-                  <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-medium max-w-3xl">
                     {category.description}
                   </p>
-                  <div className="space-y-4">
-                    {category.services.map((s) => (
-                      <a
-                        key={s.slug}
-                        href={`/services/${s.slug}`}
-                        className="flex items-center gap-3 text-gray-800 font-semibold hover:text-blue-600 transition-colors group"
-                      >
-                        <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                          <FaArrowRight className="text-[10px]" />
-                        </div>
-                        {s.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right side: Service cards */}
-                <div className="lg:w-2/3 grid sm:grid-cols-2 gap-8">
-                  {category.services.map((service, sIdx) => (
-                    <ServiceCard
-                      key={service.slug}
-                      service={service}
-                      themeColor={getThemeColor(category.gradient)}
-                      gradient={category.hex}
-                      index={sIdx}
-                    />
-                  ))}
                 </div>
               </div>
-            </motion.section>
+
+              {/* Service Cards Grid - "Align in one row all" */}
+              <div className={`grid grid-cols-1 md:grid-cols-2 ${category.services.length >= 4 ? 'lg:grid-cols-4' :
+                category.services.length === 3 ? 'lg:grid-cols-3' :
+                  'lg:grid-cols-2'
+                } gap-8`}>
+                {category.services.map((service, sIdx) => (
+                  <ServiceCard
+                    key={service.slug}
+                    service={service}
+                    themeColor={getThemeColor(category.gradient)}
+                    gradient={category.hex}
+                    index={sIdx}
+                  />
+                ))}
+              </div>
+            </motion.section >
           ))}
         </div>
       </div>

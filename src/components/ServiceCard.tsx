@@ -41,7 +41,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
             {/* Icon and Title Section */}
             <div className="flex items-start gap-4 mb-6">
               <motion.div
-                className="flex-shrink-0 w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center text-xl text-gray-400 shadow-sm border border-gray-100 group-hover:scale-110 transition-all duration-300"
+                className={`flex-shrink-0 w-14 h-14 bg-${themeColor}-50/50 rounded-xl flex items-center justify-center text-xl shadow-sm border border-${themeColor}-100/50 group-hover:scale-110 transition-all duration-300`}
                 whileHover={{ rotate: 5 }}
               >
                 <div>
@@ -66,7 +66,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
 
             {/* Features List */}
             {service.features && (
-              <div className="space-y-3 mb-6">
+              <div className="grid grid-cols-1 gap-3 mb-6">
                 {service.features.slice(0, 3).map((feature, idx) => (
                   <motion.div
                     key={idx}
@@ -75,10 +75,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: (index * 0.1) + (idx * 0.1) }}
                   >
-                    <div className="flex-shrink-0 w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
-                      <FaCheckCircle className="text-gray-400 text-[10px]" />
+                    <div className={`flex-shrink-0 w-5 h-5 bg-${themeColor}-50 rounded-full flex items-center justify-center`}>
+                      <FaCheckCircle className={`text-${themeColor}-400 text-[10px]`} />
                     </div>
-                    <span className="flex-1">{feature}</span>
+                    <span className="flex-1 font-medium">{feature}</span>
                   </motion.div>
                 ))}
               </div>
@@ -86,15 +86,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, themeColor = "blue",
 
             {/* CTA Section */}
             <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100/50">
-              <span className={`text-sm font-semibold text-${themeColor}-600 group-hover:text-${themeColor}-700 transition-colors duration-300`}>
+              <span className={`text-sm font-bold text-${themeColor}-600 group-hover:text-${themeColor}-700 transition-colors duration-300`}>
                 Explore Service
               </span>
               <motion.div
-                className={`flex items-center justify-center w-8 h-8 bg-${themeColor}-50 rounded-full group-hover:bg-${themeColor}-100 transition-colors duration-300`}
+                className={`flex items-center justify-center w-9 h-9 bg-${themeColor}-50 rounded-full group-hover:bg-${themeColor}-600 group-hover:text-white transition-all duration-300 shadow-sm`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <FaArrowRight className={`text-${themeColor}-600 text-xs group-hover:translate-x-0.5 transition-transform duration-300`} />
+                <FaArrowRight className="text-xs" />
               </motion.div>
             </div>
           </div>
