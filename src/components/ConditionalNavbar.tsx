@@ -6,8 +6,8 @@ import Navbar from './Navbar';
 export default function ConditionalNavbar() {
   const pathname = usePathname();
   
-  // Don't show navbar on vCard page
-  if (pathname === '/vcard') {
+  // Don't show navbar on vCard page or Sanity Studio pages
+  if (pathname === '/vcard' || pathname?.startsWith('/studio')) {
     return null;
   }
   
